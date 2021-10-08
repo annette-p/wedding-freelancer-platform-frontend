@@ -1,0 +1,48 @@
+[
+  {
+    "_id": "r1",
+    "date": "2021/03/15",
+    "reviewer": {
+      "id": "x1",
+      "name": "anonymous"
+    },
+    "rating": 5,
+    "description": "very good photographer",
+    "for": {
+      "_id": "f1",
+      "name": "Walle",
+      "type": "photographer"
+    }
+  },
+  {
+    "_id": "r2",
+    "date": "2021/02/15",
+    "reviewer": {
+      "id": "x2",
+      "name": "anonymous"
+    },
+    "rating": 1,
+    "description": "unaceptable job, terrible make up",
+    "for": {
+        "_id": "f3",
+        "name": "Mark",
+        "type": "VDOgrapher"
+      }
+  },
+  {
+    "_id": "r3",
+    "date": "2021/08/15",
+    "reviewer": {
+      "id": "x3",
+      "name": "anonymous"
+    },
+    "rating": 3,
+    "description": "neutral. worth the price if you are on tight budget",
+    "for": {
+      "_id": "f2",
+      "name": "Linda",
+      "type": "makeup-artist"
+      }
+  }
+
+]

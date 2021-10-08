@@ -1,6 +1,6 @@
 [
   {
-    "_id": "1",
+    "_id": "f1",
     "type": "photographer",
     "specialized": ["photoshoot", "VDO-grapher"],  
     "rate": "S$25 hourly",
@@ -28,7 +28,7 @@
     }
   },
   {
-    "_id": "2",
+    "_id": "f2",
     "type": "makeup-artist",
     "specialized": ["wedding", "fancy"],  
     "rate": "S$45 /session",
@@ -55,7 +55,7 @@
     }
   },
   {
-    "_id": "3",
+    "_id": "f3",
     "type": "VDOgrapher",
     "specialized": ["VDO-motion"],  
     "rate": "S$40 hourly",

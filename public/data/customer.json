@@ -1,21 +1,21 @@
 [
   {
-    "_id": "4",
+    "_id": "c4",
     "type": "customer",
     "profile": true,
     "rating": 5,
     "review": {
       "total": 2,
       "date": "2021/03/15",
-      "detail": "Incredible photoshoot service",
+      "description": "Incredible photoshoot service",
       "for": [
         {
-          "_id": "1",
+          "_id": "f1",
           "name": "Walle",
           "type": "photographer"
         },
         {
-          "_id": "3",
+          "_id": "f3",
           "name": "Mark",
           "type": "VDOgrapher"
         }
@@ -23,17 +23,17 @@
     }
   },
   {
-    "_id": "5",
+    "_id": "c5",
     "type": "customer",
     "profile": false,
     "rating": 1,
     "review": {
       "total": 1,
       "date": "2021/02/15",
-      "detail": "unaceptable job, terrible make up",
+      "description": "unaceptable job, terrible make up",
       "for": [
         {
-          "_id": "2",
+          "_id": "f2",
           "name": "Linda",
           "type": "makeup-artist"
         }
@@ -41,22 +41,22 @@
     }
   },
   {
-    "_id": "6",
+    "_id": "c6",
     "type": "customer",
     "profile": true,
     "rating": 2,
     "review": {
       "total": 2,
       "date": "2021/08/15",
-      "detail": "neutral. worth the price if you are on tight budget",
+      "description": "neutral. worth the price if you are on tight budget",
       "for": [
         {
-          "_id": "3",
+          "_id": "f3",
           "name": "Mark",
           "type": "VDOgrapher"
         },
         {
-          "_id": "2",
+          "_id": "f2",
           "name": "Linda",
           "type": "makeup-artist"
         }
