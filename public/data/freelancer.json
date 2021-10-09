@@ -2,8 +2,12 @@
   {
     "_id": "f1",
     "type": "photographer",
-    "specialized": ["photoshoot", "VDO-grapher"],  
+    "specialized": ["photoshoot", "videographer"],  
     "rate": "S$25 hourly",
+    "owner": {
+      "_id": "l1",
+      "userName": "email_1"
+    },
     "name": "Walle",
     "profile-image": true,
     "social-media": [
@@ -32,6 +36,7 @@
     "type": "makeup-artist",
     "specialized": ["wedding", "fancy"],  
     "rate": "S$45 /session",
+    "owner": {},
     "name": "Linda",
     "profile-image": true,
     "social-media": [
@@ -56,9 +61,13 @@
   },
   {
     "_id": "f3",
-    "type": "VDOgrapher",
+    "type": "videographer",
     "specialized": ["VDO-motion"],  
     "rate": "S$40 hourly",
+    "owner": {
+      "_id": "l2",
+      "userName": "email_2"
+    },
     "name": "Mark",
     "profile-image": true,
     "social-media": [
