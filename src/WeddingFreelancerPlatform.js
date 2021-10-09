@@ -1,9 +1,10 @@
 import React from "react"
 import Navbar from "react-bootstrap/Navbar"
 import Nav from 'react-bootstrap/Nav'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar, faCommentDots } from '@fortawesome/free-solid-svg-icons'
-import { faFacebookF, faInstagram, faTiktok } from "@fortawesome/free-brands-svg-icons"
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faStar, faCommentDots } from '@fortawesome/free-solid-svg-icons'
+// import { faFacebookF, faInstagram, faTiktok } from "@fortawesome/free-brands-svg-icons"
+import Listing from './components/Listing'
 
 export default class WeddingFreelancerPlatform extends React.Component {
     state = {
@@ -55,7 +56,8 @@ export default class WeddingFreelancerPlatform extends React.Component {
                 
                 {/* display Freelancer list*/}    
                 <div className="row mt-3">
-                    <div className="col freelancer-card">
+                    <Listing/>
+                    {/* <div className="col freelancer-card">
                         <div className="card" style={{width: "20rem"}}>
                             <img src={require("./images/portfolio/museum.jpg").default} id="portfolio-1" alt="wedding"/>
                             <div className="card-body">
@@ -93,14 +95,14 @@ export default class WeddingFreelancerPlatform extends React.Component {
                                 <button href="#" className="btn btn-outline-secondary ms-2">Give Review</button>  
                             </div>
                         </div>
-                    </div> 
+                    </div>  */}
                     <div className="col freelancer-card">colum 2</div> 
                     <div className="col freelancer-card">colum 3</div> 
-                </div>        
+                </div> 
+                {/* End of display Freelancer list*/}         
             </React.Fragment>
         )
     }
 
 
-    
 }

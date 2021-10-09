@@ -2,7 +2,7 @@
   {
     "_id": "f1",
     "type": "photographer",
-    "specialized": ["photoshoot", "videographer"],  
+    "specialized": ["photographer", "videographer"],  
     "rate": "S$25 hourly",
     "owner": {
       "_id": "l1",
