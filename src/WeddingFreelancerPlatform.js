@@ -14,6 +14,7 @@ export default class WeddingFreelancerPlatform extends React.Component {
         })
     }
 
+    // set condtional rending of the page as per the current active page
     renderContent() {
         if (this.state.active === "listing") {
             return <Listing/>
@@ -24,6 +25,7 @@ export default class WeddingFreelancerPlatform extends React.Component {
     render() {
         return (
             <React.Fragment>
+                {/* Registration & Login button */}
                 <div className="row my-2">
                     <div className="navAuthenFrame position-relative">
                         <div className="navAuthen me-3 position-absolute top-0 end-0">
@@ -47,9 +49,9 @@ export default class WeddingFreelancerPlatform extends React.Component {
                             style={{ maxHeight: '100px' }}
                             navbarScroll
                             >
-                            <Nav.Link href="#action1">View Freelancers</Nav.Link>
-                            <Nav.Link href="#action2">Manage Profile</Nav.Link>
-                            <Nav.Link href="#">About Us</Nav.Link>
+                            <Nav.Link onClick={()=>{this.setActive("listing")}}>View Freelancers</Nav.Link>
+                            <Nav.Link onClick={()=>{this.setActive("profile")}}>Manage Profile</Nav.Link>
+                            <Nav.Link onClick={()=>{this.setActive("about-us")}}>About Us</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                         <div className="d-flex me-3">
