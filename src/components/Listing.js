@@ -23,7 +23,7 @@ export default class Listing extends React.Component {
     }
 
     fetchData = async () => {
-        let  response = await axios.get("freelancer.json");
+        let  response = await axios.get("data/freelancer.json");
         this.setState({
             freelancer: response.data
         })
@@ -50,7 +50,7 @@ export default class Listing extends React.Component {
                                 </div>
                                 <p className="card-text">
                                     {eachFreelancer.specialized.map( speciality => 
-                                        <span className="text-wrapper me-2">{speciality}</span>
+                                        <span className="text-wrapper me-2" key={speciality}>{speciality}</span>
                                     )}
                                 </p>
                                 <hr className="hr-line"></hr>
@@ -59,7 +59,7 @@ export default class Listing extends React.Component {
                                         <img src={require("../images/profile/profile-image.jpg").default} id="profile-img" alt="profile"/>
                                     </div> 
                                     <div className="col mt-1 profile-info">
-                                        Walle S
+                                        {eachFreelancer.name}
                                         <div>
                                             <span className="facebook-icon"><FontAwesomeIcon icon={faFacebookF}/></span>
                                             <span className="instagram-icon"><FontAwesomeIcon icon={faInstagram}/></span>

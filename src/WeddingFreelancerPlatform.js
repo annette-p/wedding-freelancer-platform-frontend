@@ -1,15 +1,25 @@
 import React from "react"
 import Navbar from "react-bootstrap/Navbar"
 import Nav from 'react-bootstrap/Nav'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faStar, faCommentDots } from '@fortawesome/free-solid-svg-icons'
-// import { faFacebookF, faInstagram, faTiktok } from "@fortawesome/free-brands-svg-icons"
-import Listing from './components/Listing'
+import Listing from "./components/Listing"
 
 export default class WeddingFreelancerPlatform extends React.Component {
     state = {
-        freelancer: []
+        active: "listing"
     }
+
+    setActive(nextPage) {
+        this.setState({
+            'active': nextPage
+        })
+    }
+
+    renderContent() {
+        if (this.state.active === "listing") {
+            return <Listing/>
+        } 
+    }
+    
 
     render() {
         return (
@@ -53,53 +63,12 @@ export default class WeddingFreelancerPlatform extends React.Component {
                         </div>
                     </Navbar>
                 </div> 
-                
-                {/* display Freelancer list*/}    
+                {/* End of Navbar */}  
                 <div className="row mt-3">
-                    <Listing/>
-                    {/* <div className="col freelancer-card">
-                        <div className="card" style={{width: "20rem"}}>
-                            <img src={require("./images/portfolio/museum.jpg").default} id="portfolio-1" alt="wedding"/>
-                            <div className="card-body">
-                                <div className="row">
-                                    <div className="col">
-                                        <h5 className="card-title">$25 /hour</h5>
-                                    </div>
-                                    <div className="col">
-                                        <p className="rating">
-                                            <FontAwesomeIcon icon={faStar}/> 3.0 
-                                            <span className="comment"><FontAwesomeIcon icon={faCommentDots}/> 18</span>
-                                        </p>
-                                    </div> 
-                                </div>
-                                <p className="card-text">
-                                    <span className="text-wrapper">photographer</span>
-                                    <span className="text-wrapper ms-2">videographer</span>
-                                </p>
-                                <hr className="hr-line"></hr>
-                                <div className="row">
-                                    <div className="col mt-1">
-                                        <img src={require("./images/profile/profile-image.jpg").default} id="profile-img" alt="profile"/>
-                                    </div> 
-                                    <div className="col mt-1 profile-info">
-                                        Walle S
-                                        <div>
-                                            <span className="facebook-icon"><FontAwesomeIcon icon={faFacebookF}/></span>
-                                            <span className="instagram-icon"><FontAwesomeIcon icon={faInstagram}/></span>
-                                            <span className="tiktok-icon"><FontAwesomeIcon icon={faTiktok}/></span> 
-                                        </div>
-                                    </div> 
-                                </div> 
-                                <hr className="hr-line"></hr>
-                                <button href="#" className="btn btn-outline-secondary ms-4">View Profile</button>
-                                <button href="#" className="btn btn-outline-secondary ms-2">Give Review</button>  
-                            </div>
-                        </div>
-                    </div>  */}
-                    <div className="col freelancer-card">colum 2</div> 
-                    <div className="col freelancer-card">colum 3</div> 
+                    {/* display Freelancer list*/}  
+                    {this.renderContent()}
                 </div> 
-                {/* End of display Freelancer list*/}         
+                       
             </React.Fragment>
         )
     }
