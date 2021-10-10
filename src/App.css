@@ -47,10 +47,15 @@
 
 .text-wrapper {
   background-color: rgb(247, 230, 244);
+  font-weight: normal;
   border-radius: 13px;
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 5px;
+}
+
+.type {
+  background-color: rgb(222, 222, 245);
 }
 
 #profile-img {

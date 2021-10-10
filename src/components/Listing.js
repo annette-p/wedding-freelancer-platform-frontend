@@ -64,6 +64,7 @@ export default class Listing extends React.Component {
                                             <span className="facebook-icon"><FontAwesomeIcon icon={faFacebookF}/></span>
                                             <span className="instagram-icon"><FontAwesomeIcon icon={faInstagram}/></span>
                                             <span className="tiktok-icon"><FontAwesomeIcon icon={faTiktok}/></span> 
+                                            <div className="text-wrapper type mt-2">{eachFreelancer.type}</div>
                                         </div>
                                     </div> 
                                 </div> 
