@@ -3,9 +3,11 @@ import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faCommentDots } from '@fortawesome/free-solid-svg-icons'
 import { faFacebookF, faInstagram, faTiktok } from "@fortawesome/free-brands-svg-icons"
+import Modal from "./Modal"
 
 export default class Listing extends React.Component {
     state = {
+        displayModalBox: false,
         freelancer: [
 
         ],
@@ -27,6 +29,27 @@ export default class Listing extends React.Component {
         this.setState({
             freelancer: response.data
         })
+    }
+
+    displayModal = () => {
+        this.setState({
+            displayModalBox: true
+        });
+    };
+    
+    hideModal = () => {
+        this.setState({
+            displayModalBox: false
+        });
+    };
+
+    displayModalBox(eachFreelancer) {
+        if (this.state.displayModalBox) {
+            return <Modal freelancer={eachFreelancer} hideModal={this.hideModal}/>
+        } else {
+            return null
+        }
+        
     }
 
     render() {
@@ -69,7 +92,7 @@ export default class Listing extends React.Component {
                                     </div> 
                                 </div> 
                                 <hr className="hr-line"></hr>
-                                <button href="#" className="btn btn-outline-secondary ms-4">View Profile</button>
+                                <button href="#" className="btn btn-outline-secondary ms-4" onClick={this.displayModal}>View Profile</button> {this.displayModalBox(eachFreelancer)}
                                 <button href="#" className="btn btn-outline-secondary ms-2">Give Review</button>  
                             </div>
                         </div>
