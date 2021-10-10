@@ -7,11 +7,10 @@ import Modal from "./Modal"
 
 export default class Listing extends React.Component {
     state = {
-        displayModalBox: false,
-        freelancer: [
-
-        ],
-        loading:false
+        freelancer: [],
+        review: [],
+        loading:false,
+        displayModalBox: false
     }
 
     async componentDidMount() {
@@ -25,12 +24,15 @@ export default class Listing extends React.Component {
     }
 
     fetchData = async () => {
-        let  response = await axios.get("data/freelancer.json");
+        let  responseFreelancer = await axios.get("data/freelancer.json");
+        let  responseReview = await axios.get("data/review.json");
         this.setState({
-            freelancer: response.data
+            freelancer: responseFreelancer.data,
+            review: responseReview.data
         })
     }
 
+    // related functions to handle Model function 
     displayModal = () => {
         this.setState({
             displayModalBox: true
@@ -45,12 +47,15 @@ export default class Listing extends React.Component {
 
     displayModalBox(eachFreelancer) {
         if (this.state.displayModalBox) {
-            return <Modal freelancer={eachFreelancer} hideModal={this.hideModal}/>
+            // filter the review for respective freelancer
+            let filteredReview = this.state.review.filter( eachReview => eachReview.for._id === eachFreelancer._id)
+            // return each freelancer profile, return filtered review match each freelancer
+            return <Modal freelancer={eachFreelancer} reviews={filteredReview} hideModal={this.hideModal}/>
         } else {
             return null
         }
-        
     }
+    // end of related functions to handle Model function 
 
     render() {
         return (

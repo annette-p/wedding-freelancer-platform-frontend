@@ -10,25 +10,23 @@
     },
     "name": "Walle",
     "profile-image": true,
-    "social-media": [
-      {
-        "facebook": "facebook.com/walle",
-        "instagram": "instagram.com/walle",
-        "tiktok": "tiktok.com/walle"
-      } 
-    ],
+    "socialMedia": {
+      "facebook": "facebook.com/walle",
+      "instagram": "instagram.com/walle",
+      "tiktok": "tiktok.com/walle"
+    },
     "contact": {
       "mobile": "9156584",
       "email": "walle@gmail.com",
       "web": "walle@image.com"
     },
     "portfolio": ["image1.jpg", "image2.jpg"],
-    "rating": 5,
     "review": {
-      "total": 8,
-      "date": "2021/09/09",
+      "_id": "r1",
+      "rating": 5,
+      "date": "2021/03/15",
       "detail": "Walle is fantastic person and he help guide us how to post on the photo. He know many nice spot for stunning photho at free of cost!",
-      "from": ["Lisa"]
+      "from": "Lisa"
     }
   },
   {
@@ -39,24 +37,22 @@
     "owner": {},
     "name": "Linda",
     "profile-image": true,
-    "social-media": [
-      {
+    "socialMedia": {
         "facebook": "facebook.com/linda",
         "instagram": "instagram.com/linda"
-      } 
-    ],
+    },
     "contact": {
       "mobile": "815852",
       "email": "linda@gmail.com",
       "web": "linda@makeup.com"
     },
     "portfolio": ["linda-image1.jpg", "linda-image2.jpg"],
-    "rating": 4,
     "review": {
-      "total": 10,
-      "date": "2021/02/09",
-      "detail": "Linda makeup work is acceptional. Worth the fee if you have tight budget",
-      "from": ["Moana"]
+      "_id": "r3",
+      "rating": 3,
+      "date": "2021/08/15",
+      "detail": "neutral. worth the price if you are on tight budget",
+      "from": "Lisa"
     }
   },
   {
@@ -70,24 +66,22 @@
     },
     "name": "Mark",
     "profile-image": true,
-    "social-media": [
-      {
+    "socialMedia": {
         "facebook": "facebook.com/mark",
         "instagram": "instagram.com/mark"
-      } 
-    ],
+    },
     "contact": {
       "mobile": "56665555",
       "email": "mark@gmail.com",
       "web": "mark@motion.com"
     },
     "portfolio": ["mark-image1.jpg", "mark-image2.jpg"],
-    "rating": 1,
     "review": {
-      "total": 7,
-      "date": "2021/05/09",
-      "detail": "considering the hourly rate and the profressional services provided, I would not recomment to anyone",
-      "from": ["annoymnous"]
+      "_id": "r2",
+      "rating": 1,
+      "date": "2021/02/15",
+      "detail": "unaceptable job, terrible VDO and bad attitude",
+      "from": "Yoshi"
     }
   }
 ]
