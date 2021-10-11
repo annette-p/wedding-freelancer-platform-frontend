@@ -71,9 +71,10 @@
 }
 
 #profile-img {
-  background-image: url("images/profile/profile-image.jpg");
   background-position: center;
-  height: 65px;
+  background-size:cover;
+  height: 75px;
+  width: 85px;
   border-radius: 50%;
 }
 

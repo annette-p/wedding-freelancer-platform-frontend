@@ -85,10 +85,10 @@ export default class Listing extends React.Component {
                                 </p>
                                 <hr className="hr-line"></hr>
                                 <div className="row">
-                                    <div className="col mt-1">
-                                        <img src={require("../images/profile/profile-image.jpg").default} id="profile-img" alt="profile"/>
+                                    <div className="col-5 mt-1">
+                                        <img src={eachFreelancer.profileImage} id="profile-img" alt="profile"/>
                                     </div> 
-                                    <div className="col mt-1 profile-info">
+                                    <div className="col-7 mt-1 profile-info">
                                         {eachFreelancer.name}
                                         <div>
                                             <span className="facebook-icon"><FontAwesomeIcon icon={faFacebookF}/></span>
