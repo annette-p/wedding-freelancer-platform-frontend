@@ -9,7 +9,7 @@
       "userName": "email_1"
     },
     "name": "Walle",
-    "profile-image": true,
+    "profileImage": "https://unsplash.com/photos/vXgV5XUlTog",
     "socialMedia": {
       "facebook": "facebook.com/walle",
       "instagram": "instagram.com/walle",
@@ -20,6 +20,7 @@
       "email": "walle@gmail.com",
       "web": "walle@image.com"
     },
+    "showCase": "https://www.pexels.com/photo/adult-bride-celebration-ceremony-265722/",
     "portfolio": ["image1.jpg", "image2.jpg"],
     "review": {
       "_id": "r1",
@@ -36,7 +37,7 @@
     "rate": "S$45 /session",
     "owner": {},
     "name": "Linda",
-    "profile-image": true,
+    "profileImage": "https://unsplash.com/photos/mEZ3PoFGs_k",
     "socialMedia": {
         "facebook": "facebook.com/linda",
         "instagram": "instagram.com/linda"
@@ -46,6 +47,7 @@
       "email": "linda@gmail.com",
       "web": "linda@makeup.com"
     },
+    "showCase": "https://www.pexels.com/photo/woman-in-white-bridal-gown-meditating-157757/",
     "portfolio": ["linda-image1.jpg", "linda-image2.jpg"],
     "review": {
       "_id": "r3",
@@ -65,7 +67,7 @@
       "userName": "email_2"
     },
     "name": "Mark",
-    "profile-image": true,
+    "profileImage": "https://unsplash.com/photos/OhKElOkQ3RE",
     "socialMedia": {
         "facebook": "facebook.com/mark",
         "instagram": "instagram.com/mark"
@@ -75,6 +77,7 @@
       "email": "mark@gmail.com",
       "web": "mark@motion.com"
     },
+    "showCase": "https://www.pexels.com/photo/bride-and-groom-kissing-near-tree-against-the-sun-photo-1244700/",
     "portfolio": ["mark-image1.jpg", "mark-image2.jpg"],
     "review": {
       "_id": "r2",
