@@ -25,55 +25,54 @@ export default class WeddingFreelancerPlatform extends React.Component {
     render() {
         return (
             <React.Fragment>
-                {/* Registration & Login button */}
-                <div className="row my-2">
-                    <div className="navAuthenFrame position-relative">
-                        <div className="navAuthen me-3 position-absolute top-0 end-0">
-                            Become a Freelancer | 
-                            <span className="login ms-2">Login</span> 
-                            </div>
-                        <div className="navAuthen"></div>
-                        <div className="logout">Logout</div>
-                    </div>
-                </div> 
-                {/* Navbar */}
-                <div className="row">
-                    <Navbar bg="light" expand="lg">
-                        <Navbar.Brand className="ms-2" href="#">
-                            <img src={require('./images/logo/logo.png').default} className="logo" alt="logo"/>
-                        </Navbar.Brand>
-                        <Navbar.Toggle aria-controls="navbarScroll" />
-                        <Navbar.Collapse id="navbarScroll">
-                            <Nav
-                            className="mr-auto my-2 my-lg-0"
-                            style={{ maxHeight: '100px' }}
-                            navbarScroll
-                            >
-                            <Nav.Link onClick={()=>{this.setActive("listing")}}>View Freelancers</Nav.Link>
-                            <Nav.Link onClick={()=>{this.setActive("profile")}}>Manage Profile</Nav.Link>
-                            <Nav.Link onClick={()=>{this.setActive("about-us")}}>About Us</Nav.Link>
-                            </Nav>
-                        </Navbar.Collapse>
-                        <div className="d-flex me-3">
-                            <input
-                                type="text"
-                                placeholder="Search"
-                                className="mr-2 form-control"
-                                aria-label="Search"
-                            />
-                            <button className="btn-success">Search</button>
+                <div className="container">
+                    {/* Registration & Login button */}
+                    <div className="row my-2">
+                        <div className="navAuthenFrame position-relative">
+                            <div className="navAuthen me-3 position-absolute top-0 end-0">
+                                Become a Freelancer | 
+                                <span className="login ms-2">Login</span> 
+                                </div>
+                            <div className="navAuthen"></div>
+                            <div className="logout">Logout</div>
                         </div>
-                    </Navbar>
-                </div> 
-                {/* End of Navbar */}  
-                <div className="row mt-3">
-                    {/* display Freelancer list*/}  
-                    {this.renderContent()}
-                </div> 
-                       
+                    </div> 
+                    {/* Navbar */}
+                    <div className="row">
+                        <Navbar bg="light" expand="lg">
+                            <Navbar.Brand className="ms-2" href="#">
+                                <img src={require('./images/logo/logo.png').default} className="logo" alt="logo"/>
+                            </Navbar.Brand>
+                            <Navbar.Toggle aria-controls="navbarScroll" />
+                            <Navbar.Collapse id="navbarScroll">
+                                <Nav
+                                className="mr-auto my-2 my-lg-0"
+                                style={{ maxHeight: '100px' }}
+                                navbarScroll
+                                >
+                                <Nav.Link onClick={()=>{this.setActive("listing")}}>View Freelancers</Nav.Link>
+                                <Nav.Link onClick={()=>{this.setActive("profile")}}>Manage Profile</Nav.Link>
+                                <Nav.Link onClick={()=>{this.setActive("about-us")}}>About Us</Nav.Link>
+                                </Nav>
+                            </Navbar.Collapse>
+                            <div className="d-flex me-3">
+                                <input
+                                    type="text"
+                                    placeholder="Search"
+                                    className="mr-2 form-control"
+                                    aria-label="Search"
+                                />
+                                <button className="btn-success">Search</button>
+                            </div>
+                        </Navbar>
+                    </div> 
+                    {/* End of Navbar */}  
+                    <div className="row mt-3">
+                        {/* display Freelancer list*/}  
+                        {this.renderContent()}
+                    </div> 
+                </div>
             </React.Fragment>
         )
     }
-
-
 }

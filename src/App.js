@@ -4,9 +4,11 @@ import './App.css';
 
 function App() {
   return (
-    <div id="main" className="container">
-      <WeddingFreelancerPlatform/>
-    </div>
+      <div id="main">
+        <div className="background-img">
+          <WeddingFreelancerPlatform/>
+        </div>
+      </div>
   );
 }
 

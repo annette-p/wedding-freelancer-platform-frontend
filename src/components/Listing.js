@@ -62,7 +62,7 @@ export default class Listing extends React.Component {
             <React.Fragment>
                 {this.state.freelancer.map( eachFreelancer => 
                     <div className="col freelancer-card" key={eachFreelancer._id}>
-                        <div className="card" style={{width: "20rem"}}>
+                        <div className="card card-listing" style={{width: "20rem"}}>
                             <img src={require("../images/portfolio/museum.jpg").default} id="portfolio-1" alt="wedding"/>
                             <div className="card-body">
                                 <div className="row">
@@ -102,7 +102,7 @@ export default class Listing extends React.Component {
                             </div>
                         </div>
                     </div>
-                )}
+                )}  
             </React.Fragment>
         )
     }

@@ -1,3 +1,11 @@
+.background-img {
+  background-image: url("images/background/white-ring.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size:cover;
+  z-index: -1;
+}
 
 .logo {
   background-image: url("images/logo/logo.png");
@@ -33,6 +41,10 @@
 
 .freelancer-card {
   align-items: center;
+}
+
+.card-listing:hover {
+  background-color: rgba(221, 214, 214, 0.61);
 }
 
 .rating {
