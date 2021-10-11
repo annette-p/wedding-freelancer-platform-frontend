@@ -1,3 +1,6 @@
+
+/* ..........................style for View Freelancer page.................................... */
+
 .background-img {
   background-image: url("images/background/white-ring.jpg");
   background-repeat: no-repeat;
@@ -43,8 +46,8 @@
 }
 
 .card-listing {
-  margin-left: 35px;
-  margin-bottom: 15px;
+  margin-left: 12px;
+  margin-bottom: 12px;
 }
 
 .card-listing:hover {
@@ -107,4 +110,37 @@
 
 .reviewer-name {
   color: rgb(27, 26, 26);
+}
+
+/* ................................................style for meduim and large screen..................................................... */
+
+/*.................................. for iPad .................................. */
+
+/* style for View Freelancer page */
+
+@media (min-width: 768px) {
+
+  .card-listing {
+    margin-left: 8px;
+    margin-bottom: 15px;
+  }
+
+
+}
+
+
+
+/*.................................. for laptop .................................. */
+
+
+/* style for View Freelancer page */
+
+@media (min-width: 992px) {
+
+  .card-listing {
+    margin-left: 35px;
+    margin-bottom: 15px;
+  }
+
+
 }
