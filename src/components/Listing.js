@@ -8,8 +8,9 @@ import Modal from "./Modal"
 export default class Listing extends React.Component {
     state = {
         freelancer: [],
-        review: [],
         loading:false,
+        review: [],
+        activeFreelancer: {},
         displayModalBox: false
     }
 
@@ -33,8 +34,9 @@ export default class Listing extends React.Component {
     }
 
     // related functions to handle Model function 
-    displayModal = () => {
+    displayModal = (selectedFreelancer) => {
         this.setState({
+            activeFreelancer: selectedFreelancer,
             displayModalBox: true
         });
     };
@@ -97,7 +99,9 @@ export default class Listing extends React.Component {
                                     </div> 
                                 </div> 
                                 <hr className="hr-line"></hr>
-                                <button href="#" className="btn btn-outline-secondary ms-4" onClick={this.displayModal}>View Profile</button> {this.displayModalBox(eachFreelancer)}
+                                <button href="#" className="btn btn-outline-secondary ms-4" onClick={() => {
+                                    this.displayModal(eachFreelancer)
+                                }}>View Profile</button> {this.displayModalBox(this.state.activeFreelancer)}
                                 <button href="#" className="btn btn-outline-secondary ms-2">Give Review</button>  
                             </div>
                         </div>
