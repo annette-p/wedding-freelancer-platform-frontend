@@ -65,7 +65,7 @@ export default class Listing extends React.Component {
                 {this.state.freelancer.map( eachFreelancer => 
                     <div className="col freelancer-card" key={eachFreelancer._id}>
                         <div className="card card-listing" style={{width: "20rem"}}>
-                            <img src={require("../images/portfolio/museum.jpg").default} id="portfolio-1" alt="wedding"/>
+                            <img src={eachFreelancer.showCase} id="portfolio-1" alt="wedding"/>
                             <div className="card-body">
                                 <div className="row">
                                     <div className="col">

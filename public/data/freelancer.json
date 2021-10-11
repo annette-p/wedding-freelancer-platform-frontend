@@ -20,7 +20,7 @@
       "email": "walle@gmail.com",
       "web": "walle@image.com"
     },
-    "showCase": "https://www.pexels.com/photo/adult-bride-celebration-ceremony-265722/",
+    "showCase": "https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg",
     "portfolio": ["image1.jpg", "image2.jpg"],
     "review": {
       "_id": "r1",
@@ -47,7 +47,7 @@
       "email": "linda@gmail.com",
       "web": "linda@makeup.com"
     },
-    "showCase": "https://www.pexels.com/photo/woman-in-white-bridal-gown-meditating-157757/",
+    "showCase": "https://images.pexels.com/photos/157757/wedding-dresses-fashion-character-bride-157757.jpeg",
     "portfolio": ["linda-image1.jpg", "linda-image2.jpg"],
     "review": {
       "_id": "r3",
@@ -77,7 +77,7 @@
       "email": "mark@gmail.com",
       "web": "mark@motion.com"
     },
-    "showCase": "https://www.pexels.com/photo/bride-and-groom-kissing-near-tree-against-the-sun-photo-1244700/",
+    "showCase": "https://images.pexels.com/photos/1244700/pexels-photo-1244700.jpeg",
     "portfolio": ["mark-image1.jpg", "mark-image2.jpg"],
     "review": {
       "_id": "r2",

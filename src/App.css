@@ -34,13 +34,17 @@
 }
 
 #portfolio-1 {
-  background-image: url("images/portfolio/museum.jpg");
   background-position: center;
   height: 350px;
 }
 
 .freelancer-card {
   align-items: center;
+}
+
+.card-listing {
+  margin-left: 35px;
+  margin-bottom: 15px;
 }
 
 .card-listing:hover {
