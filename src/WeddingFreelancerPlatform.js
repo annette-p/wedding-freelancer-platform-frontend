@@ -2,6 +2,7 @@ import React from "react"
 import Navbar from "react-bootstrap/Navbar"
 import Nav from 'react-bootstrap/Nav'
 import Listing from "./components/Listing"
+import RegisterForm from "./components/RegisterForm"
 
 export default class WeddingFreelancerPlatform extends React.Component {
     state = {
@@ -18,7 +19,9 @@ export default class WeddingFreelancerPlatform extends React.Component {
     renderContent() {
         if (this.state.active === "listing") {
             return <Listing/>
-        } 
+        } else if (this.state.active === "register") {
+            return <RegisterForm/>
+        }
     }
     
 
@@ -29,7 +32,7 @@ export default class WeddingFreelancerPlatform extends React.Component {
                     {/* Registration & Login button */}
                     <div className="row my-2">
                         <div className="navAuthenFrame position-relative">
-                            <div className="navAuthen me-3 position-absolute top-0 end-0">
+                            <div className="navAuthen me-3 position-absolute top-0 end-0" onClick={()=>{this.setActive("register")}}>
                                 Become a Freelancer | 
                                 <span className="login ms-2">Login</span> 
                                 </div>
