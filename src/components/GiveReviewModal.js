@@ -14,7 +14,7 @@ export default function GiveReviewModal(props) {
                 <div className="modal-dialog modal-lg">
                     <div className="modal-content">
                         <div className="modal-header">
-                        <h4>Help other customer know about the services you just received</h4>
+                        <h4>Help other bridegrooms know about the services you just received</h4>
                         <button
                             type="button"
                             className="btn-close"
