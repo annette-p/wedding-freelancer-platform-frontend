@@ -3,7 +3,8 @@ import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faCommentDots } from '@fortawesome/free-solid-svg-icons'
 import { faFacebookF, faInstagram, faTiktok } from "@fortawesome/free-brands-svg-icons"
-import Modal from "./Modal"
+import ViewProfileModal from "./ViewProfileModal"
+import GiveReviewModal from "./GiveReviewModal"
 
 export default class Listing extends React.Component {
     state = {
@@ -11,7 +12,8 @@ export default class Listing extends React.Component {
         loading:false,
         review: [],
         activeFreelancer: {},
-        displayModalBox: false
+        displayModalBox: false,
+        activeModalBox: ""        // which modal box to display when 'displayModalBox' is true
     }
 
     async componentDidMount() {
@@ -34,10 +36,11 @@ export default class Listing extends React.Component {
     }
 
     // related functions to handle Model function 
-    displayModal = (selectedFreelancer) => {
+    displayModal = (selectedFreelancer, modalBoxName) => {
         this.setState({
             activeFreelancer: selectedFreelancer,
-            displayModalBox: true
+            displayModalBox: true,
+            activeModalBox: modalBoxName
         });
     };
     
@@ -47,12 +50,19 @@ export default class Listing extends React.Component {
         });
     };
 
-    displayModalBox(eachFreelancer) {
+    renderModalBox(eachFreelancer) {
         if (this.state.displayModalBox) {
-            // filter the review for respective freelancer
-            let filteredReview = this.state.review.filter( eachReview => eachReview.for._id === eachFreelancer._id)
-            // return each freelancer profile, return filtered review match each freelancer
-            return <Modal freelancer={eachFreelancer} reviews={filteredReview} hideModal={this.hideModal}/>
+            if (this.state.activeModalBox === "view_profile") {
+                // filter the review for respective freelancer
+                let filteredReview = this.state.review.filter( eachReview => eachReview.for === eachFreelancer._id)
+                // return each freelancer profile, return filtered review match each freelancer
+                return <ViewProfileModal freelancer={eachFreelancer} reviews={filteredReview} hideModal={this.hideModal}/>
+            } else if (this.state.activeModalBox === "give_review") {
+                return <GiveReviewModal freelancer={eachFreelancer} hideModal={this.hideModal}/>
+            }
+            else {
+                return null
+            }
         } else {
             return null
         }
@@ -100,9 +110,12 @@ export default class Listing extends React.Component {
                                 </div> 
                                 <hr className="hr-line"></hr>
                                 <button href="#" className="btn btn-outline-secondary ms-4" onClick={() => {
-                                    this.displayModal(eachFreelancer)
-                                }}>View Profile</button> {this.displayModalBox(this.state.activeFreelancer)}
-                                <button href="#" className="btn btn-outline-secondary ms-2">Give Review</button>  
+                                    this.displayModal(eachFreelancer, "view_profile")
+                                }}>View Profile</button> 
+                                <button href="#" className="btn btn-outline-secondary ms-2" onClick={() => {
+                                    this.displayModal(eachFreelancer, "give_review")
+                                }}>Give Review</button>
+                                {this.renderModalBox(this.state.activeFreelancer)}
                             </div>
                         </div>
                     </div>
