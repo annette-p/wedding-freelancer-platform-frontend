@@ -14,6 +14,8 @@ export default class Listing extends React.Component {
         newReviewerName: "",
         newReviewerEmail: "",
         newComment: "",
+        newRating: "0",
+        newRecommend: true,
         activeFreelancer: {},
         displayModalBox: false,
         activeModalBox: ""        // which modal box to display when 'displayModalBox' is true
@@ -66,6 +68,8 @@ export default class Listing extends React.Component {
                     newReviewerName={this.state.newReviewerName} 
                     newReviewerEmail={this.state.newReviewerEmail}
                     newComment={this.state.newComment}
+                    newRating={this.state.newRating}
+                    newRecommend={this.state.newRecommend}
                     hideModal={this.hideModal} 
                     updateField={this.updateReviewForm}  
                     addReview={this.processAddReview}
@@ -80,6 +84,8 @@ export default class Listing extends React.Component {
     }
     /*............. end of to handle Model function .............*/ 
 
+
+
     /*............. to handle Review Submission .............*/ 
     updateReviewForm = (evt) => {
         this.setState({
@@ -93,7 +99,9 @@ export default class Listing extends React.Component {
             'review': [...this.state.review, {
                 name: this.state.newReviewerName,
                 email: this.state.newReviewerEmail,
-                comment: this.state.newComment
+                description: this.state.newComment,
+                rating: parseInt(this.state.newRating),
+                recommend: this.state.newRecommend
             }],
             displayModalBox: false
         })
