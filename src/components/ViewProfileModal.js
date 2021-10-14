@@ -45,7 +45,11 @@ export default function ViewProfileModal(props) {
                  <hr></hr>
                  {/* Review session */}
                  <div className="row">
-                      <div className="mb-2">Total Reviews: {props.reviews.length}</div>
+                    <div className="col"><div className="mb-2">Total Reviews: {props.reviews.length}</div></div>
+                    {/* to match to the recommendation filed after setup in Express & Mongo */}
+                    <div className="col"><div className="mb-2">Total Recommend to a friend: {props.reviews.length}</div></div>
+                  </div>
+                  <div className="row">
                       {props.reviews.map( eachReview =>
                           <div key={eachReview}>
                             <div className="rating">
