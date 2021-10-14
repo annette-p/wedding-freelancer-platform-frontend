@@ -20,6 +20,7 @@
       "email": "walle@gmail.com",
       "web": "walle@image.com"
     },
+    "bio": " have worked on many diverse photography projects, including fashion, still, events and wedding photoshoots. Since I do not limit myself to just one genre of photography, my skills are varied, yet focused on both subject and quality of my projects.",
     "showCase": "https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg",
     "portfolio": ["image1.jpg", "image2.jpg"],
     "review": {
@@ -47,6 +48,7 @@
       "email": "linda@gmail.com",
       "web": "linda@makeup.com"
     },
+    "bio": "I am profressional makeup artist for decade. My most specialisation is into wedding makeup. I enjoy being part of one of the big days where woman want to look most beautiful.",
     "showCase": "https://images.pexels.com/photos/157757/wedding-dresses-fashion-character-bride-157757.jpeg",
     "portfolio": ["linda-image1.jpg", "linda-image2.jpg"],
     "review": {
@@ -77,6 +79,7 @@
       "email": "mark@gmail.com",
       "web": "mark@motion.com"
     },
+    "bio": "I like to capture the moment in the motion where we can refer for the life time. I am profressional videographer who is fully equipped with new technology and new series of gadgets inlcuding drone.",
     "showCase": "https://images.pexels.com/photos/1244700/pexels-photo-1244700.jpeg",
     "portfolio": ["mark-image1.jpg", "mark-image2.jpg"],
     "review": {

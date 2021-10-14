@@ -18,7 +18,6 @@ export default function ViewProfileModal(props) {
             <div className="modal-header">
                 <div className="col"><h5 className="modal-title">{props.freelancer.name}</h5></div>
                 <div className="col">Total Reviews: {props.reviews.length}</div>
-                {/* to match to the recommendation filed after setup in Express & Mongo */}
                 <div className="col me-4">Total Recommend to a friend: {(props.reviews.filter( eachReview => eachReview.recommend === true)).length}</div>
               <button
                 type="button"
@@ -44,6 +43,11 @@ export default function ViewProfileModal(props) {
                           <div key={eachContact}>{eachContact}: {props.freelancer.contact[eachContact]}</div>
                       )}
                     </div>
+                 </div>
+                 <hr></hr>
+                 <div className="row">
+                    <h5>Overview</h5>
+                    {props.freelancer.bio}
                  </div>
                  <hr></hr>
                  {/* Review session */}
