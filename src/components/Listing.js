@@ -11,6 +11,9 @@ export default class Listing extends React.Component {
         freelancer: [],
         loading:false,
         review: [],
+        newReviewerName: "",
+        newReviewerEmail: "",
+        newComment: "",
         activeFreelancer: {},
         displayModalBox: false,
         activeModalBox: ""        // which modal box to display when 'displayModalBox' is true
@@ -35,7 +38,7 @@ export default class Listing extends React.Component {
         })
     }
 
-    // related functions to handle Model function 
+    /*............. to handle Model function .............*/ 
     displayModal = (selectedFreelancer, modalBoxName) => {
         this.setState({
             activeFreelancer: selectedFreelancer,
@@ -58,7 +61,15 @@ export default class Listing extends React.Component {
                 // return each freelancer profile, return filtered review match each freelancer
                 return <ViewProfileModal freelancer={eachFreelancer} reviews={filteredReview} hideModal={this.hideModal}/>
             } else if (this.state.activeModalBox === "give_review") {
-                return <GiveReviewModal freelancer={eachFreelancer} hideModal={this.hideModal}/>
+                return <GiveReviewModal 
+                    freelancer={eachFreelancer} 
+                    newReviewerName={this.state.newReviewerName} 
+                    newReviewerEmail={this.state.newReviewerEmail}
+                    newComment={this.state.newComment}
+                    hideModal={this.hideModal} 
+                    updateField={this.updateReviewForm}  
+                    addReview={this.processAddReview}
+                />
             }
             else {
                 return null
@@ -67,7 +78,28 @@ export default class Listing extends React.Component {
             return null
         }
     }
-    // end of related functions to handle Model function 
+    /*............. end of to handle Model function .............*/ 
+
+    /*............. to handle Review Submission .............*/ 
+    updateReviewForm = (evt) => {
+        this.setState({
+            [evt.target.name]: evt.target.value
+        })
+    }
+
+    processAddReview = () => {
+        // clone the original review array / make changes to the clone / replace the original with clone
+        this.setState({
+            'review': [...this.state.review, {
+                name: this.state.newReviewerName,
+                email: this.state.newReviewerEmail,
+                comment: this.state.newComment
+            }],
+            displayModalBox: false
+        })
+    }
+
+    /*............. end of to handle Review Submission  .............*/ 
 
     render() {
         return (
