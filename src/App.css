@@ -1,5 +1,5 @@
 
-/* ..........................style for View Freelancer page.................................... */
+/* .....style for View Freelancer page..... */
 
 .background-img {
   background-image: url("images/background/white-ring.jpg");
@@ -110,6 +110,12 @@
 
 .reviewer-name {
   color: rgb(27, 26, 26);
+}
+
+/* .....style for Give comment page..... */
+
+.comment-box {
+  height: 100px;
 }
 
 /* ................................................style for meduim and large screen..................................................... */
