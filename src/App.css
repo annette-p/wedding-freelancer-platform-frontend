@@ -118,6 +118,8 @@
   height: 100px;
 }
 
+
+
 /* ................................................style for meduim and large screen..................................................... */
 
 /*.................................. for iPad .................................. */
@@ -139,13 +141,36 @@
 /*.................................. for laptop .................................. */
 
 
-/* style for View Freelancer page */
-
 @media (min-width: 992px) {
+
+  /* style for View Freelancer page */
 
   .card-listing {
     margin-left: 35px;
     margin-bottom: 15px;
+  }
+
+  /* .....style for Register form page..... */
+  .register-text {
+    margin-top: 15px;
+    font-size: large;
+  }
+
+  .bio-box {
+    height: 120px;
+  }
+
+  .side-note {
+    font-style: italic;
+    font-size: small;
+  }
+
+  .rate-field {
+    margin-left: 5px;
+  }
+
+  .rate-input {
+    width: 110px;
   }
 
 
