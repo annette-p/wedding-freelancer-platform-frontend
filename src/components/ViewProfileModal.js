@@ -53,7 +53,7 @@ export default function ViewProfileModal(props) {
                  {/* Review session */}
                   <div className="row">
                       {props.reviews.map( eachReview =>
-                          <div key={eachReview}>
+                          <div key={eachReview._id}>
                             <div className="rating">
                               <FontAwesomeIcon icon={faStar}/> {eachReview.rating} &nbsp; &nbsp; &nbsp;
                               <span className="reviewer-name">From: {eachReview.reviewer.name}</span>
