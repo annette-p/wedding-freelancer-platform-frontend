@@ -139,14 +139,14 @@ export default class RegisterForm extends React.Component {
                                         <label className="form-label register-form-headline">Contact:</label>
                                         <div>
                                             <label className="form-label">Mobile:</label>
-                                            <input type="text" name="mobile" value={this.state.mobile} onChange={this.updateFormField} placeholder="paste URL here" className="media-field ms-2"/>
+                                            <input type="text" name="mobile" value={this.state.mobile} onChange={this.updateFormField} placeholder="paste URL here" className="media-field mobile"/>
                                         </div>
                                         <div>
                                             <label className="form-label">Email:</label>
                                             <input type="text" name="email" value={this.state.email} onChange={this.updateFormField} placeholder="paste URL here" className="media-field email"/>
                                         </div>
                                         <div>
-                                            <label className="form-label">Web:</label>
+                                            <label className="form-label">Website:</label>
                                             <input type="text" name="web" value={this.state.web} onChange={this.updateFormField} placeholder="paste URL here" className="media-field web"/>
                                         </div>
                                     </div>

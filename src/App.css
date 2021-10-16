@@ -211,12 +211,16 @@
     margin-left: 36px;
   }
 
+  .mobile {
+    margin-left: 13px;
+  }
+
   .email {
-    margin-left: 20px;
+    margin-left: 27px;
   }
 
   .web {
-    margin-left: 26px;
+    margin-left: 5px;
   }
 
   /* .....END of style for Register form page..... */
