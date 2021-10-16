@@ -152,8 +152,16 @@
 
   /* .....style for Register form page..... */
   .register-text {
-    margin-top: 15px;
-    font-size: large;
+    margin-top: 30px;
+    font-size: larger;
+  }
+
+  .register-form-headline {
+    font-weight: bold;
+  }
+
+  .profession-session {
+    margin-left: 170px;
   }
 
   .bio-box {
@@ -163,6 +171,7 @@
   .side-note {
     font-style: italic;
     font-size: small;
+    font-weight: normal;
   }
 
   .rate-field {
@@ -173,5 +182,43 @@
     width: 110px;
   }
 
+  .preview {
+    margin-top: 20px;
+    margin-left: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: whitesmoke;
+    border: 1px solid grey;
+    height: 230px;
+    width: 230px;
+    background-image: url("");
+    background-position: 50%;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .portfolio-preview {
+    margin-left: 90px;
+  }
+
+  .media-field {
+    margin-left: 5px;
+    width: 400px;
+  }
+
+  .tiktok {
+    margin-left: 36px;
+  }
+
+  .email {
+    margin-left: 20px;
+  }
+
+  .web {
+    margin-left: 26px;
+  }
+
+  /* .....END of style for Register form page..... */
 
 }

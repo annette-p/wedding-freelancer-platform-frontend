@@ -13,18 +13,6 @@ export default class RegisterForm extends React.Component {
         })
     }
 
-
-        // refer to ppt for idea details 
-
-        /*
-        1. acct register 
-
-
-        2. profile setup
-
-        */
-
-
     render() {
         return (
             <React.Fragment>
@@ -41,12 +29,12 @@ export default class RegisterForm extends React.Component {
                                 <div className="row register-text">
                                     {/* Name */}
                                     <div className="col">
-                                        <label className="form-label">Name:</label>
+                                        <label className="form-label register-form-headline">Name:</label>
                                         <input type="text" name="" value="" className="form-control"/>
                                     </div>
                                     {/* Profession */}
-                                    <div className="col ms-4">
-                                        <label className="form-label">Profession:</label>
+                                    <div className="col profession-session">
+                                        <label className="form-label register-form-headline">Profession:</label>
                                         <div>
                                             <input type="radio" name="profession" value="photographer"/><span className="ms-2">Photographer</span>
                                             <input className="ms-3" type="radio" name="profession" value="videographer"/><span className="ms-2">Videographer</span>
@@ -56,7 +44,7 @@ export default class RegisterForm extends React.Component {
                                 </div>
                                 {/* Specialization */}
                                 <div className="row register-text">
-                                    <label className="form-label">Specialization <span className="side-note">(only 3 list will be displayed)</span> :</label>
+                                    <label className="form-label register-form-headline">Specialization <span className="side-note">(only 3 list will be displayed)</span> :</label>
                                     <div className="col">
                                         <input type="checkbox" name="" value=""/><span className="ms-2">Photography</span>
                                         <input className="ms-3" type="checkbox" name="" value=""/><span className="ms-2">Videography</span>
@@ -70,7 +58,7 @@ export default class RegisterForm extends React.Component {
                                 {/* Rate */}
                                 <div className="row register-text">
                                     <div className="col">
-                                        <label className="form-label">Rate <span className="side-note">(SGD)</span> :</label>
+                                        <label className="form-label register-form-headline">Rate <span className="side-note">(SGD)</span> :</label>
                                         <input type="text" name="" value="" className="rate-input rate-field"/>
                                         <select className="rate-field" onChange="" value="" name="per">
                                             <option value="hour">hourly</option>
@@ -81,25 +69,103 @@ export default class RegisterForm extends React.Component {
                                 {/* Bio */}
                                 <div className="row register-text">
                                     <div className="col">
-                                        <label className="form-label">Bio:</label>
+                                        <label className="form-label register-form-headline">Bio:</label>
                                         <input type="text" name="" value="" placeholder="Describe about past experience and overall profile" className="form-control bio-box"/>
                                     </div>
                                 </div>
-                                {/* profile Image */}
+                                {/* Social Media */}
                                 <div className="row register-text">
                                     <div className="col">
-                                        <label className="form-label">Upload your profile image:</label>
+                                        <label className="form-label register-form-headline">Social Media:</label>
+                                        {/* <div className="row">
+                                            <div className="col-2"><label className="form-label">Facebook:</label></div>
+                                            <div className="col"><input type="text" name="" value="" className="media-field"/></div>
+                                        </div>
+                                        <div className="row">
+                                            <div className="col-2"><label className="form-label">Instagram:</label></div>
+                                            <div className="col"><input type="text" name="" value="" className="media-field"/></div>
+                                        </div>
+                                        <div className="row">
+                                            <div className="col-2"><label className="form-label">Tiktok:</label></div>
+                                            <div className="col"><input type="text" name="" value="" className="media-field"/></div>
+                                        </div> */}
+                                        <div>
+                                            <label className="form-label">Facebook:</label>
+                                            <input type="text" name="" value="" placeholder="paste URL here" className="media-field ms-2"/>
+                                        </div>
+                                        <div>
+                                            <label className="form-label">Instagram:</label>
+                                            <input type="text" name="" value="" placeholder="paste URL here" className="media-field"/>
+                                        </div>
+                                        <div>
+                                            <label className="form-label">Tiktok:</label>
+                                            <input type="text" name="" value="" placeholder="paste URL here" className="media-field tiktok"/>
+                                        </div>
+                                    </div>
+                                    {/* Contact */}
+                                    <div className="col">
+                                        <label className="form-label register-form-headline">Contact:</label>
+                                        <div>
+                                            <label className="form-label">Mobile:</label>
+                                            <input type="text" name="" value="" placeholder="paste URL here" className="media-field ms-2"/>
+                                        </div>
+                                        <div>
+                                            <label className="form-label">Email:</label>
+                                            <input type="text" name="" value="" placeholder="paste URL here" className="media-field email"/>
+                                        </div>
+                                        <div>
+                                            <label className="form-label">Web:</label>
+                                            <input type="text" name="" value="" placeholder="paste URL here" className="media-field web"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="row register-text">
+                                    {/* profile Image */}
+                                    <div className="col">
+                                        <label className="form-label register-form-headline">Upload your profile image:</label>
                                         <input type="text" name="" value="" placeholder="paste your image URL here" className="form-control"/>
+                                        <div className="preview" style={{backgroundImage: "url('')"}}>
+                                            <p>preview image</p>
+                                        </div>
                                     </div>
                                     {/* showCase */}
                                     <div className="col">
-                                        <label className="form-label">Upload your show case:</label>
+                                        <label className="form-label register-form-headline">Upload your show case:</label>
                                         <input type="text" name="" value="" placeholder="paste the image/VDO URL to be displayed on your profile first page" className="form-control"/>
+                                        <div className="preview" style={{backgroundImage: "url('')"}}>
+                                            <p>preview image</p>
+                                        </div>
                                     </div>
                                 </div>
+                                {/* Portfolio */}
+                                <div className="row register-text">
+                                    <label className="form-label register-form-headline">Upload your portfolio image:</label>
+                                    <div className="col">  
+                                        <input type="text" name="" value="" placeholder="paste your image URL here" className="form-control"/>
+                                        <div className="preview portfolio-preview" style={{backgroundImage: "url('')"}}>
+                                            <p>preview image</p>
+                                        </div>
+                                    </div>
+                                    <div className="col">  
+                                        <input type="text" name="" value="" placeholder="paste your image URL here" className="form-control"/>
+                                        <div className="preview portfolio-preview" style={{backgroundImage: "url('')"}}>
+                                            <p>preview image</p>
+                                        </div>
+                                    </div>
+                                    <div className="col">  
+                                        <input type="text" name="" value="" placeholder="paste your image URL here" className="form-control"/>
+                                        <div className="preview portfolio-preview" style={{backgroundImage: "url('')"}}>
+                                            <p>preview image</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+
+
+                                <div className="row"></div>
                                 <div className="col"></div>
                                 <div></div>
-                                <div></div>
+                                
                                 
                                 
                                 
