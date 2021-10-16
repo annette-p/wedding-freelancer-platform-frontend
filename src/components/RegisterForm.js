@@ -65,6 +65,14 @@ export default class RegisterForm extends React.Component {
         })
     }
 
+    getPortfolioImage = (index) => {
+        return {backgroundImage: `url("${this.state.portfolio[index]}")`}
+    }
+
+    getImage = (key) => {
+        return {backgroundImage: `url("${this.state[key]}")`}
+    }
+
 
     render() {
         return (
@@ -164,16 +172,16 @@ export default class RegisterForm extends React.Component {
                             <div className="col">
                                 <label className="form-label register-form-headline">Upload your profile image:</label>
                                 <input type="text" name="profileImage" value={this.state.profileImage} onChange={this.updateFormField} placeholder="paste your image URL here" className="form-control"/>
-                                <div className="preview" style={{backgroundImage: "url('')"}}>
-                                    <p>preview image</p>
+                                <div className="preview" style={this.getImage("profileImage")}>
+                                    <p>{this.state.profileImage === "" ? "preview image" : ""}</p>
                                 </div>
                             </div>
                             {/* showCase */}
                             <div className="col">
                                 <label className="form-label register-form-headline">Upload your show case:</label>
                                 <input type="text" name="showCase" value={this.state.showCase} onChange={this.updateFormField} placeholder="paste the image/VDO URL to be displayed on your profile first page" className="form-control"/>
-                                <div className="preview" style={{backgroundImage: "url('')"}}>
-                                    <p>preview image</p>
+                                <div className="preview" style={this.getImage("showCase")}>
+                                    <p>{this.state.showCase === "" ? "preview image" : ""}</p>
                                 </div>
                             </div>
                         </div>
@@ -182,20 +190,20 @@ export default class RegisterForm extends React.Component {
                             <label className="form-label register-form-headline">Upload your portfolio image:</label>
                             <div className="col">  
                                 <input type="text" name="portfolio" value={this.state.portfolio[0]} onChange={(e) => this.updatePortfolio(0, e)} placeholder="paste your image URL here" className="form-control"/>
-                                <div className="preview portfolio-preview" style={{backgroundImage: "url('')"}}>
-                                    <p>preview image</p>
+                                <div className="preview portfolio-preview" style={this.getPortfolioImage(0)}>
+                                    <p>{this.state.portfolio[0] === "" ? "preview image" : ""}</p>
                                 </div>
                             </div>
                             <div className="col">  
                                 <input type="text" name="portfolio" value={this.state.portfolio[1]} onChange={(e) => this.updatePortfolio(1, e)} placeholder="paste your image URL here" className="form-control"/>
-                                <div className="preview portfolio-preview" style={{backgroundImage: "url('')"}}>
-                                    <p>preview image</p>
+                                <div className="preview portfolio-preview" style={this.getPortfolioImage(1)}>
+                                    <p>{this.state.portfolio[1] === "" ? "preview image" : ""}</p>
                                 </div>
                             </div>
                             <div className="col">  
                                 <input type="text" name="portfolio" value={this.state.portfolio[2]} onChange={(e) => this.updatePortfolio(2, e)} placeholder="paste your image URL here" className="form-control"/>
-                                <div className="preview portfolio-preview" style={{backgroundImage: "url('')"}}>
-                                    <p>preview image</p>
+                                <div className="preview portfolio-preview" style={this.getPortfolioImage(2)}>
+                                    <p>{this.state.portfolio[2] === "" ? "preview image" : ""}</p>
                                 </div>
                             </div>
                         </div>
