@@ -147,19 +147,19 @@ export default class RegisterForm extends React.Component {
                                 <div className="row register-text">
                                     <label className="form-label register-form-headline">Upload your portfolio image:</label>
                                     <div className="col">  
-                                        <input type="text" name="portfolio" value={this.state.portfolio} onChange={this.updateFormField} placeholder="paste your image URL here" className="form-control"/>
+                                        <input type="text" name="portfolio[0]" value={this.state.portfolio[0]} onChange={this.updateFormField} placeholder="paste your image URL here" className="form-control"/>
                                         <div className="preview portfolio-preview" style={{backgroundImage: "url('')"}}>
                                             <p>preview image</p>
                                         </div>
                                     </div>
                                     <div className="col">  
-                                        <input type="text" name="" value="" placeholder="paste your image URL here" className="form-control"/>
+                                        <input type="text" name="portfolio[1]" value={this.state.portfolio[1]} onChange={this.updateFormField} placeholder="paste your image URL here" className="form-control"/>
                                         <div className="preview portfolio-preview" style={{backgroundImage: "url('')"}}>
                                             <p>preview image</p>
                                         </div>
                                     </div>
                                     <div className="col">  
-                                        <input type="text" name="" value="" placeholder="paste your image URL here" className="form-control"/>
+                                        <input type="text" name="portfolio[2]" value={this.state.portfolio[2]} onChange={this.updateFormField} placeholder="paste your image URL here" className="form-control"/>
                                         <div className="preview portfolio-preview" style={{backgroundImage: "url('')"}}>
                                             <p>preview image</p>
                                         </div>
