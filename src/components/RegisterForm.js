@@ -8,6 +8,7 @@ export default class RegisterForm extends React.Component {
         name: "",
         type: "",
         rate: "",
+        rateUnit: "hour",
         bio: "",
         facebook: "",
         instagram: "",
@@ -79,7 +80,7 @@ export default class RegisterForm extends React.Component {
                                     <div className="col">
                                         <label className="form-label register-form-headline">Rate <span className="side-note">(SGD)</span>:</label>
                                         <input type="text" name="rate" value={this.state.rate} onChange={this.updateFormField} className="rate-input rate-field"/>
-                                        <select className="rate-field" onChange="" value="" name="per">
+                                        <select className="rate-field" name="rateUnit" value={this.state.rateUnit} onChange={this.updateFormField}>
                                             <option value="hour">hourly</option>
                                             <option value="session">session</option>
                                         </select>

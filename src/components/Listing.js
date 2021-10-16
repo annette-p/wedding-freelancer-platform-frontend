@@ -150,7 +150,7 @@ export default class Listing extends React.Component {
                             <div className="card-body">
                                 <div className="row">
                                     <div className="col">
-                                        <h5 className="card-title">{eachFreelancer.rate}</h5>
+                                        <h5 className="card-title">S${eachFreelancer.rate} /{eachFreelancer.rateUnit}</h5>
                                     </div>
                                     <div className="col">
                                         <p className="rating">
