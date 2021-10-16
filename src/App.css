@@ -192,8 +192,8 @@
     border: 1px solid grey;
     height: 230px;
     width: 230px;
-    background-position: 50%;
-    background-size: contain;
+    background-position: center;
+    background-size:cover;
     background-repeat: no-repeat;
   }
 
