@@ -6,6 +6,7 @@ export default class RegisterForm extends React.Component {
     state = {
         open: false,
         name: "",
+        type: "",
         rate: "",
         bio: "",
         facebook: "",
@@ -54,9 +55,9 @@ export default class RegisterForm extends React.Component {
                                     <div className="col profession-session">
                                         <label className="form-label register-form-headline">Profession:</label>
                                         <div>
-                                            <input type="radio" name="profession" value="photographer"/><span className="ms-2">Photographer</span>
-                                            <input className="ms-3" type="radio" name="profession" value="videographer"/><span className="ms-2">Videographer</span>
-                                            <input className="ms-3" type="radio" name="profession" value="makeup-artist"/><span className="ms-2">Makeup-artist</span>
+                                            <input type="radio" name="type" value="photographer" onChange={this.updateFormField} checked={this.state.type === "photographer"}/><span className="ms-2">Photographer</span>
+                                            <input className="ms-3" type="radio" name="type" value="videographer" onChange={this.updateFormField} checked={this.state.type === "videographer"}/><span className="ms-2">Videographer</span>
+                                            <input className="ms-3" type="radio" name="type" value="makeup-artist" onChange={this.updateFormField} checked={this.state.type === "makeup-artist"}/><span className="ms-2">Makeup-artist</span>
                                         </div>
                                     </div>
                                 </div>
