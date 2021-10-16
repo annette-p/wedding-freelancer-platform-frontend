@@ -40,6 +40,16 @@ export default class Listing extends React.Component {
         })
     }
 
+    getReviewsForFreelancer = (freelancerId) => {
+        return this.state.review.filter( eachReview => eachReview.for === freelancerId)
+    }
+
+    calculateRating = (reviews) => {
+        let total = 0;
+        reviews.map( eachReview => total = total + eachReview.rating)
+        return (total / reviews.length).toFixed(1);
+    }
+
     /*............. to handle Model function .............*/ 
     displayModal = (selectedFreelancer, modalBoxName) => {
         this.setState({
@@ -154,8 +164,8 @@ export default class Listing extends React.Component {
                                     </div>
                                     <div className="col">
                                         <p className="rating">
-                                            <FontAwesomeIcon icon={faStar}/> 3.0 
-                                            <span className="comment"><FontAwesomeIcon icon={faCommentDots}/> 18</span>
+                                            <FontAwesomeIcon icon={faStar}/> {this.calculateRating(this.getReviewsForFreelancer(eachFreelancer._id))}
+                                            <span className="comment"><FontAwesomeIcon icon={faCommentDots}/> {this.getReviewsForFreelancer(eachFreelancer._id).length}</span>
                                         </p>
                                     </div> 
                                 </div>
