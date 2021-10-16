@@ -5,11 +5,29 @@ import Collapse from 'react-bootstrap/Collapse'
 export default class RegisterForm extends React.Component {
     state = {
         open: false,
+        name: "",
+        rate: "",
+        bio: "",
+        facebook: "",
+        instagram: "",
+        tiktok: "",
+        mobile: "",
+        email: "",
+        web: "",
+        profileImage: "",
+        showCase: "",
+        portfolio: [],
     }
 
     setOpen() {
         this.setState({
             'open': !this.state.open
+        })
+    }
+
+    updateFormField = (e) => {
+        this.setState({
+            [e.target.name] : e.target.value
         })
     }
 
@@ -30,7 +48,7 @@ export default class RegisterForm extends React.Component {
                                     {/* Name */}
                                     <div className="col">
                                         <label className="form-label register-form-headline">Name:</label>
-                                        <input type="text" name="" value="" className="form-control"/>
+                                        <input type="text" name="name" value={this.state.name} onChange={this.updateFormField} className="form-control"/>
                                     </div>
                                     {/* Profession */}
                                     <div className="col profession-session">
@@ -58,8 +76,8 @@ export default class RegisterForm extends React.Component {
                                 {/* Rate */}
                                 <div className="row register-text">
                                     <div className="col">
-                                        <label className="form-label register-form-headline">Rate <span className="side-note">(SGD)</span> :</label>
-                                        <input type="text" name="" value="" className="rate-input rate-field"/>
+                                        <label className="form-label register-form-headline">Rate <span className="side-note">(SGD)</span>:</label>
+                                        <input type="text" name="rate" value={this.state.rate} onChange={this.updateFormField} className="rate-input rate-field"/>
                                         <select className="rate-field" onChange="" value="" name="per">
                                             <option value="hour">hourly</option>
                                             <option value="session">session</option>
@@ -70,36 +88,24 @@ export default class RegisterForm extends React.Component {
                                 <div className="row register-text">
                                     <div className="col">
                                         <label className="form-label register-form-headline">Bio:</label>
-                                        <input type="text" name="" value="" placeholder="Describe about past experience and overall profile" className="form-control bio-box"/>
+                                        <input type="text" name="bio" value={this.state.bio} onChange={this.updateFormField} placeholder="Describe about past experience and overall profile" className="form-control bio-box"/>
                                     </div>
                                 </div>
-                                {/* Social Media */}
                                 <div className="row register-text">
+                                    {/* Social Media */}
                                     <div className="col">
                                         <label className="form-label register-form-headline">Social Media:</label>
-                                        {/* <div className="row">
-                                            <div className="col-2"><label className="form-label">Facebook:</label></div>
-                                            <div className="col"><input type="text" name="" value="" className="media-field"/></div>
-                                        </div>
-                                        <div className="row">
-                                            <div className="col-2"><label className="form-label">Instagram:</label></div>
-                                            <div className="col"><input type="text" name="" value="" className="media-field"/></div>
-                                        </div>
-                                        <div className="row">
-                                            <div className="col-2"><label className="form-label">Tiktok:</label></div>
-                                            <div className="col"><input type="text" name="" value="" className="media-field"/></div>
-                                        </div> */}
                                         <div>
                                             <label className="form-label">Facebook:</label>
-                                            <input type="text" name="" value="" placeholder="paste URL here" className="media-field ms-2"/>
+                                            <input type="text" name="facebook" value={this.state.facebook} onChange={this.updateFormField} placeholder="paste URL here" className="media-field ms-2"/>
                                         </div>
                                         <div>
                                             <label className="form-label">Instagram:</label>
-                                            <input type="text" name="" value="" placeholder="paste URL here" className="media-field"/>
+                                            <input type="text" name="instagram" value={this.state.instagram} onChange={this.updateFormField} placeholder="paste URL here" className="media-field"/>
                                         </div>
                                         <div>
                                             <label className="form-label">Tiktok:</label>
-                                            <input type="text" name="" value="" placeholder="paste URL here" className="media-field tiktok"/>
+                                            <input type="text" name="tiktok" value={this.state.tiktok} onChange={this.updateFormField} placeholder="paste URL here" className="media-field tiktok"/>
                                         </div>
                                     </div>
                                     {/* Contact */}
@@ -107,15 +113,15 @@ export default class RegisterForm extends React.Component {
                                         <label className="form-label register-form-headline">Contact:</label>
                                         <div>
                                             <label className="form-label">Mobile:</label>
-                                            <input type="text" name="" value="" placeholder="paste URL here" className="media-field ms-2"/>
+                                            <input type="text" name="mobile" value={this.state.mobile} onChange={this.updateFormField} placeholder="paste URL here" className="media-field ms-2"/>
                                         </div>
                                         <div>
                                             <label className="form-label">Email:</label>
-                                            <input type="text" name="" value="" placeholder="paste URL here" className="media-field email"/>
+                                            <input type="text" name="email" value={this.state.email} onChange={this.updateFormField} placeholder="paste URL here" className="media-field email"/>
                                         </div>
                                         <div>
                                             <label className="form-label">Web:</label>
-                                            <input type="text" name="" value="" placeholder="paste URL here" className="media-field web"/>
+                                            <input type="text" name="web" value={this.state.web} onChange={this.updateFormField} placeholder="paste URL here" className="media-field web"/>
                                         </div>
                                     </div>
                                 </div>
@@ -123,7 +129,7 @@ export default class RegisterForm extends React.Component {
                                     {/* profile Image */}
                                     <div className="col">
                                         <label className="form-label register-form-headline">Upload your profile image:</label>
-                                        <input type="text" name="" value="" placeholder="paste your image URL here" className="form-control"/>
+                                        <input type="text" name="profileImage" value={this.state.profileImage} onChange={this.updateFormField} placeholder="paste your image URL here" className="form-control"/>
                                         <div className="preview" style={{backgroundImage: "url('')"}}>
                                             <p>preview image</p>
                                         </div>
@@ -131,7 +137,7 @@ export default class RegisterForm extends React.Component {
                                     {/* showCase */}
                                     <div className="col">
                                         <label className="form-label register-form-headline">Upload your show case:</label>
-                                        <input type="text" name="" value="" placeholder="paste the image/VDO URL to be displayed on your profile first page" className="form-control"/>
+                                        <input type="text" name="showCase" value={this.state.showCase} onChange={this.updateFormField} placeholder="paste the image/VDO URL to be displayed on your profile first page" className="form-control"/>
                                         <div className="preview" style={{backgroundImage: "url('')"}}>
                                             <p>preview image</p>
                                         </div>
@@ -141,7 +147,7 @@ export default class RegisterForm extends React.Component {
                                 <div className="row register-text">
                                     <label className="form-label register-form-headline">Upload your portfolio image:</label>
                                     <div className="col">  
-                                        <input type="text" name="" value="" placeholder="paste your image URL here" className="form-control"/>
+                                        <input type="text" name="portfolio" value={this.state.portfolio} onChange={this.updateFormField} placeholder="paste your image URL here" className="form-control"/>
                                         <div className="preview portfolio-preview" style={{backgroundImage: "url('')"}}>
                                             <p>preview image</p>
                                         </div>
@@ -159,18 +165,6 @@ export default class RegisterForm extends React.Component {
                                         </div>
                                     </div>
                                 </div>
-                                
-
-
-                                <div className="row"></div>
-                                <div className="col"></div>
-                                <div></div>
-                                
-                                
-                                
-                                
-                                
-
                             </div>
                         </Collapse>
 
