@@ -7,6 +7,7 @@ export default class RegisterForm extends React.Component {
         open: false,
         name: "",
         type: "",
+        specialized: [],
         rate: "",
         rateUnit: "hour",
         bio: "",
@@ -19,6 +20,13 @@ export default class RegisterForm extends React.Component {
         profileImage: "",
         showCase: "",
         portfolio: [],
+        // specializations: {
+        //     prewedding: "pre-wedding",
+        //     rom: "wedding day / ROM",
+        //     bridal: "bridal makeup",
+        //     fancy: "fancy makeup",
+        //     natural: "natural glow makeup",
+        // }
     }
 
     setOpen() {
@@ -32,6 +40,22 @@ export default class RegisterForm extends React.Component {
             [e.target.name] : e.target.value
         })
     }
+
+    updateSpecialization = (e) => {
+        // remove the item that was just clicked on
+        if (this.state.specialized.includes(e.target.value)) {
+            let indexToRemove = this.state.specialized.indexOf(e.target.value);
+            let cloned = [ ...this.state.specialized.slice(0, indexToRemove), ...this.state.specialized.slice(indexToRemove+1)];
+            this.setState({
+                specialized: cloned
+            })
+        } else {
+            this.setState({
+                specialized: [...this.state.specialized, e.target.value]
+            })
+        }
+    }
+
 
     render() {
         return (
@@ -66,13 +90,13 @@ export default class RegisterForm extends React.Component {
                                 <div className="row register-text">
                                     <label className="form-label register-form-headline">Specialization <span className="side-note">(only 3 list will be displayed)</span> :</label>
                                     <div className="col">
-                                        <input type="checkbox" name="" value=""/><span className="ms-2">Photography</span>
-                                        <input className="ms-3" type="checkbox" name="" value=""/><span className="ms-2">Videography</span>
-                                        <input className="ms-3" type="checkbox" name="" value=""/><span className="ms-2">Pre-wedding</span>
-                                        <input className="ms-3" type="checkbox" name="" value=""/><span className="ms-2">Wedding day / ROM</span>
-                                        <input className="ms-3" type="checkbox" name="" value=""/><span className="ms-2">Bridal makeup</span>
-                                        <input className="ms-3" type="checkbox" name="" value=""/><span className="ms-2">Fancy makeup</span>
-                                        <input className="ms-3" type="checkbox" name="" value=""/><span className="ms-2">Natural glow makeup</span>
+                                        <input type="checkbox" name="specialized" value="photography" onChange={this.updateSpecialization}/><span className="ms-2">Photography</span>
+                                        <input className="ms-3" type="checkbox" name="specialized" value="videography" onChange={this.updateSpecialization}/><span className="ms-2">Videography</span>
+                                        <input className="ms-3" type="checkbox" name="specialized" value="pre-wedding" onChange={this.updateSpecialization}/><span className="ms-2">Pre-wedding</span>
+                                        <input className="ms-3" type="checkbox" name="specialized" value="Wedding day /ROM" onChange={this.updateSpecialization}/><span className="ms-2">Wedding day / ROM</span>
+                                        <input className="ms-3" type="checkbox" name="specialized" value="bridal makeup" onChange={this.updateSpecialization}/><span className="ms-2">Bridal makeup</span>
+                                        <input className="ms-3" type="checkbox" name="specialized" value="fancy makeup" onChange={this.updateSpecialization}/><span className="ms-2">Fancy makeup</span>
+                                        <input className="ms-3" type="checkbox" name="specialized" value="natural glow makeup" onChange={this.updateSpecialization}/><span className="ms-2">Natural glow makeup</span>
                                     </div>
                                 </div>
                                 {/* Rate */}
@@ -173,10 +197,6 @@ export default class RegisterForm extends React.Component {
             </React.Fragment>
         )
     }
-
-
-
-
 }
 
 
