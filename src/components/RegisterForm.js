@@ -82,16 +82,33 @@ export default class RegisterForm extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <button
-                    onClick={() => this.setOpen()}
-                    aria-controls="example-collapse-text"
-                    aria-expanded={this.state.open}>
-                click
-                </button>
+                <div className="row">
+                    <div className="col d-grid gap-2 col-6 mx-auto mb-1">
+                        <button
+                            className="btn btn-secondary btn-lg account-btn"
+                            type="button"
+                            onClick={() => this.setOpen()}
+                            aria-controls="example-collapse-text"
+                            aria-expanded={this.state.open}>
+                            Create Account and Profile
+                        </button>
+                    </div>
+                    <div className="col d-grid gap-2 col-6 mx-auto mb-1">
+                        <button className="btn btn-secondary btn-lg account-btn" type="button">Create Profile</button>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col">
+                        <p className="register-description">New? – register profile and start promote your talent</p>
+                    </div>
+                    <div className="col">
+                        <p className="register-description">OR start listing service without profile creation (no ability to modify listing)</p>
+                    </div>
+                </div>
                 <Collapse in={this.state.open}>
                     <div id="example-collapse-text">
                         {/* ........... Account Registration ........... */}
-                        <div id="account-creation-form">
+                        <div className="account-creation-form">
                             <h3 className="mt-4 account-form">Create Your Login details</h3>
                             <h6 className="account-form">Create your account. It's free and takes only few seconds.</h6>
                             {/* Username & Password */}
@@ -111,7 +128,7 @@ export default class RegisterForm extends React.Component {
                             </div>
                         </div>
                         {/* ........... Profile Creation ........... */}
-                        <div id="account-creation-form">
+                        <div className="account-creation-form">
                             <h3 className="mt-4 account-form">Create Profile and Post Your Services</h3>
                             <div className="row register-text">
                                 {/* Name */}
@@ -239,6 +256,16 @@ export default class RegisterForm extends React.Component {
                                         <p>{this.state.portfolios[2].url === "" ? "preview image" : ""}</p>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        {/* ........... buttons ........... */}
+                        <div className="account-creation-form">
+                            <div className="d-grid gap-2 account-creation-button mb-2">
+                                <button className="btn btn-secondary btn-lg account-btn" type="button">Register &amp; Create</button>
+                            </div>
+                            <div className="d-grid gap-2 account-creation-button mb-2">
+                                <button className="btn btn-secondary btn-lg account-btn" type="button">Just Create</button>
+                                <p className="register-description">Listing with no ability to modify the profile &amp; post</p>
                             </div>
                         </div>
                     </div>
