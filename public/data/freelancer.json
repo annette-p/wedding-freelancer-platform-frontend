@@ -5,7 +5,7 @@
     "specialized": ["photographer", "videographer"],  
     "rate": "25",
     "rateUnit": "hour",
-    "login": "",
+    "login": "_id",
     "name": "Walle",
     "profileImage": "https://images.unsplash.com/photo-1620000617482-821324eb9a14",
     "socialMedia": {
@@ -16,18 +16,24 @@
     "contact": {
       "mobile": "9156584",
       "email": "walle@gmail.com",
-      "website": "walle@image.com"
+      "website": "walle-image.com"
     },
     "bio": " have worked on many diverse photography projects, including fashion, still, events and wedding photoshoots. Since I do not limit myself to just one genre of photography, my skills are varied, yet focused on both subject and quality of my projects.",
     "showCase": "https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg",
-    "portfolio": ["image1.jpg", "image2.jpg"],
-    "review": {
-      "_id": "r1",
-      "rating": 5,
-      "date": "2021/03/15",
-      "detail": "Walle is fantastic person and he help guide us how to post on the photo. He know many nice spot for stunning photho at free of cost!",
-      "from": "Lisa"
-    }
+    "portfolio": [
+      {
+        "title": "Pre-wedding",
+        "url": "image1.jpg"
+      },
+      {
+        "title": "Actual Wedding Day",
+        "url": "image2.jpg"
+      },
+      {
+        "title": "Proposal",
+        "url": "image3.jpg"
+      }
+    ]
   },
   {
     "_id": "616661b1d29fa9bc58c8b97d",
@@ -45,18 +51,24 @@
     "contact": {
       "mobile": "815852",
       "email": "linda@gmail.com",
-      "website": "linda@makeup.com"
+      "website": "linda-makeup.com"
     },
     "bio": "I am profressional makeup artist for decade. My most specialisation is into wedding makeup. I enjoy being part of one of the big days where woman want to look most beautiful.",
     "showCase": "https://images.pexels.com/photos/157757/wedding-dresses-fashion-character-bride-157757.jpeg",
-    "portfolio": ["linda-image1.jpg", "linda-image2.jpg"],
-    "review": {
-      "_id": "r3",
-      "rating": 3,
-      "date": "2021/08/15",
-      "detail": "neutral. worth the price if you are on tight budget",
-      "from": "Lisa"
-    }
+    "portfolio": [
+      {
+        "title": "Bridal makeup",
+        "url": "image1.jpg"
+      },
+      {
+        "title": "Natural glow makeup",
+        "url": "image2.jpg"
+      },
+      {
+        "title": "Pre-wedding",
+        "url": "image3.jpg"
+      }
+    ]
   },
   {
     "_id": "616663a3d29fa9bc58c8b97e",
@@ -74,17 +86,23 @@
     "contact": {
       "mobile": "56665555",
       "email": "mark@gmail.com",
-      "website": "mark@motion.com"
+      "website": "mark-motion.com"
     },
     "bio": "I like to capture the moment in the motion where we can refer for the life time. I am profressional videographer who is fully equipped with new technology and new series of gadgets inlcuding drone.",
     "showCase": "https://images.pexels.com/photos/1244700/pexels-photo-1244700.jpeg",
-    "portfolio": ["mark-image1.jpg", "mark-image2.jpg"],
-    "review": {
-      "_id": "r2",
-      "rating": 1,
-      "date": "2021/02/15",
-      "detail": "unaceptable job, terrible VDO and bad attitude",
-      "from": "Yoshi"
-    }
+    "portfolio": [
+      {
+        "title": "Pre-wedding",
+        "url": "image1.jpg"
+      },
+      {
+        "title": "ROM",
+        "url": "image2.jpg"
+      },
+      {
+        "title": "Wedding day",
+        "url": "image3.jpg"
+      }
+    ]
   }
 ]
