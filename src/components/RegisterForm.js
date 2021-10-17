@@ -5,6 +5,7 @@ import Collapse from 'react-bootstrap/Collapse'
 export default class RegisterForm extends React.Component {
     state = {
         open: false,
+        showRegistration: true,
         username: "",
         password: "",
         confirmPassword: "",
@@ -33,10 +34,19 @@ export default class RegisterForm extends React.Component {
         // }
     }
 
-    setOpen() {
+    setOpen(showRegistration) {
         this.setState({
-            'open': !this.state.open
+            'open': !this.state.open,
+            'showRegistration': showRegistration
         })
+    }
+
+    showRegistrationForm = () => {
+        if (this.state.showRegistration === true) {
+            return {display: "block"}
+        } else {
+            return {display: "none"}
+        }
     }
 
     updateFormField = (e) => {
@@ -87,14 +97,21 @@ export default class RegisterForm extends React.Component {
                         <button
                             className="btn btn-secondary btn-lg account-btn"
                             type="button"
-                            onClick={() => this.setOpen()}
+                            onClick={() => this.setOpen(true)}
                             aria-controls="example-collapse-text"
                             aria-expanded={this.state.open}>
-                            Create Account and Profile
+                                Create Account and Profile
                         </button>
                     </div>
                     <div className="col d-grid gap-2 col-6 mx-auto mb-1">
-                        <button className="btn btn-secondary btn-lg account-btn" type="button">Create Profile</button>
+                        <button
+                            className="btn btn-secondary btn-lg account-btn" 
+                            type="button"
+                            onClick={() => this.setOpen(false)}
+                            aria-controls="example-collapse-text"
+                            aria-expanded={this.state.open}>
+                             Create Profile
+                        </button>
                     </div>
                 </div>
                 <div className="row">
@@ -108,7 +125,7 @@ export default class RegisterForm extends React.Component {
                 <Collapse in={this.state.open}>
                     <div id="example-collapse-text">
                         {/* ........... Account Registration ........... */}
-                        <div className="account-creation-form">
+                        <div style={this.showRegistrationForm()} className="account-creation-form">
                             <h3 className="mt-4 account-form">Create Your Login details</h3>
                             <h6 className="account-form">Create your account. It's free and takes only few seconds.</h6>
                             {/* Username & Password */}
@@ -261,11 +278,14 @@ export default class RegisterForm extends React.Component {
                         {/* ........... buttons ........... */}
                         <div className="account-creation-form">
                             <div className="d-grid gap-2 account-creation-button mb-2">
-                                <button className="btn btn-secondary btn-lg account-btn" type="button">Register &amp; Create</button>
-                            </div>
-                            <div className="d-grid gap-2 account-creation-button mb-2">
-                                <button className="btn btn-secondary btn-lg account-btn" type="button">Just Create</button>
-                                <p className="register-description">Listing with no ability to modify the profile &amp; post</p>
+                                <button 
+                                    className="btn btn-secondary btn-lg account-btn" 
+                                    type="button">
+                                    {this.state.showRegistration === true ? "Register & Create" : "Just Create" }
+                                </button>
+                                <p className="register-description">
+                                    {this.state.showRegistration === true ? "" : "Listing with no ability to modify the profile & post"}
+                                </p>
                             </div>
                         </div>
                     </div>

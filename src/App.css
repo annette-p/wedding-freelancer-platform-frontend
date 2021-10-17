@@ -159,6 +159,10 @@
     color: rgb(190, 54, 4);
   }
 
+  #show-form {
+    display: none;
+  }
+
   .account-creation-form {
     margin-top: 40px;
     margin-bottom: 40px;
