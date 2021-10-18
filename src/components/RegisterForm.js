@@ -34,6 +34,7 @@ export default class RegisterForm extends React.Component {
         // }
     }
 
+    // set Collapse
     setOpen(showRegistration) {
         this.setState({
             'open': !this.state.open,
@@ -41,6 +42,7 @@ export default class RegisterForm extends React.Component {
         })
     }
 
+    // to display and hide the div form for registration
     showRegistrationForm = () => {
         if (this.state.showRegistration === true) {
             return {display: "block"}
