@@ -23,7 +23,11 @@ export default class RegisterForm extends React.Component {
         website: "",
         profileImage: "",
         showCase: "",
-        portfolios: [ {title: "", url: ""}, {title: "", url: ""}, {title: "", url: ""} ]
+        portfolios: [ 
+            {title: "", description: "", url: ""}, 
+            {title: "", description: "", url: ""}, 
+            {title: "", description: "", url: ""} 
+        ]
         
         // specializations: {
         //     prewedding: "pre-wedding",
@@ -251,26 +255,59 @@ export default class RegisterForm extends React.Component {
                             {/* Portfolio */}
                             <div className="row register-text">
                                 <label className="form-label register-form-headline">Upload your portfolio:</label>
+                                {/* Portfolio 1 */}
                                 <div className="col">  
                                     <label className="form-label">Portfolio 1:</label>
-                                    <input type="text" name="title" value={this.state.portfolios[0].title} onChange={(e) => this.updatePortfolio(0, e)} className="form-control portfolio-title" placeholder="enter your portfolio title"/>
-                                    <input type="text" name="url" value={this.state.portfolios[0].url} onChange={(e) => this.updatePortfolio(0, e)} placeholder="paste your portfolio image URL here" className="form-control"/>
+                                    <div>
+                                        <label className="form-label">Title:</label>
+                                        <input type="text" name="title" value={this.state.portfolios[0].title} onChange={(e) => this.updatePortfolio(0, e)} className="form-control portfolio-title" placeholder="enter your portfolio title"/>
+                                    </div>
+                                    <div>
+                                        <label className="form-label">Description:</label>
+                                        <input type="text" name="description" value={this.state.portfolios[0].description} onChange={(e) => this.updatePortfolio(0, e)} className="form-control" placeholder="enter the description of your portfolio"/>
+                                    </div>
+                                    <div>
+                                        <label className="form-label">url:</label>
+                                        <input type="text" name="url" value={this.state.portfolios[0].url} onChange={(e) => this.updatePortfolio(0, e)} placeholder="paste your portfolio image URL here" className="form-control"/>
+                                    </div>
                                     <div className="preview portfolio-preview" style={this.getPortfolioImage(0)}>
                                         <p>{this.state.portfolios[0].url === "" ? "preview image" : ""}</p>
                                     </div>
                                 </div>
+                                {/* Portfolio 2 */}
                                 <div className="col">  
                                     <label className="form-label">Portfolio 2:</label>
-                                    <input type="text" name="title" value={this.state.portfolios[1].title} onChange={(e) => this.updatePortfolio(1, e)} className="form-control portfolio-title" placeholder="enter your portfolio title"/>
-                                    <input type="text" name="url" value={this.state.portfolios[1].url} onChange={(e) => this.updatePortfolio(1, e)} placeholder="paste your portfolio image URL here" className="form-control"/>
+                                    <div>
+                                        <label className="form-label">Title:</label>
+                                        <input type="text" name="title" value={this.state.portfolios[1].title} onChange={(e) => this.updatePortfolio(1, e)} className="form-control portfolio-title" placeholder="enter your portfolio title"/>
+                                    </div>
+                                    <div>
+                                        <label className="form-label">Description:</label>
+                                        <input type="text" name="description" value={this.state.portfolios[1].description} onChange={(e) => this.updatePortfolio(1, e)} className="form-control" placeholder="enter the description of your portfolio"/>
+                                    </div>
+                                    <div>
+                                        <label className="form-label">url:</label>
+                                        <input type="text" name="url" value={this.state.portfolios[1].url} onChange={(e) => this.updatePortfolio(1, e)} placeholder="paste your portfolio image URL here" className="form-control"/>
+                                    </div>
                                     <div className="preview portfolio-preview" style={this.getPortfolioImage(1)}>
                                         <p>{this.state.portfolios[1].url === "" ? "preview image" : ""}</p>
                                     </div>
                                 </div>
+                                {/* Portfolio 3 */}
                                 <div className="col">  
                                     <label className="form-label">Portfolio 3:</label>
-                                    <input type="text" name="title" value={this.state.portfolios[2].title} onChange={(e) => this.updatePortfolio(2, e)} className="form-control portfolio-title" placeholder="enter your portfolio title"/>
-                                    <input type="text" name="url" value={this.state.portfolios[2].url} onChange={(e) => this.updatePortfolio(2, e)} placeholder="paste your portfolio image URL here" className="form-control"/>
+                                    <div>
+                                        <label className="form-label">Title:</label>
+                                        <input type="text" name="title" value={this.state.portfolios[2].title} onChange={(e) => this.updatePortfolio(2, e)} className="form-control portfolio-title" placeholder="enter your portfolio title"/>
+                                    </div>
+                                    <div>
+                                        <label className="form-label">Description:</label>
+                                        <input type="text" name="description" value={this.state.portfolios[2].description} onChange={(e) => this.updatePortfolio(2, e)} className="form-control" placeholder="enter the description of your portfolio"/>
+                                    </div>
+                                    <div>
+                                        <label className="form-label">url:</label>
+                                        <input type="text" name="url" value={this.state.portfolios[2].url} onChange={(e) => this.updatePortfolio(2, e)} placeholder="paste your portfolio image URL here" className="form-control"/>
+                                    </div>
                                     <div className="preview portfolio-preview" style={this.getPortfolioImage(2)}>
                                         <p>{this.state.portfolios[2].url === "" ? "preview image" : ""}</p>
                                     </div>
