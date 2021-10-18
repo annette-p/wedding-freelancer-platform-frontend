@@ -48,94 +48,26 @@ export default function ViewProfileModal(props) {
                         {/* Carousel */}
                         <div className="row">
                             <h5>Portfolio</h5>
-
-                            {/* to remove */}
-                            <div>
-                            {/* <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-indicators">
-                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                                </div>
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src={require('../images/portfolio/lake_gardens.jpg').default} class="d-block w-100" alt="lake"/>
-                                        <div class="carousel-caption d-none d-md-block">
-                                            <h5>First slide label</h5>
-                                            <p>Some representative placeholder content for the first slide.</p>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src={require('../images/portfolio/museum.jpg').default} class="d-block w-100" alt="museum"/>
-                                        <div class="carousel-caption d-none d-md-block">
-                                            <h5>Second slide label</h5>
-                                            <p>Some representative placeholder content for the second slide.</p>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src={require('../images/portfolio/raffles_hotel.jpg').default} class="d-block w-100" alt="hotel"/>
-                                        <div class="carousel-caption d-none d-md-block">
-                                            <h5>Third slide label</h5>
-                                            <p>Some representative placeholder content for the third slide.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div> */}
-                            </div>
-                            {/* end of to remove */}
-                            
                             <Carousel>
-                                <Carousel.Item>
-                                    <img
-                                        className="d-block w-100"
-                                        src={require('../images/portfolio/museum.jpg').default}
-                                        // src="holder.js/800x400?text=First slide&bg=373940"
-                                        alt="First slide"
-                                    />
-                                    <Carousel.Caption>
-                                        <h3>First slide label</h3>
-                                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                    </Carousel.Caption>
-                                </Carousel.Item>
-                                <Carousel.Item>
-                                    <img
-                                        className="d-block w-100"
-                                        src={require('../images/portfolio/lake_gardens.jpg').default}
-                                        // src="holder.js/800x400?text=Second slide&bg=282c34"
-                                        alt="Second slide"
-                                    />
-                                    <Carousel.Caption>
-                                        <h3>Second slide label</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                    </Carousel.Caption>
-                                </Carousel.Item>
-                                <Carousel.Item>
-                                    <img
-                                        className="d-block w-100"
-                                        src={require('../images/portfolio/raffles_hotel.jpg').default}
-                                        // src="holder.js/800x400?text=Third slide&bg=20232a"
-                                        alt="Third slide"
-                                    />
-                                    <Carousel.Caption>
-                                        <h3>Third slide label</h3>
-                                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                                    </Carousel.Caption>
-                                </Carousel.Item>
+                                {props.freelancer.portfolios.map( eachPortfolio  => 
+                                    <Carousel.Item key={eachPortfolio.url}>
+                                        <img
+                                            className="d-block w-100"
+                                            src={eachPortfolio.url}
+                                            alt={eachPortfolio.title}
+                                        />
+                                        <Carousel.Caption>
+                                            <h3>{eachPortfolio.title}</h3>
+                                            <p>{eachPortfolio.description}</p>
+                                        </Carousel.Caption>
+                                    </Carousel.Item>
+                                )}
                             </Carousel>
-                            
-
                         </div>
                         <hr></hr>
                         {/* Review session */}
                         <div className="row">
+                            <h5 className="mb-4 mt-1">Customer Reviews</h5>
                             {props.reviews.map( eachReview =>
                                 <div key={eachReview._id}>
                                     <div className="rating">

@@ -222,6 +222,14 @@
     margin-left: 90px;
   }
 
+  .portfolio-number {
+    margin-left: 150px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-align: center !important;
+  }
+
   .portfolio-title {
     margin-bottom: 10px;
   }

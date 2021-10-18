@@ -23,15 +23,18 @@
     "portfolios": [
       {
         "title": "Pre-wedding",
-        "url": "image1.jpg"
+        "description": "This is a test image. To display my work",
+        "url": "https://images.pexels.com/photos/4820104/pexels-photo-4820104.jpeg"
       },
       {
         "title": "Actual Wedding Day",
-        "url": "image2.jpg"
+        "description": "This is a test image. To display my work",
+        "url": "https://images.pexels.com/photos/2253842/pexels-photo-2253842.jpeg"
       },
       {
         "title": "Proposal",
-        "url": "image3.jpg"
+        "description": "This is a test image. To display my work",
+        "url": "https://images.pexels.com/photos/1578873/pexels-photo-1578873.jpeg"
       }
     ]
   },
@@ -58,15 +61,18 @@
     "portfolios": [
       {
         "title": "Bridal makeup",
-        "url": "image1.jpg"
+        "description": "This is a test image. To display my work",
+        "url": "https://images.pexels.com/photos/3715086/pexels-photo-3715086.jpeg"
       },
       {
         "title": "Natural glow makeup",
-        "url": "image2.jpg"
+        "description": "This is a test image. To display my work",
+        "url": "https://images.pexels.com/photos/759668/pexels-photo-759668.jpeg"
       },
       {
         "title": "Pre-wedding",
-        "url": "image3.jpg"
+        "description": "This is a test image. To display my work",
+        "url": "https://images.pexels.com/photos/5984214/pexels-photo-5984214.jpeg"
       }
     ]
   },
@@ -93,15 +99,18 @@
     "portfolios": [
       {
         "title": "Pre-wedding",
-        "url": "image1.jpg"
+        "description": "This is a test image. To display my work",
+        "url": "https://images.pexels.com/photos/4031768/pexels-photo-4031768.jpeg"
       },
       {
         "title": "ROM",
-        "url": "image2.jpg"
+        "description": "This is a test image. To display my work",
+        "url": "https://images.pexels.com/photos/3865895/pexels-photo-3865895.jpeg"
       },
       {
         "title": "Wedding day",
-        "url": "image3.jpg"
+        "description": "This is a test image. To display my work",
+        "url": "https://images.pexels.com/photos/5984229/pexels-photo-5984229.jpeg"
       }
     ]
   }

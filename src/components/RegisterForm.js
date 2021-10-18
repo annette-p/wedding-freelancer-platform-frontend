@@ -257,14 +257,14 @@ export default class RegisterForm extends React.Component {
                                 <label className="form-label register-form-headline">Upload your portfolio:</label>
                                 {/* Portfolio 1 */}
                                 <div className="col">  
-                                    <label className="form-label">Portfolio 1:</label>
+                                    <label className="form-label portfolio-number">Portfolio 1</label>
                                     <div>
                                         <label className="form-label">Title:</label>
                                         <input type="text" name="title" value={this.state.portfolios[0].title} onChange={(e) => this.updatePortfolio(0, e)} className="form-control portfolio-title" placeholder="enter your portfolio title"/>
                                     </div>
                                     <div>
                                         <label className="form-label">Description:</label>
-                                        <input type="text" name="description" value={this.state.portfolios[0].description} onChange={(e) => this.updatePortfolio(0, e)} className="form-control" placeholder="enter the description of your portfolio"/>
+                                        <input type="text" name="description" value={this.state.portfolios[0].description} onChange={(e) => this.updatePortfolio(0, e)} className="form-control" placeholder="describe your portfolio (max 60 characters)"/>
                                     </div>
                                     <div>
                                         <label className="form-label">url:</label>
@@ -276,14 +276,14 @@ export default class RegisterForm extends React.Component {
                                 </div>
                                 {/* Portfolio 2 */}
                                 <div className="col">  
-                                    <label className="form-label">Portfolio 2:</label>
+                                    <label className="form-label portfolio-number">Portfolio 2</label>
                                     <div>
                                         <label className="form-label">Title:</label>
                                         <input type="text" name="title" value={this.state.portfolios[1].title} onChange={(e) => this.updatePortfolio(1, e)} className="form-control portfolio-title" placeholder="enter your portfolio title"/>
                                     </div>
                                     <div>
                                         <label className="form-label">Description:</label>
-                                        <input type="text" name="description" value={this.state.portfolios[1].description} onChange={(e) => this.updatePortfolio(1, e)} className="form-control" placeholder="enter the description of your portfolio"/>
+                                        <input type="text" name="description" value={this.state.portfolios[1].description} onChange={(e) => this.updatePortfolio(1, e)} className="form-control" placeholder="describe your portfolio (max 60 characters)"/>
                                     </div>
                                     <div>
                                         <label className="form-label">url:</label>
@@ -295,14 +295,14 @@ export default class RegisterForm extends React.Component {
                                 </div>
                                 {/* Portfolio 3 */}
                                 <div className="col">  
-                                    <label className="form-label">Portfolio 3:</label>
+                                    <label className="form-label portfolio-number">Portfolio 3</label>
                                     <div>
                                         <label className="form-label">Title:</label>
                                         <input type="text" name="title" value={this.state.portfolios[2].title} onChange={(e) => this.updatePortfolio(2, e)} className="form-control portfolio-title" placeholder="enter your portfolio title"/>
                                     </div>
                                     <div>
                                         <label className="form-label">Description:</label>
-                                        <input type="text" name="description" value={this.state.portfolios[2].description} onChange={(e) => this.updatePortfolio(2, e)} className="form-control" placeholder="enter the description of your portfolio"/>
+                                        <input type="text" name="description" value={this.state.portfolios[2].description} onChange={(e) => this.updatePortfolio(2, e)} className="form-control" placeholder="describe your portfolio (max 60 characters)"/>
                                     </div>
                                     <div>
                                         <label className="form-label">url:</label>
