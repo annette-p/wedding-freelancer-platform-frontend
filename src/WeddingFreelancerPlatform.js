@@ -3,6 +3,7 @@ import Navbar from "react-bootstrap/Navbar"
 import Nav from 'react-bootstrap/Nav'
 import Listing from "./components/Listing"
 import RegisterForm from "./components/RegisterForm"
+import Login from "./components/Login"
 
 export default class WeddingFreelancerPlatform extends React.Component {
     state = {
@@ -21,6 +22,8 @@ export default class WeddingFreelancerPlatform extends React.Component {
             return <Listing/>
         } else if (this.state.active === "register") {
             return <RegisterForm/>
+        } else if (this.state.active === "authentication") {
+            return <Login/>
         }
     }
     
@@ -30,15 +33,19 @@ export default class WeddingFreelancerPlatform extends React.Component {
             <React.Fragment>
                 <div className="container">
                     {/* Registration & Login button */}
-                    <div className="row my-2">
-                        <div className="navAuthenFrame position-relative">
-                            <div className="navAuthen me-3 position-absolute top-0 end-0" onClick={()=>{this.setActive("register")}}>
-                                Become a Freelancer | 
-                                <span className="login ms-2">Login</span> 
-                                </div>
-                            <div className="navAuthen"></div>
+                    <div className="row mb-2">
+                        <div className="col-11 mt-2">
+                            <div className="navAuthenFrame" 
+                                onClick={()=>{this.setActive("register")}}>
+                                Become a Freelancer &nbsp; |
+                            </div>
+                        </div>
+                        <div className="col-1 mt-2">
+                            <div className="navAuthen" 
+                                onClick={()=>{this.setActive("authentication")}}>Login</div>
                             <div className="logout">Logout</div>
                         </div>
+                        
                     </div> 
                     {/* Navbar */}
                     <div className="row">

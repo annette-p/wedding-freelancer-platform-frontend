@@ -17,13 +17,19 @@
   background-position: center;
 }
 
-/* .navAuthenFrame {
-  position: relative;
-} */
+.navAuthenFrame {
+  /* position: relative; */
+  /* padding-left: 80px; */
+  font-weight: bold;
+  text-align: end;
+  margin-right: -40px;
+}
 
 .navAuthen {
-  display: inline-block;
+  /* display: inline-block; */
   font-weight: bold;
+  text-align: end;
+  margin-right: 10px;
   /* display: none; */
   /* position:absolute;
   top:0;

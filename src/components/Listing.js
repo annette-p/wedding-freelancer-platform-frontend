@@ -34,27 +34,36 @@ export default class Listing extends React.Component {
     }
 
     fetchData = async () => {
-        // let responseFreelancer = await axios.get("data/freelancer.json");
-        let responseFreelancer = await axios.get(this.apiUrl + "/freelancers")
-        let  responseReview = await axios.get("data/review.json");
+        let responseFreelancer = await axios.get(this.apiUrl + "/freelancers");
+        let freelancers = responseFreelancer.data;
+        let reviews = []
+
+        // Promise.all wait for mapping function to be done 
+        // ref: https://stackoverflow.com/questions/40140149/use-async-await-with-array-map/40140562#40140562
+        await Promise.all(freelancers.map( async (freelancer) => {
+            let responseReview = await axios.get(`${this.apiUrl}/freelancer/${freelancer._id}/reviews`)
+            let reviewData = responseReview.data
+            reviews = reviews.concat(reviewData)
+        }))
+        
         this.setState({
-            freelancer: responseFreelancer.data,
-            review: responseReview.data
+            freelancer: freelancers,
+            review: reviews
         })
     }
 
     getReviewsForFreelancer = (freelancerId) => {
-        // let reviewsForFreelancer = await axios.get(`${this.apiUrl}/${freelancerId}/reviews`)
-        // console.log("reviews ", freelancerId, reviewsForFreelancer)
-        // // return reviewsForFreelancer.data
-
         return this.state.review.filter( eachReview => eachReview.for === freelancerId)
     }
 
     calculateRating = (reviews) => {
         let total = 0;
-        reviews.map( eachReview => total = total + eachReview.rating)
-        return (total / reviews.length).toFixed(1);
+        if (reviews.length > 0) {
+            reviews.map( eachReview => total = total + eachReview.rating)
+            return (total / reviews.length).toFixed(1);
+        } else {
+            return total.toFixed(1);
+        }
     }
 
     /*............. to handle Model function .............*/ 
