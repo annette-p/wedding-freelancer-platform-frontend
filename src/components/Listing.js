@@ -5,6 +5,7 @@ import { faStar, faCommentDots } from '@fortawesome/free-solid-svg-icons'
 import { faFacebookF, faInstagram, faTiktok } from "@fortawesome/free-brands-svg-icons"
 import ViewProfileModal from "./ViewProfileModal"
 import GiveReviewModal from "./GiveReviewModal"
+import RegisterForm from './RegisterForm'
 
 export default class Listing extends React.Component {
     state = {
@@ -97,6 +98,7 @@ export default class Listing extends React.Component {
 
 
 
+
     /*............. to handle Review Submission .............*/ 
     updateReviewForm = (evt) => {
         this.setState({
@@ -149,6 +151,27 @@ export default class Listing extends React.Component {
     */
 
     /*............. end of to handle Review Submission  .............*/ 
+
+
+
+
+    /*............. to handle new Freelancer Submission .............*/ 
+
+    addNewFreelancer = (nextPage) => {
+        this.setState({
+            'active': nextPage
+        })
+    }
+
+    renderContent() {
+        if (this.state.active === "listing") {
+            return <Listing/>
+        } else if (this.state.active === "RegisterForm") {
+            return <RegisterForm afterAddNewFreelancer ={this.addNewFreelancer}/>
+        }
+    }
+
+    /*............. end of to handle new Freelancer Submission .............*/ 
 
     render() {
         return (
@@ -205,6 +228,5 @@ export default class Listing extends React.Component {
             </React.Fragment>
         )
     }
-
 
 }

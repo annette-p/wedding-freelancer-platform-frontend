@@ -1,5 +1,5 @@
 import React from 'react'
-// import axios from 'axios'
+import axios from 'axios'
 import Collapse from 'react-bootstrap/Collapse'
 
 export default class RegisterForm extends React.Component {
@@ -94,10 +94,44 @@ export default class RegisterForm extends React.Component {
         return {backgroundImage: `url("${this.state[key]}")`}
     }
 
+    // to update URL of new API ******
+    addFreelancer = async () => {
+        let freelancer = await axios.post(this.url + 'freelancer', {
+            "type": this.state.type,
+            "specialized": [this.state.specialized],  
+            "rate": this.state.rate,
+            "rateUnit": this.state.rateUnit,
+            // "login": "",
+            "name": this.state.name,
+            "profileImage": this.state.profileImage,
+            "socialMedia": {
+                "facebook": this.state.socialMedia.facebook,
+                "instagram": this.state.socialMedia.instagram,
+                "tiktok": this.state.socialMedia.tiktok
+            },
+            "contact": {
+                "mobile": this.state.contact.mobile,
+                "email": this.state.contact.email,
+                "website": this.state.contact.website
+              },
+              "bio": this.state.bio,
+              "showCase": this.state.showCase,
+              "portfolios": [
+                {
+                    "title": this.state.portfolios.title,
+                    "description": this.state.portfolios.description,
+                    "url": this.state.portfolios.url
+                  }
+              ]
+        })
+        this.props.afterAddNewFreelancer()
+    }
+
 
     render() {
         return (
             <React.Fragment>
+                {/* create profile buttons */}
                 <div className="row">
                     <div className="col d-grid gap-2 col-6 mx-auto mb-1">
                         <button
@@ -125,7 +159,7 @@ export default class RegisterForm extends React.Component {
                         <p className="register-description">New? – register profile and start promote your talent</p>
                     </div>
                     <div className="col">
-                        <p className="register-description">OR start listing service without profile creation (no ability to modify listing)</p>
+                        <p className="register-description">OR listing profile without registeration (no ability to modify listing)</p>
                     </div>
                 </div>
                 <Collapse in={this.state.open}>
@@ -314,10 +348,11 @@ export default class RegisterForm extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        {/* ........... buttons ........... */}
+                        {/* ........... submit buttons ........... */}
                         <div className="account-creation-form">
                             <div className="d-grid gap-2 account-creation-button mb-2">
                                 <button 
+                                    onClick={this.addFreelancer}
                                     className="btn btn-secondary btn-lg account-btn" 
                                     type="button">
                                     {this.state.showRegistration === true ? "Register & Create" : "Just Create" }
