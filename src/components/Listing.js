@@ -8,6 +8,7 @@ import GiveReviewModal from "./GiveReviewModal"
 import RegisterForm from './RegisterForm'
 
 export default class Listing extends React.Component {
+    apiUrl = process.env.REACT_APP_BACKEND_API
     state = {
         freelancer: [],
         loading:false,
@@ -33,7 +34,8 @@ export default class Listing extends React.Component {
     }
 
     fetchData = async () => {
-        let  responseFreelancer = await axios.get("data/freelancer.json");
+        // let responseFreelancer = await axios.get("data/freelancer.json");
+        let responseFreelancer = await axios.get(this.apiUrl + "/freelancers")
         let  responseReview = await axios.get("data/review.json");
         this.setState({
             freelancer: responseFreelancer.data,
@@ -42,6 +44,10 @@ export default class Listing extends React.Component {
     }
 
     getReviewsForFreelancer = (freelancerId) => {
+        // let reviewsForFreelancer = await axios.get(`${this.apiUrl}/${freelancerId}/reviews`)
+        // console.log("reviews ", freelancerId, reviewsForFreelancer)
+        // // return reviewsForFreelancer.data
+
         return this.state.review.filter( eachReview => eachReview.for === freelancerId)
     }
 
