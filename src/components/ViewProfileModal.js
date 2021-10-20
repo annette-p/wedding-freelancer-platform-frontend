@@ -52,7 +52,7 @@ export default function ViewProfileModal(props) {
                                 {props.freelancer.portfolios.map( eachPortfolio  => 
                                     <Carousel.Item key={eachPortfolio.url}>
                                         <img
-                                            className="d-block w-100"
+                                            className="d-block w-100 carousel-img"
                                             src={eachPortfolio.url}
                                             alt={eachPortfolio.title}
                                         />

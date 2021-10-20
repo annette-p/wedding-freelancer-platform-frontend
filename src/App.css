@@ -112,6 +112,11 @@
   color: rgb(27, 26, 26);
 }
 
+.carousel-img {
+  /* width: 100px; */
+  height: 510px;
+}
+
 /* .....style for Give comment page..... */
 
 .comment-box {
@@ -216,6 +221,10 @@
     background-position: center;
     background-size:cover;
     background-repeat: no-repeat;
+  }
+
+  .profile-img-preview {
+    border-radius: 50%;
   }
 
   .portfolio-preview {

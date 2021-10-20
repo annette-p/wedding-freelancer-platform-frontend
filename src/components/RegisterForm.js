@@ -96,7 +96,7 @@ export default class RegisterForm extends React.Component {
 
     // to update URL of new API ******
     addFreelancer = async () => {
-        let freelancer = await axios.post(this.url + 'freelancer', {
+        await axios.post(this.url + 'freelancer', {
             "type": this.state.type,
             "specialized": [this.state.specialized],  
             "rate": this.state.rate,
@@ -273,7 +273,7 @@ export default class RegisterForm extends React.Component {
                                 <div className="col">
                                     <label className="form-label register-form-headline">Upload your profile image:</label>
                                     <input type="text" name="profileImage" value={this.state.profileImage} onChange={this.updateFormField} placeholder="paste your image URL here" className="form-control"/>
-                                    <div className="preview" style={this.getImage("profileImage")}>
+                                    <div className="preview profile-img-preview" style={this.getImage("profileImage")}>
                                         <p>{this.state.profileImage === "" ? "preview image" : ""}</p>
                                     </div>
                                 </div>
