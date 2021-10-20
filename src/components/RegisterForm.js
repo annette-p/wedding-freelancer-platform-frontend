@@ -96,34 +96,36 @@ export default class RegisterForm extends React.Component {
 
     // to update URL of new API ******
     addFreelancer = async () => {
-        await axios.post(this.url + 'freelancer', {
+        let newFreelancerData = {
             "type": this.state.type,
-            "specialized": [this.state.specialized],  
+            "specialized": this.state.specialized,  
             "rate": this.state.rate,
             "rateUnit": this.state.rateUnit,
-            // "login": "",
             "name": this.state.name,
             "profileImage": this.state.profileImage,
             "socialMedia": {
-                "facebook": this.state.socialMedia.facebook,
-                "instagram": this.state.socialMedia.instagram,
-                "tiktok": this.state.socialMedia.tiktok
+                "facebook": this.state.facebook,
+                "instagram": this.state.instagram,
+                "tiktok": this.state.tiktok
             },
             "contact": {
-                "mobile": this.state.contact.mobile,
-                "email": this.state.contact.email,
-                "website": this.state.contact.website
-              },
-              "bio": this.state.bio,
-              "showCase": this.state.showCase,
-              "portfolios": [
-                {
-                    "title": this.state.portfolios.title,
-                    "description": this.state.portfolios.description,
-                    "url": this.state.portfolios.url
-                  }
-              ]
-        })
+                "mobile": this.state.mobile,
+                "email": this.state.email,
+                "website": this.state.website
+            },
+            "bio": this.state.bio,
+            "showCase": this.state.showCase,
+            "portfolios": this.state.portfolios
+        }
+
+        // if there's registration
+        if (this.state.showRegistration) {
+            newFreelancerData.username = this.state.username
+            newFreelancerData.password = this.state.password
+        }
+
+        let addedFreelancer = await axios.post(this.url + 'freelancer', newFreelancerData)
+        console.log(addedFreelancer)
         this.props.afterAddNewFreelancer()
     }
 
