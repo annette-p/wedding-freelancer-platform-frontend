@@ -172,9 +172,9 @@ export default class Listing extends React.Component {
 
     /*............. to handle new Freelancer Submission .............*/ 
 
-    addNewFreelancer = (nextPage) => {
+    addNewFreelancer = () => {
         this.setState({
-            'active': nextPage
+            'active': "listing"
         })
     }
 
@@ -182,7 +182,7 @@ export default class Listing extends React.Component {
         if (this.state.active === "listing") {
             return <Listing/>
         } else if (this.state.active === "RegisterForm") {
-            return <RegisterForm afterAddNewFreelancer ={this.addNewFreelancer}/>
+            return <RegisterForm afterAddNewFreelancer={this.addNewFreelancer}/>
         }
     }
 

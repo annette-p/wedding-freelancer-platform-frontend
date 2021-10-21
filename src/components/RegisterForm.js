@@ -3,6 +3,7 @@ import axios from 'axios'
 import Collapse from 'react-bootstrap/Collapse'
 
 export default class RegisterForm extends React.Component {
+    apiUrl = process.env.REACT_APP_BACKEND_API
     state = {
         open: false,
         showRegistration: true,
@@ -123,10 +124,36 @@ export default class RegisterForm extends React.Component {
             newFreelancerData.username = this.state.username
             newFreelancerData.password = this.state.password
         }
+        console.log(newFreelancerData)
 
-        let addedFreelancer = await axios.post(this.url + 'freelancer', newFreelancerData)
-        console.log(addedFreelancer)
-        this.props.afterAddNewFreelancer()
+        await axios.post(this.apiUrl + '/freelancer', newFreelancerData)
+        .then( (result) => {
+            console.log("success", result.data)
+
+            // this is not working.. error: afterAddNewFreelancer is not a function
+            this.props.afterAddNewFreelancer()
+        })
+        .catch( (error) => {
+
+            // to improve error handling
+            if (error.response){
+
+                //do something
+                console.error('error.response: ', error.response)
+            
+            } else if (error.request){
+            
+                //do something else
+                console.error('error.request: ', error.request)
+            
+            } else if (error.message){
+            
+                //do something other than the other two
+                console.error('error.message: ', error.message)
+            
+            }
+        })
+
     }
 
 
