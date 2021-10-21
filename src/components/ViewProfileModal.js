@@ -74,7 +74,10 @@ export default function ViewProfileModal(props) {
                                     <FontAwesomeIcon icon={faStar}/> {eachReview.rating} &nbsp; &nbsp; &nbsp;
                                     <span className="reviewer-name">From: {eachReview.reviewer.name}</span>
                                     </div>
-                                    <div>Date: {eachReview.date}</div>
+                                    {/* format the date & time */}
+                                    {/* ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString */}
+                                    {/* ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat */}
+                                    <div>Date: {(new Date(eachReview.date)).toLocaleDateString('en-SG', { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' })}</div>
                                     <div>Detail: {eachReview.description}</div>
                                 </div>
                             )}     
