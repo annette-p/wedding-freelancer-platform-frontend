@@ -129,6 +129,44 @@
   height: 100px;
 }
 
+/* .....style for login page..... */
+
+.logo-login {
+  /* background-image: url("images/logo/logo.png"); */
+  height: 150px;
+  width: 180px;
+  border-radius: 50%;
+  background-position: center;
+  align-items: center;
+  margin-left: 300px;
+  margin-bottom: 30px;
+}
+
+.login-background {
+  background-image: url("../src/images/background/ring-on-neckless-blur.jpg");
+  background-position: right bottom;
+  /* background-position: center; */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size:cover;
+  /* -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px); */
+}
+
+.login-titile {
+  margin-left: 250px;
+  color: white;
+  font-weight: bold;
+}
+
+.login-content {
+  margin-left: 35px;
+  margin-right: 35px;
+}
+
 
 
 /* ................................................style for meduim and large screen..................................................... */
