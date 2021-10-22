@@ -10,6 +10,7 @@ import RegisterForm from './RegisterForm'
 export default class Listing extends React.Component {
     apiUrl = process.env.REACT_APP_BACKEND_API
     state = {
+        active: "listing",
         freelancer: [],
         loading:false,
         review: [],
@@ -174,7 +175,7 @@ export default class Listing extends React.Component {
 
     addNewFreelancer = () => {
         this.setState({
-            'active': "listing"
+            active: "listing"
         })
     }
 
