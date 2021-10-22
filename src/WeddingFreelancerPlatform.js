@@ -29,11 +29,36 @@ export default class WeddingFreelancerPlatform extends React.Component {
         })
     }
 
+    performLogout = () => {
+        // remove the entry from session
+        // ref: https://developer.mozilla.org/en-US/docs/Web/API/Storage/removeItem
+        sessionStorage.removeItem("authenticatedUser")
+        // set "active" as "listing" to render the freelancers listing page
+        this.setActive("listing")
+    }
+
     renderLoginModal() {
         if (this.state.showLoginModal) {
             return <Login hideLogin={this.hideLogin}/>
         } else {
             return null;
+        }
+    }
+
+    renderLoginLogoutLinks() {
+        // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
+        if (JSON.parse(sessionStorage.getItem("authenticatedUser")) === null) {
+            return (
+                <div className="navAuthen" 
+                    onClick={this.showLogin}>Login
+                </div>
+            )
+        } else {
+            return (
+                <div className="logout" 
+                    onClick={this.performLogout}>Logout
+                </div>
+            )
         }
     }
 
@@ -60,10 +85,8 @@ export default class WeddingFreelancerPlatform extends React.Component {
                             </div>
                         </div>
                         <div className="col-1 mt-2">
-                            <div className="navAuthen" 
-                                onClick={this.showLogin}>Login</div>
+                            {this.renderLoginLogoutLinks()}
                             {this.renderLoginModal()}
-                            <div className="logout">Logout</div>
                         </div>
                         
                     </div> 

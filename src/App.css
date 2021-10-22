@@ -37,9 +37,10 @@
 }
 
 .logout {
-  display: none;
-  /* display: inline-block;
-  font-weight: bold; */
+  display: block;
+  font-weight: bold;
+  text-align: end;
+  margin-right: 10px;
 }
 
 #portfolio-1 {
@@ -165,6 +166,11 @@
 
 .cross-btn {
   color: white;
+  font-size: large;
+}
+
+.cross-btn:hover {
+  color: rgb(221, 169, 178);
 }
 
 .login-fail {
@@ -174,7 +180,6 @@
   text-align: center;
   padding-top: 10px;
   margin-bottom: 20px;
-  display: none;
 }
 
 .login-content {
