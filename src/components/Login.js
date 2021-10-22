@@ -6,21 +6,8 @@ import { faUser, faLock, faTimes } from '@fortawesome/free-solid-svg-icons'
 export default class Login extends React.Component {
     state = {
         username: "",
-        password: "",
-        display: false
+        password: ""
     }
-
-    displayModal = () => {
-        this.setState({
-          display: true
-        });
-    };
-    
-    hideModal = () => {
-        this.setState({
-            display: false
-        });
-    };
 
     // loginUser = () => {
     //     username: this.state.username,
@@ -51,18 +38,15 @@ export default class Login extends React.Component {
                                 type="button"
                                 className="cross-btn"
                                 data-bs-dismiss="modal"
-                                aria-label="Close"
-                                onClick={this.hideModal}>
-                                <FontAwesomeIcon icon={faTimes}/>
+                                aria-label="Close">
+                                <FontAwesomeIcon icon={faTimes} onClick={this.props.hideLogin}/>
                             </div>
                             {/* <button
-                                // style={{color: "white"}}
                                 type="button"
-                                
-                                // className="btn-close"
+                                className="btn-close"
                                 data-bs-dismiss="modal"
                                 aria-label="Close"
-                                onClick={this.hideModal}>
+                                onClick={this.hideLogin}>
                             </button> */}
                         </div>
                         <div className="modal-body login-content">

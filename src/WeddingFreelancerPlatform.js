@@ -7,7 +7,8 @@ import Login from "./components/Login"
 
 export default class WeddingFreelancerPlatform extends React.Component {
     state = {
-        active: "listing"
+        active: "listing",
+        showLoginModal: false
     }
 
     setActive(nextPage) {
@@ -16,14 +17,32 @@ export default class WeddingFreelancerPlatform extends React.Component {
         })
     }
 
+    hideLogin = () => {
+        this.setState({
+            showLoginModal: false
+        })
+    }
+
+    showLogin = () => {
+        this.setState({
+            showLoginModal: true
+        })
+    }
+
+    renderLoginModal() {
+        if (this.state.showLoginModal) {
+            return <Login hideLogin={this.hideLogin}/>
+        } else {
+            return null;
+        }
+    }
+
     // set condtional rending of the page as per the current active page
     renderContent() {
         if (this.state.active === "listing") {
             return <Listing/>
         } else if (this.state.active === "register") {
             return <RegisterForm/>
-        } else if (this.state.active === "authentication") {
-            return <Login/>
         }
     }
     
@@ -42,7 +61,8 @@ export default class WeddingFreelancerPlatform extends React.Component {
                         </div>
                         <div className="col-1 mt-2">
                             <div className="navAuthen" 
-                                onClick={()=>{this.setActive("authentication")}}>Login</div>
+                                onClick={this.showLogin}>Login</div>
+                            {this.renderLoginModal()}
                             <div className="logout">Logout</div>
                         </div>
                         
