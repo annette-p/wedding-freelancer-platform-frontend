@@ -49,7 +49,8 @@ export default function GiveReviewModal(props) {
                             </div>
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-primary" onClick={props.addReview}>Submit and Close</button>
+                            <button type="button" className="btn btn-primary" onClick={props.addReview}>Submit and Close
+                            </button>
                         </div>
                     </div>
                 </div>
