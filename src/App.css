@@ -138,7 +138,7 @@
   border-radius: 50%;
   background-position: center;
   align-items: center;
-  margin-left: 300px;
+  margin-left: 280px;
   margin-bottom: 30px;
 }
 
@@ -157,7 +157,8 @@
 }
 
 .login-titile {
-  margin-left: 250px;
+  margin-top: 3px;
+  margin-left: 270px;
   color: white;
   font-weight: bold;
 }
@@ -167,6 +168,17 @@
   margin-right: 35px;
 }
 
+.user-icon {
+  font-size: 30px;
+  color: rgb(243, 208, 214);
+}
+
+.login-btn {
+  margin-top: 45px;
+  margin-bottom: 35px;
+  margin-left: 60px;
+  margin-right: 1px;
+}
 
 
 /* ................................................style for meduim and large screen..................................................... */

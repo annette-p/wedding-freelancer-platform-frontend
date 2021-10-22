@@ -1,4 +1,6 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser, faLock } from '@fortawesome/free-solid-svg-icons'
 // import axios from 'axios'
 
 export default class Login extends React.Component {
@@ -57,18 +59,21 @@ export default class Login extends React.Component {
                             <div className="row mt-4">
                                 <img src={require('../images/logo/logo.png').default} className="logo-login" alt="logo"/>
                             </div>
-                            <div className="row mb-4">
-                                <label className="form-label mt-3">Name: </label>
-                                <input type="text" name="username" value={this.state.username} onChange={this.updateFormField} placeholder="Username" className="form-control"/>
-
-                                <label className="form-label mt-3">Password: </label>
-                                <input type="text" name="password" value={this.state.password} onChange={this.updateFormField} placeholder="Password" className="form-control"/>
+                            <div className="row mb-4 mt-3">
+                                <div className="col-1 user-icon"><FontAwesomeIcon icon={faUser}/></div>
+                                <div className="col-11 mt-1">
+                                    <input type="text" name="username" value={this.state.username} onChange={this.updateFormField} placeholder="Username" className="form-control"/>
+                                </div>
                             </div>
                             <div className="row mb-4">
-                                <div className="row mt-3">
-                                    <button type="button" className="btn btn-secondary btn-lg account-btn" onClick={this.loginUser}>LOGIN
-                                    </button>
+                                <div className="col-1 user-icon"><FontAwesomeIcon icon={faLock}/></div>
+                                <div className="col-11 mt-1">
+                                    <input type="text" name="password" value={this.state.password} onChange={this.updateFormField} placeholder="Password" className="form-control"/>
                                 </div>
+                            </div>
+                            <div className="row login-btn">
+                                <button type="button" className="btn btn-secondary btn-lg account-btn" onClick={this.loginUser}>LOGIN
+                                </button>
                             </div>
                         </div>
                     </div>
