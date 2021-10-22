@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faLock } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faLock, faTimes } from '@fortawesome/free-solid-svg-icons'
 // import axios from 'axios'
 
 export default class Login extends React.Component {
@@ -47,13 +47,23 @@ export default class Login extends React.Component {
                     <div className="modal-content login-background">
                         <div className="modal-header">
                             <h4 className="login-titile">Login to your account</h4>
-                            <button
+                            <div
                                 type="button"
-                                className="btn-close"
+                                className="cross-btn"
                                 data-bs-dismiss="modal"
                                 aria-label="Close"
                                 onClick={this.hideModal}>
-                            </button>
+                                <FontAwesomeIcon icon={faTimes}/>
+                            </div>
+                            {/* <button
+                                // style={{color: "white"}}
+                                type="button"
+                                
+                                // className="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                                onClick={this.hideModal}>
+                            </button> */}
                         </div>
                         <div className="modal-body login-content">
                             <div className="row mt-4">
