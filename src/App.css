@@ -163,11 +163,19 @@
   font-weight: bold;
 }
 
-
 .cross-btn {
   color: white;
 }
 
+.login-fail {
+  background-color: rgb(240, 140, 122);
+  font-weight: bolder;
+  font-size: xx-large;
+  text-align: center;
+  padding-top: 10px;
+  margin-bottom: 20px;
+  display: none;
+}
 
 .login-content {
   margin-left: 35px;

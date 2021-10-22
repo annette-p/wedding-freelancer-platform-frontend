@@ -41,17 +41,13 @@ export default class Login extends React.Component {
                                 aria-label="Close">
                                 <FontAwesomeIcon icon={faTimes} onClick={this.props.hideLogin}/>
                             </div>
-                            {/* <button
-                                type="button"
-                                className="btn-close"
-                                data-bs-dismiss="modal"
-                                aria-label="Close"
-                                onClick={this.hideLogin}>
-                            </button> */}
                         </div>
                         <div className="modal-body login-content">
                             <div className="row mt-4">
                                 <img src={require('../images/logo/logo.png').default} className="logo-login" alt="logo"/>
+                            </div>
+                            <div className="row mt-4 login-fail">
+                                <p>Login Failed</p>
                             </div>
                             <div className="row mb-4 mt-3">
                                 <div className="col-1 user-icon"><FontAwesomeIcon icon={faUser}/></div>
