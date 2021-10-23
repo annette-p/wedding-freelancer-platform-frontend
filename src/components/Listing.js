@@ -27,6 +27,15 @@ export default class Listing extends React.Component {
         })
     }
 
+    // to run when there's change in state or props (with specfic condition state to perform update)
+    // ref: https://reactjs.org/docs/react-component.html#componentdidupdate
+    async componentDidUpdate(prevProps, prevState) {
+        // state the condition to activate the update of componentDidUpdate
+        if (prevState.activeFreelancer._id !== this.state.activeFreelancer._id) {
+            await this.fetchData();
+        }
+    }
+
     fetchData = async () => {
         let responseFreelancer = await axios.get(this.apiUrl + "/freelancers");
         let freelancers = responseFreelancer.data;

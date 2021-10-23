@@ -57,6 +57,7 @@ export default class GiveReviewModal extends React.Component {
 
         // perform validation on the form first
         if (this.validateForm ()) {
+            // then process the form when all validation is done
             let newReviewData = {
                 reviewerName: this.state.newReviewerName,
                 email: this.state.newReviewerEmail,
