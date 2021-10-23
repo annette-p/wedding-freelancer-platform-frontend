@@ -269,15 +269,15 @@ export default class RegisterForm extends React.Component {
                                     <label className="form-label register-form-headline">Social Media:</label>
                                     <div>
                                         <label className="form-label">Facebook:</label>
-                                        <input type="text" name="facebook" value={this.state.facebook} onChange={this.updateFormField} placeholder="paste URL here" className="media-field ms-2"/>
+                                        <input type="text" name="facebook" value={this.state.facebook} onChange={this.updateFormField} placeholder="Facebook URL" className="media-field ms-2"/>
                                     </div>
                                     <div>
                                         <label className="form-label">Instagram:</label>
-                                        <input type="text" name="instagram" value={this.state.instagram} onChange={this.updateFormField} placeholder="paste URL here" className="media-field"/>
+                                        <input type="text" name="instagram" value={this.state.instagram} onChange={this.updateFormField} placeholder="Instagram URL" className="media-field"/>
                                     </div>
                                     <div>
                                         <label className="form-label">Tiktok:</label>
-                                        <input type="text" name="tiktok" value={this.state.tiktok} onChange={this.updateFormField} placeholder="paste URL here" className="media-field tiktok"/>
+                                        <input type="text" name="tiktok" value={this.state.tiktok} onChange={this.updateFormField} placeholder="Tiktok URL" className="media-field tiktok"/>
                                     </div>
                                 </div>
                                 {/* Contact */}
@@ -285,15 +285,15 @@ export default class RegisterForm extends React.Component {
                                     <label className="form-label register-form-headline">Contact:</label>
                                     <div>
                                         <label className="form-label">Mobile:</label>
-                                        <input type="text" name="mobile" value={this.state.mobile} onChange={this.updateFormField} placeholder="paste URL here" className="media-field mobile"/>
+                                        <input type="text" name="mobile" value={this.state.mobile} onChange={this.updateFormField} placeholder="mobile number" className="media-field mobile"/>
                                     </div>
                                     <div>
                                         <label className="form-label">Email:</label>
-                                        <input type="text" name="email" value={this.state.email} onChange={this.updateFormField} placeholder="paste URL here" className="media-field email"/>
+                                        <input type="text" name="email" value={this.state.email} onChange={this.updateFormField} placeholder="email address" className="media-field email"/>
                                     </div>
                                     <div>
                                         <label className="form-label">Website:</label>
-                                        <input type="text" name="web" value={this.state.website} onChange={this.updateFormField} placeholder="paste URL here" className="media-field web"/>
+                                        <input type="text" name="web" value={this.state.website} onChange={this.updateFormField} placeholder="website URL" className="media-field web"/>
                                     </div>
                                 </div>
                             </div>
@@ -301,17 +301,17 @@ export default class RegisterForm extends React.Component {
                                 {/* profile Image */}
                                 <div className="col">
                                     <label className="form-label register-form-headline">Upload your profile image:</label>
-                                    <input type="text" name="profileImage" value={this.state.profileImage} onChange={this.updateFormField} placeholder="paste your image URL here" className="form-control"/>
+                                    <input type="text" name="profileImage" value={this.state.profileImage} onChange={this.updateFormField} placeholder="image URL (portrait orientation image)" className="form-control"/>
                                     <div className="preview profile-img-preview" style={this.getImage("profileImage")}>
-                                        <p>{this.state.profileImage === "" ? "preview image" : ""}</p>
+                                        <p className="img-discription">{this.state.profileImage === "" ? "Preview image": ""}</p>
                                     </div>
                                 </div>
                                 {/* showCase */}
                                 <div className="col">
                                     <label className="form-label register-form-headline">Upload your show case:</label>
-                                    <input type="text" name="showCase" value={this.state.showCase} onChange={this.updateFormField} placeholder="paste the image/VDO URL to be displayed on your profile first page" className="form-control"/>
+                                    <input type="text" name="showCase" value={this.state.showCase} onChange={this.updateFormField} placeholder="image/VDO URL (landscape orientation image) to display on profile first page" className="form-control"/>
                                     <div className="preview" style={this.getImage("showCase")}>
-                                        <p>{this.state.showCase === "" ? "preview image" : ""}</p>
+                                        <p className="img-discription">{this.state.showCase === "" ? "Preview image" : ""}</p>
                                     </div>
                                 </div>
                             </div>
@@ -323,7 +323,7 @@ export default class RegisterForm extends React.Component {
                                     <label className="form-label portfolio-number">Portfolio 1</label>
                                     <div>
                                         <label className="form-label">Title:</label>
-                                        <input type="text" name="title" value={this.state.portfolios[0].title} onChange={(e) => this.updatePortfolio(0, e)} className="form-control portfolio-title" placeholder="enter your portfolio title"/>
+                                        <input type="text" name="title" value={this.state.portfolios[0].title} onChange={(e) => this.updatePortfolio(0, e)} className="form-control portfolio-title" placeholder="portfolio title"/>
                                     </div>
                                     <div>
                                         <label className="form-label">Description:</label>
@@ -331,10 +331,10 @@ export default class RegisterForm extends React.Component {
                                     </div>
                                     <div>
                                         <label className="form-label">url:</label>
-                                        <input type="text" name="url" value={this.state.portfolios[0].url} onChange={(e) => this.updatePortfolio(0, e)} placeholder="paste your portfolio image URL here" className="form-control"/>
+                                        <input type="text" name="url" value={this.state.portfolios[0].url} onChange={(e) => this.updatePortfolio(0, e)} placeholder="image URL (landscape orientation image)" className="form-control"/>
                                     </div>
                                     <div className="preview portfolio-preview" style={this.getPortfolioImage(0)}>
-                                        <p>{this.state.portfolios[0].url === "" ? "preview image" : ""}</p>
+                                        <p className="img-discription">{this.state.portfolios[0].url === "" ? "Preview image" : ""}</p>
                                     </div>
                                 </div>
                                 {/* Portfolio 2 */}
@@ -342,7 +342,7 @@ export default class RegisterForm extends React.Component {
                                     <label className="form-label portfolio-number">Portfolio 2</label>
                                     <div>
                                         <label className="form-label">Title:</label>
-                                        <input type="text" name="title" value={this.state.portfolios[1].title} onChange={(e) => this.updatePortfolio(1, e)} className="form-control portfolio-title" placeholder="enter your portfolio title"/>
+                                        <input type="text" name="title" value={this.state.portfolios[1].title} onChange={(e) => this.updatePortfolio(1, e)} className="form-control portfolio-title" placeholder="portfolio title"/>
                                     </div>
                                     <div>
                                         <label className="form-label">Description:</label>
@@ -350,10 +350,10 @@ export default class RegisterForm extends React.Component {
                                     </div>
                                     <div>
                                         <label className="form-label">url:</label>
-                                        <input type="text" name="url" value={this.state.portfolios[1].url} onChange={(e) => this.updatePortfolio(1, e)} placeholder="paste your portfolio image URL here" className="form-control"/>
+                                        <input type="text" name="url" value={this.state.portfolios[1].url} onChange={(e) => this.updatePortfolio(1, e)} placeholder="image URL (landscape orientation image)" className="form-control"/>
                                     </div>
                                     <div className="preview portfolio-preview" style={this.getPortfolioImage(1)}>
-                                        <p>{this.state.portfolios[1].url === "" ? "preview image" : ""}</p>
+                                        <p className="img-discription">{this.state.portfolios[1].url === "" ? "Preview image" : ""}</p>
                                     </div>
                                 </div>
                                 {/* Portfolio 3 */}
@@ -361,7 +361,7 @@ export default class RegisterForm extends React.Component {
                                     <label className="form-label portfolio-number">Portfolio 3</label>
                                     <div>
                                         <label className="form-label">Title:</label>
-                                        <input type="text" name="title" value={this.state.portfolios[2].title} onChange={(e) => this.updatePortfolio(2, e)} className="form-control portfolio-title" placeholder="enter your portfolio title"/>
+                                        <input type="text" name="title" value={this.state.portfolios[2].title} onChange={(e) => this.updatePortfolio(2, e)} className="form-control portfolio-title" placeholder="portfolio title"/>
                                     </div>
                                     <div>
                                         <label className="form-label">Description:</label>
@@ -369,10 +369,10 @@ export default class RegisterForm extends React.Component {
                                     </div>
                                     <div>
                                         <label className="form-label">url:</label>
-                                        <input type="text" name="url" value={this.state.portfolios[2].url} onChange={(e) => this.updatePortfolio(2, e)} placeholder="paste your portfolio image URL here" className="form-control"/>
+                                        <input type="text" name="url" value={this.state.portfolios[2].url} onChange={(e) => this.updatePortfolio(2, e)} placeholder="image URL (landscape orientation image)" className="form-control"/>
                                     </div>
                                     <div className="preview portfolio-preview" style={this.getPortfolioImage(2)}>
-                                        <p>{this.state.portfolios[2].url === "" ? "preview image" : ""}</p>
+                                        <p className="img-discription">{this.state.portfolios[2].url === "" ? "Preview image" : ""}</p>
                                     </div>
                                 </div>
                             </div>
