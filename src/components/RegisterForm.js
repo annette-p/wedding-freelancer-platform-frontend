@@ -7,6 +7,7 @@ export default class RegisterForm extends React.Component {
     state = {
         open: false,
         showRegistration: true,
+        errors: {},
         username: "",
         password: "",
         confirmPassword: "",
@@ -29,14 +30,6 @@ export default class RegisterForm extends React.Component {
             {title: "", description: "", url: ""}, 
             {title: "", description: "", url: ""} 
         ]
-        
-        // specializations: {
-        //     prewedding: "pre-wedding",
-        //     rom: "wedding day / ROM",
-        //     bridal: "bridal makeup",
-        //     fancy: "fancy makeup",
-        //     natural: "natural glow makeup",
-        // }
     }
 
     // set Collapse
@@ -95,64 +88,143 @@ export default class RegisterForm extends React.Component {
         return {backgroundImage: `url("${this.state[key]}")`}
     }
 
-    // to update URL of new API ******
-    addFreelancer = async () => {
-        let newFreelancerData = {
-            "type": this.state.type,
-            "specialized": this.state.specialized,  
-            "rate": this.state.rate,
-            "rateUnit": this.state.rateUnit,
-            "name": this.state.name,
-            "profileImage": this.state.profileImage,
-            "socialMedia": {
-                "facebook": this.state.facebook,
-                "instagram": this.state.instagram,
-                "tiktok": this.state.tiktok
-            },
-            "contact": {
-                "mobile": this.state.mobile,
-                "email": this.state.email,
-                "website": this.state.website
-            },
-            "bio": this.state.bio,
-            "showCase": this.state.showCase,
-            "portfolios": this.state.portfolios
+    // React Form Validations / https://allegra9.medium.com/react-form-validations-286590d26b6f
+    validateForm = () => {
+        let errors = {}
+        let formIsValid = true
+
+        if (!this.state.name) {
+            formIsValid = false
+            errors["name"] = "Please enter your name"
         }
 
-        // if there's registration
-        if (this.state.showRegistration) {
-            newFreelancerData.username = this.state.username
-            newFreelancerData.password = this.state.password
+        if (!this.state.type) {
+            formIsValid = false
+            errors["type"] = "Please select your profession"
         }
-        console.log(newFreelancerData)
 
-        await axios.post(this.apiUrl + '/freelancer', newFreelancerData)
-        .then( (result) => {
-            console.log("success", result.data)
+        if (this.state.specialized.length === 0) {
+            formIsValid = false
+            errors["specialized"] = "Please select at least 1 specialization"
+        }
 
-            // this is not working.. error: afterAddNewFreelancer is not a function
-            this.props.afterAddNewFreelancer()
-        })
-        .catch( (error) => {
+        if (this.state.specialized.length > 3) {
+            formIsValid = false
+            errors["specialized"] = "Only maximum 3 specialization are allowed"
+        }
 
-            // to improve error handling
-            if (error.response){
+        if (!this.state.rate || isNaN(this.state.rate)) {
+            formIsValid = false
+            errors["rate"] = "Please enter rate of your service"
+        }
 
-                //do something
-                console.error('error.response: ', error.response)
-            
-            } else if (error.request){
-            
-                //do something else
-                console.error('error.request: ', error.request)
-            
-            } else if (error.message){
-            
-                //do something other than the other two
-                console.error('error.message: ', error.message)
-            
+        if (!this.state.bio) {
+            formIsValid = false
+            errors["bio"] = "Please describe your bio"
+        }
+
+        if (!this.state.email) {
+            formIsValid = false
+            errors["email"] = "Please enter email address"
+        }
+
+        if (!this.state.showCase) {
+            formIsValid = false
+            errors["showCase"] = "Please provide image URL to be displayed on your profile first page"
+        }
+
+        if (!this.state.facebook && !this.state.instagram && !this.state.tiktok) {
+            formIsValid = false
+            errors["socialMedia"] = "Please provide at least 1 social media"
+        }
+
+        let numPortfolios = 0
+        this.state.portfolios.map( (portfolio) => {
+            if (portfolio.title && portfolio.title.trim().length > 0 && 
+                portfolio.description && portfolio.description.trim().length > 0 &&
+                portfolio.url && portfolio.url.trim().length > 0) {
+                
+                numPortfolios = numPortfolios + 1
+                
             }
+            return portfolio
         })
+
+        if (numPortfolios === 0) {
+            formIsValid = false
+            errors["portfolios"] = "Please provide at least 1 portfolio"
+        }
+
+
+        this.setState({errors})
+
+        return formIsValid
+ 
+    }
+
+    
+    addFreelancer = async () => {
+        // perform validation on the form first
+        if (this.validateForm ()) {
+            // then process the form when all validation is done
+            let newFreelancerData = {
+                "type": this.state.type,
+                "specialized": this.state.specialized,  
+                "rate": this.state.rate,
+                "rateUnit": this.state.rateUnit,
+                "name": this.state.name,
+                "profileImage": this.state.profileImage,
+                "socialMedia": {
+                    "facebook": this.state.facebook,
+                    "instagram": this.state.instagram,
+                    "tiktok": this.state.tiktok
+                },
+                "contact": {
+                    "mobile": this.state.mobile,
+                    "email": this.state.email,
+                    "website": this.state.website
+                },
+                "bio": this.state.bio,
+                "showCase": this.state.showCase,
+                "portfolios": this.state.portfolios
+            }
+    
+            // if there's registration
+            if (this.state.showRegistration) {
+                newFreelancerData.username = this.state.username
+                newFreelancerData.password = this.state.password
+            }
+            console.log(newFreelancerData)
+    
+            await axios.post(this.apiUrl + '/freelancer', newFreelancerData)
+            .then( (result) => {
+                console.log("success", result.data)
+    
+                // this is not working.. error: afterAddNewFreelancer is not a function
+                this.props.afterAddNewFreelancer()
+            })
+            .catch( (error) => {
+    
+                // to improve error handling
+                if (error.response){
+    
+                    //do something
+                    console.error('error.response: ', error.response)
+                
+                } else if (error.request){
+                
+                    //do something else
+                    console.error('error.request: ', error.request)
+                
+                } else if (error.message){
+                
+                    //do something other than the other two
+                    console.error('error.message: ', error.message)
+                
+                }
+            })
+
+        }  
 
     }
 
@@ -221,6 +293,7 @@ export default class RegisterForm extends React.Component {
                                 <div className="col">
                                     <label className="form-label register-form-headline">Name:</label>
                                     <input type="text" name="name" value={this.state.name} onChange={this.updateFormField} className="form-control"/>
+                                    <div className="error-msg">{this.state.errors.name}</div>
                                 </div>
                                 {/* Profession */}
                                 <div className="col profession-session">
@@ -230,6 +303,7 @@ export default class RegisterForm extends React.Component {
                                         <input className="ms-3" type="radio" name="type" value="videographer" onChange={this.updateFormField} checked={this.state.type === "videographer"}/><span className="ms-2">Videographer</span>
                                         <input className="ms-3" type="radio" name="type" value="makeup-artist" onChange={this.updateFormField} checked={this.state.type === "makeup-artist"}/><span className="ms-2">Makeup-artist</span>
                                     </div>
+                                    <div className="error-msg">{this.state.errors.type}</div>
                                 </div>
                             </div>
                             {/* Specialization */}
@@ -244,6 +318,7 @@ export default class RegisterForm extends React.Component {
                                     <input className="ms-3" type="checkbox" name="specialized" value="fancy makeup" onChange={this.updateSpecialization}/><span className="ms-2">Fancy makeup</span>
                                     <input className="ms-3" type="checkbox" name="specialized" value="natural glow makeup" onChange={this.updateSpecialization}/><span className="ms-2">Natural glow makeup</span>
                                 </div>
+                                <div className="error-msg">{this.state.errors.specialized}</div>
                             </div>
                             {/* Rate */}
                             <div className="row register-text">
@@ -255,6 +330,7 @@ export default class RegisterForm extends React.Component {
                                         <option value="session">session</option>
                                     </select>
                                 </div>
+                                <div className="error-msg">{this.state.errors.rate}</div>
                             </div>
                             {/* Bio */}
                             <div className="row register-text">
@@ -262,6 +338,7 @@ export default class RegisterForm extends React.Component {
                                     <label className="form-label register-form-headline">Bio:</label>
                                     <input type="text" name="bio" value={this.state.bio} onChange={this.updateFormField} placeholder="Describe about past experience and overall profile" className="form-control bio-box"/>
                                 </div>
+                                <div className="error-msg">{this.state.errors.bio}</div>
                             </div>
                             <div className="row register-text">
                                 {/* Social Media */}
@@ -279,6 +356,7 @@ export default class RegisterForm extends React.Component {
                                         <label className="form-label">Tiktok:</label>
                                         <input type="text" name="tiktok" value={this.state.tiktok} onChange={this.updateFormField} placeholder="Tiktok URL" className="media-field tiktok"/>
                                     </div>
+                                    <div className="error-msg">{this.state.errors.socialMedia}</div>
                                 </div>
                                 {/* Contact */}
                                 <div className="col">
@@ -295,6 +373,7 @@ export default class RegisterForm extends React.Component {
                                         <label className="form-label">Website:</label>
                                         <input type="text" name="web" value={this.state.website} onChange={this.updateFormField} placeholder="website URL" className="media-field web"/>
                                     </div>
+                                    <div className="error-msg">{this.state.errors.email}</div>
                                 </div>
                             </div>
                             <div className="row register-text">
@@ -310,6 +389,7 @@ export default class RegisterForm extends React.Component {
                                 <div className="col">
                                     <label className="form-label register-form-headline">Upload your show case:</label>
                                     <input type="text" name="showCase" value={this.state.showCase} onChange={this.updateFormField} placeholder="image/VDO URL (portrait orientation image) to display on profile first page" className="form-control"/>
+                                    <div className="error-msg">{this.state.errors.showCase}</div>
                                     <div className="preview" style={this.getImage("showCase")}>
                                         <p className="img-discription">{this.state.showCase === "" ? "Preview image" : ""}</p>
                                     </div>
@@ -375,6 +455,7 @@ export default class RegisterForm extends React.Component {
                                         <p className="img-discription">{this.state.portfolios[2].url === "" ? "Preview image" : ""}</p>
                                     </div>
                                 </div>
+                                <div className="error-msg-portfolio">{this.state.errors.portfolios}</div>
                             </div>
                         </div>
                         {/* ........... submit buttons ........... */}

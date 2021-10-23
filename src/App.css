@@ -234,7 +234,7 @@
     margin-bottom: 15px;
   }
 
-  /* .....style for Register form page..... */
+  /* .....style for Profile Register form page..... */
 
   .register-description {
     font-style: italic;
@@ -351,6 +351,12 @@
     background-color: rgb(221, 169, 178);
     color: black;
     font-weight: bold;
+  }
+
+  .error-msg-portfolio {
+    text-align: center;
+    color: red;
+    padding-top: 15px;
   }
 
   /* .....END of style for Register form page..... */
