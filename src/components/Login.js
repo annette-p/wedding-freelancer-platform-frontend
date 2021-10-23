@@ -120,7 +120,8 @@ export default class Login extends React.Component {
                             <div className="row mb-4">
                                 <div className="col-1 user-icon"><FontAwesomeIcon icon={faLock}/></div>
                                 <div className="col-11 mt-1">
-                                    <input type="text" name="password" value={this.state.password} onChange={this.updateFormField} placeholder="Password" className="form-control"/>
+                                    {/* ref: https://www.geeksforgeeks.org/how-to-show-and-hide-password-in-reactjs/ */}
+                                    <input type="password" name="password" value={this.state.password} onChange={this.updateFormField} placeholder="Password" className="form-control"/>
                                 </div>
                             </div>
                             {/* button */}
@@ -132,11 +133,7 @@ export default class Login extends React.Component {
                     </div>
                 </div>
             </div>
-        </React.Fragment>
-
-
-
-            
+        </React.Fragment>      
         )
     }
 }
