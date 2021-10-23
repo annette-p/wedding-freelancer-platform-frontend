@@ -17,6 +17,8 @@ export default class WeddingFreelancerPlatform extends React.Component {
         })
     }
 
+    /*............. to handle Login authentication .............*/ 
+
     hideLogin = () => {
         this.setState({
             showLoginModal: false
@@ -62,12 +64,24 @@ export default class WeddingFreelancerPlatform extends React.Component {
         }
     }
 
+    /*............. to handle new Freelancer Submission .............*/ 
+
+    addNewFreelancer = () => {
+        this.setState({
+            active: "listing"
+        })
+    }
+
+    /*............. end of to handle new Freelancer Submission .............*/ 
+
+
+    
     // set condtional rending of the page as per the current active page
     renderContent() {
         if (this.state.active === "listing") {
             return <Listing/>
         } else if (this.state.active === "register") {
-            return <RegisterForm/>
+            return <RegisterForm afterAddNewFreelancer={this.addNewFreelancer}/>
         }
     }
     

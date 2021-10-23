@@ -5,12 +5,10 @@ import { faStar, faCommentDots } from '@fortawesome/free-solid-svg-icons'
 import { faFacebookF, faInstagram, faTiktok } from "@fortawesome/free-brands-svg-icons"
 import ViewProfileModal from "./ViewProfileModal"
 import GiveReviewModal from "./GiveReviewModal"
-import RegisterForm from './RegisterForm'
 
 export default class Listing extends React.Component {
     apiUrl = process.env.REACT_APP_BACKEND_API
     state = {
-        active: "listing",
         freelancer: [],
         loading:false,
         review: [],
@@ -168,26 +166,6 @@ export default class Listing extends React.Component {
 
     /*............. end of to handle Review Submission  .............*/ 
 
-
-
-
-    /*............. to handle new Freelancer Submission .............*/ 
-
-    addNewFreelancer = () => {
-        this.setState({
-            active: "listing"
-        })
-    }
-
-    renderContent() {
-        if (this.state.active === "listing") {
-            return <Listing/>
-        } else if (this.state.active === "RegisterForm") {
-            return <RegisterForm afterAddNewFreelancer={this.addNewFreelancer}/>
-        }
-    }
-
-    /*............. end of to handle new Freelancer Submission .............*/ 
 
     render() {
         return (

@@ -205,11 +205,11 @@ export default class RegisterForm extends React.Component {
                                 </div>
                                 <div className="col">
                                     <label className="form-label register-form-headline">Password:</label>
-                                    <input type="text" name="password" value={this.state.password} onChange={this.updateFormField} className="form-control"/>
+                                    <input type="password" name="password" value={this.state.password} onChange={this.updateFormField} className="form-control"/>
                                 </div>
                                 <div className="col">
                                     <label className="form-label register-form-headline">Confirm Password:</label>
-                                    <input type="text" name="confirmPassword" value={this.state.confirmPassword} onChange={this.updateFormField} className="form-control"/>
+                                    <input type="password" name="confirmPassword" value={this.state.confirmPassword} onChange={this.updateFormField} className="form-control"/>
                                 </div>
                             </div>
                         </div>
