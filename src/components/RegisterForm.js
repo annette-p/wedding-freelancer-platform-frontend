@@ -93,6 +93,28 @@ export default class RegisterForm extends React.Component {
         let errors = {}
         let formIsValid = true
 
+        if (this.state.showRegistration === true) {
+            if (!this.state.username) {
+                formIsValid = false
+                errors["username"] = "Please enter your prefered username"
+            }
+
+            if (!this.state.password) {
+                formIsValid = false
+                errors["password"] = "Please enter your prefered password"
+            }
+
+            if (!this.state.confirmPassword) {
+                formIsValid = false
+                errors["confirmPassword"] = "Please enter your prefered password again"
+            }
+
+            if (this.state.confirmPassword !== this.state.password) {
+                formIsValid = false
+                errors["confirmPassword"] = "Password mismatch. Please make sure the same password"
+            }
+        }
+
         if (!this.state.name) {
             formIsValid = false
             errors["name"] = "Please enter your name"
@@ -274,14 +296,17 @@ export default class RegisterForm extends React.Component {
                                 <div className="col">
                                     <label className="form-label register-form-headline">User Name:</label>
                                     <input type="text" name="username" value={this.state.username} onChange={this.updateFormField} className="form-control"/>
+                                    <div className="error-msg">{this.state.errors.username}</div>
                                 </div>
                                 <div className="col">
                                     <label className="form-label register-form-headline">Password:</label>
                                     <input type="password" name="password" value={this.state.password} onChange={this.updateFormField} className="form-control"/>
+                                    <div className="error-msg">{this.state.errors.password}</div>
                                 </div>
                                 <div className="col">
                                     <label className="form-label register-form-headline">Confirm Password:</label>
                                     <input type="password" name="confirmPassword" value={this.state.confirmPassword} onChange={this.updateFormField} className="form-control"/>
+                                    <div className="error-msg">{this.state.errors.confirmPassword}</div>
                                 </div>
                             </div>
                         </div>
