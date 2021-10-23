@@ -309,7 +309,7 @@ export default class RegisterForm extends React.Component {
                                 {/* showCase */}
                                 <div className="col">
                                     <label className="form-label register-form-headline">Upload your show case:</label>
-                                    <input type="text" name="showCase" value={this.state.showCase} onChange={this.updateFormField} placeholder="image/VDO URL (landscape orientation image) to display on profile first page" className="form-control"/>
+                                    <input type="text" name="showCase" value={this.state.showCase} onChange={this.updateFormField} placeholder="image/VDO URL (portrait orientation image) to display on profile first page" className="form-control"/>
                                     <div className="preview" style={this.getImage("showCase")}>
                                         <p className="img-discription">{this.state.showCase === "" ? "Preview image" : ""}</p>
                                     </div>

@@ -12,11 +12,6 @@ export default class Listing extends React.Component {
         freelancer: [],
         loading:false,
         review: [],
-        newReviewerName: "",
-        newReviewerEmail: "",
-        newComment: "",
-        newRating: "0",
-        newRecommend: true,
         activeFreelancer: {},
         displayModalBox: false,
         activeModalBox: ""      // which modal box to display when 'displayModalBox' is true
@@ -91,14 +86,7 @@ export default class Listing extends React.Component {
             } else if (this.state.activeModalBox === "give_review") {
                 return <GiveReviewModal 
                     freelancer={eachFreelancer} 
-                    newReviewerName={this.state.newReviewerName} 
-                    newReviewerEmail={this.state.newReviewerEmail}
-                    newComment={this.state.newComment}
-                    newRating={this.state.newRating}
-                    newRecommend={this.state.newRecommend}
                     hideModal={this.hideModal} 
-                    updateField={this.updateReviewForm}  
-                    addReview={this.processAddReview}
                 />
             }
             else {
@@ -109,63 +97,6 @@ export default class Listing extends React.Component {
         }
     }
     /*............. end of to handle Model function .............*/ 
-
-
-
-
-    /*............. to handle Review Submission .............*/ 
-    updateReviewForm = (evt) => {
-        this.setState({
-            [evt.target.name]: evt.target.value
-        })
-    }
-
-    // to remove this block of code and use the code below >> to post to API
-    processAddReview = () => {
-        // clone the original review array / make changes to the clone / replace the original with clone
-        this.setState({
-            'review': [...this.state.review, {
-                '_id': Math.floor(Math.random() * 1000 + 9999),  // to remove wen use Mongo
-                reviewer: {
-                    name: this.state.newReviewerName,
-                    email: this.state.newReviewerEmail
-                },
-                description: this.state.newComment,
-                rating: parseInt(this.state.newRating),
-                recommend: this.state.newRecommend,
-                for: this.state.activeFreelancer._id
-            }],
-            displayModalBox: false,
-            activeFreelancer: {}
-        })
-        
-    }
-
-    // to add this block of code instead >> to post to API  
-    /*
-    processAddReview = async () => {
-        await axios.post(`${this.url}/freelancer/${this.state.activeFreelancer._id}/review`, {
-            "data": {
-                reviewer: {
-                    name: this.state.newReviewerName,
-                    email: this.state.newReviewerEmail
-                },
-                description: this.state.newComment,
-                rating: parseInt(this.state.newRating),
-                recommend: this.state.newRecommend,
-                for: this.state.activeFreelancer._id  // may have to remove this line
-            }
-        }).then( (res) => {
-            this.setState({
-                displayModalBox: false,
-                activeFreelancer: {}
-            })
-        })
-    } 
-    */
-
-    /*............. end of to handle Review Submission  .............*/ 
-
 
     render() {
         return (
