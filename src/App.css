@@ -130,6 +130,10 @@
   height: 100px;
 }
 
+.error-msg {
+  color: red;
+}
+
 /* .....style for login page..... */
 
 .logo-login {
