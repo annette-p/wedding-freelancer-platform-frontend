@@ -87,7 +87,7 @@ export default class EditProfileForm extends React.Component {
     }
 
     
-    /* ............. related functions to process each section tab  ............. */ 
+    /* ............. related functions to process each account section tab  ............. */ 
 
     displayAccountDetails() {
         if (this.state.activeDisplay === "account-details") {
@@ -211,8 +211,8 @@ export default class EditProfileForm extends React.Component {
                     </div>
                     {/* showCase */}
                     <div className="mt-3">
-                        <label className="form-label register-form-headline">Upload your show case:</label>
-                        <input type="text" name="showCase" value={this.state.showCase} onChange={this.updateFormField} placeholder="image/VDO URL (portrait orientation image) to display on profile first page" className="form-control"/>
+                        <label className="form-label register-form-headline">Upload your showcase <span className="side-note">(to display on profile first page)</span>:</label>
+                        <input type="text" name="showCase" value={this.state.showCase} onChange={this.updateFormField} placeholder="image/VDO URL (portrait orientation image)" className="form-control"/>
                         <div className="error-msg">{this.state.errors.showCase}</div>
                         <div className="preview" style={this.getImage("showCase")}>
                             <p className="img-discription">{this.state.showCase === "" ? "Preview image" : ""}</p>
@@ -296,7 +296,7 @@ export default class EditProfileForm extends React.Component {
         }
     }
 
-    /* ............. related functions to process each section tab  ............. */ 
+    /* ............. related functions to process value for each key ............. */ 
 
 
     updateFormField = (e) => {
