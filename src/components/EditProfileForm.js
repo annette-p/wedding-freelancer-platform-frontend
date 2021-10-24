@@ -6,6 +6,7 @@ export default class EditProfileForm extends React.Component {
     state = {
         activeDisplay: "account-details",
         loading: false,
+        updateCompleted: false,
         errors: {},
         "_id": "",
         username: "",
@@ -413,6 +414,7 @@ export default class EditProfileForm extends React.Component {
 
     // save changes to DB
     updateProfile = async () => {
+        let updateCompleted = false
         if (this.validateForm()) {
             // then process the form when all validation is done
             let updatedFreelancerData = {
@@ -448,7 +450,7 @@ export default class EditProfileForm extends React.Component {
                 // update session with latest freelancer info
                 sessionStorage.setItem("authenticatedUser", JSON.stringify(latestFreelancerInfo.data))
                 
-                this.props.afterUpdateFreelancerProfile()
+                updateCompleted = true
             })
             .catch( (error) => {
     
@@ -470,6 +472,18 @@ export default class EditProfileForm extends React.Component {
                 
                 }
             })
+        }
+
+        this.setState({
+            "updateCompleted": updateCompleted
+        })
+    }
+
+    // save changes to DB and close
+    updateProfileAndClose = async () => {
+        await this.updateProfile()
+        if (this.state.updateCompleted) {
+            this.props.afterUpdateFreelancerProfile();
         }
     }
 
@@ -502,9 +516,17 @@ export default class EditProfileForm extends React.Component {
                     {this.displayPortfolio()}
                     {/* ........... submit buttons ........... */}
                     <div className="account-creation-form">
-                        <div className="d-grid gap-2 account-creation-button mb-2">
+                    <div className="d-grid gap-2 account-creation-button mb-2">
                             <button 
                                 onClick={this.updateProfile}
+                                className="btn btn-secondary btn-lg account-btn" 
+                                type="button">
+                                    Update
+                            </button>
+                        </div>
+                        <div className="d-grid gap-2 account-creation-button mb-2">
+                            <button 
+                                onClick={this.updateProfileAndClose}
                                 className="btn btn-secondary btn-lg account-btn" 
                                 type="button">
                                     Update and Close
