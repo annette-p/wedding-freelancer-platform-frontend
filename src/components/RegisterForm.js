@@ -222,7 +222,6 @@ export default class RegisterForm extends React.Component {
             .then( (result) => {
                 console.log("success", result.data)
     
-                // this is not working.. error: afterAddNewFreelancer is not a function
                 this.props.afterAddNewFreelancer()
             })
             .catch( (error) => {

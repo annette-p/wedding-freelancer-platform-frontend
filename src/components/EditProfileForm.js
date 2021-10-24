@@ -1,10 +1,13 @@
 import React from 'react'
-// import axios from 'axios'
+import axios from 'axios'
 
 export default class EditProfileForm extends React.Component {
+    apiUrl = process.env.REACT_APP_BACKEND_API
     state = {
         activeDisplay: "account-details",
+        loading: false,
         errors: {},
+        "_id": "",
         username: "",
         password: "",
         confirmPassword: "",
@@ -29,17 +32,61 @@ export default class EditProfileForm extends React.Component {
         ]
     }
 
-    updateFormField = (e) => {
+    async componentDidMount() {
         this.setState({
-            [e.target.name] : e.target.value
+            loading: true
+        })
+        this.fetchData();
+        this.setState({
+            loading: false
         })
     }
 
-    setActiveDisplay(activeDisplay) {
-        // this.setState({
-        //     "activeDisplay": activeDisplay
-        // })
+    fetchData() {
+        let freelancer = JSON.parse(sessionStorage.getItem("authenticatedUser"))
+
+        if (freelancer !== null) {
+
+            // to retrieve portfolio first and massage data (array) first
+            let freelancerPortfolio = [ ...this.state.portfolios ]
+            for (let i=0; i < freelancer.portfolios.length; i++) {
+                freelancerPortfolio[i] = freelancer.portfolios[i]
+            }
+
+            this.setState({
+                "_id": freelancer._id,
+                "name": freelancer.name,
+                "type": freelancer.type,
+                "specialized":  freelancer.specialized,
+                "rate": freelancer.rate.toString(),
+                "rateUnit": freelancer.rateUnit,
+                "bio": freelancer.bio,
+                "facebook": freelancer.socialMedia.facebook,
+                "instagram": freelancer.socialMedia.instagram,
+                "tiktok": freelancer.socialMedia.tiktok,
+                "mobile": freelancer.contact.mobile,
+                "email": freelancer.contact.email,
+                "website": freelancer.contact.website,
+                "profileImage": freelancer.profileImage,
+                "showCase": freelancer.showCase,
+                "portfolios": freelancerPortfolio
+            })
+        }
+        
     }
+
+    
+    setActiveDisplay(activeDisplay) {
+        // validate before switch to different tab
+        if (this.validateForm()) {
+            this.setState({
+                "activeDisplay": activeDisplay
+            })
+        }
+    }
+
+    
+    /* ............. related functions to process each section tab  ............. */ 
 
     displayAccountDetails() {
         if (this.state.activeDisplay === "account-details") {
@@ -66,13 +113,13 @@ export default class EditProfileForm extends React.Component {
                     <div className="mt-4">
                         <label className="form-label register-form-headline">Specialization <span className="side-note">(only 3 list will be displayed)</span> :</label>
                         <div className="col">
-                            <input type="checkbox" name="specialized" value="photography" onChange={this.updateSpecialization}/><span className="ms-2">Photography</span>
-                            <input className="ms-3" type="checkbox" name="specialized" value="videography" onChange={this.updateSpecialization}/><span className="ms-2">Videography</span>
-                            <input className="ms-3" type="checkbox" name="specialized" value="pre-wedding" onChange={this.updateSpecialization}/><span className="ms-2">Pre-wedding</span>
-                            <input className="ms-3" type="checkbox" name="specialized" value="Wedding day /ROM" onChange={this.updateSpecialization}/><span className="ms-2">Wedding day / ROM</span>
-                            <input className="ms-3" type="checkbox" name="specialized" value="bridal makeup" onChange={this.updateSpecialization}/><span className="ms-2">Bridal makeup</span>
-                            <input className="ms-3" type="checkbox" name="specialized" value="fancy makeup" onChange={this.updateSpecialization}/><span className="ms-2">Fancy makeup</span>
-                            <input className="ms-3" type="checkbox" name="specialized" value="natural glow makeup" onChange={this.updateSpecialization}/><span className="ms-2">Natural glow makeup</span>
+                            <input type="checkbox" name="specialized" value="photography" checked={this.state.specialized.indexOf("photography") >= 0} onChange={this.updateSpecialization}/><span className="ms-2">Photography</span>
+                            <input className="ms-3" type="checkbox" name="specialized" value="videography" checked={this.state.specialized.indexOf("videography") >= 0} onChange={this.updateSpecialization}/><span className="ms-2">Videography</span>
+                            <input className="ms-3" type="checkbox" name="specialized" value="pre-wedding" checked={this.state.specialized.indexOf("pre-wedding") >= 0} onChange={this.updateSpecialization}/><span className="ms-2">Pre-wedding</span>
+                            <input className="ms-3" type="checkbox" name="specialized" value="Wedding day /ROM" checked={this.state.specialized.indexOf("Wedding day /ROM") >= 0} onChange={this.updateSpecialization}/><span className="ms-2">Wedding day / ROM</span>
+                            <input className="ms-3" type="checkbox" name="specialized" value="bridal makeup" checked={this.state.specialized.indexOf("bridal makeup") >= 0} onChange={this.updateSpecialization}/><span className="ms-2">Bridal makeup</span>
+                            <input className="ms-3" type="checkbox" name="specialized" value="fancy makeup" checked={this.state.specialized.indexOf("fancy makeup") >= 0} onChange={this.updateSpecialization}/><span className="ms-2">Fancy makeup</span>
+                            <input className="ms-3" type="checkbox" name="specialized" value="natural glow makeup" checked={this.state.specialized.indexOf("natural glow makeup") >= 0} onChange={this.updateSpecialization}/><span className="ms-2">Natural glow makeup</span>
                         </div>
                         <div className="error-msg">{this.state.errors.specialized}</div>
                     </div>
@@ -93,7 +140,7 @@ export default class EditProfileForm extends React.Component {
                         
                         <div className="error-msg">{this.state.errors.bio}</div>
                     </div>
-                </div>
+                </div>                
             )
         } else {
             return null
@@ -248,6 +295,16 @@ export default class EditProfileForm extends React.Component {
         }
     }
 
+    /* ............. related functions to process each section tab  ............. */ 
+
+
+    updateFormField = (e) => {
+        this.setState({
+            [e.target.name] : e.target.value
+        })
+    }
+
+
     updateSpecialization = (e) => {
         // remove the item that was just clicked on
         if (this.state.specialized.includes(e.target.value)) {
@@ -354,6 +411,68 @@ export default class EditProfileForm extends React.Component {
  
     }
 
+    // save changes to DB
+    updateProfile = async () => {
+        if (this.validateForm()) {
+            // then process the form when all validation is done
+            let updatedFreelancerData = {
+                "type": this.state.type,
+                "specialized": this.state.specialized,  
+                "rate": this.state.rate,
+                "rateUnit": this.state.rateUnit,
+                "name": this.state.name,
+                "profileImage": this.state.profileImage,
+                "socialMedia": {
+                    "facebook": this.state.facebook,
+                    "instagram": this.state.instagram,
+                    "tiktok": this.state.tiktok
+                },
+                "contact": {
+                    "mobile": this.state.mobile,
+                    "email": this.state.email,
+                    "website": this.state.website
+                },
+                "bio": this.state.bio,
+                "showCase": this.state.showCase,
+                "portfolios": this.state.portfolios
+            }
+
+            console.log(updatedFreelancerData)
+    
+            await axios.put(`${this.apiUrl}/freelancer/${this.state._id}`, updatedFreelancerData)
+            .then( async (result) => {
+                console.log("success", result.data)
+    
+                // get latest freelancer info from DB
+                let latestFreelancerInfo = await axios.get(`${this.apiUrl}/freelancer/${this.state._id}`)
+                // update session with latest freelancer info
+                sessionStorage.setItem("authenticatedUser", JSON.stringify(latestFreelancerInfo.data))
+                
+                this.props.afterUpdateFreelancerProfile()
+            })
+            .catch( (error) => {
+    
+                // to improve error handling
+                if (error.response){
+    
+                    //do something
+                    console.error('error.response: ', error.response)
+                
+                } else if (error.request){
+                
+                    //do something else
+                    console.error('error.request: ', error.request)
+                
+                } else if (error.message){
+                
+                    //do something other than the other two
+                    console.error('error.message: ', error.message)
+                
+                }
+            })
+        }
+    }
+
     render() {
         return (
             <React.Fragment>
@@ -361,7 +480,6 @@ export default class EditProfileForm extends React.Component {
                 <div className="col-3 mt-5">
                     <div className="card" style={{width: "15rem"}}>
                         <ul className="list-group list-group-flush">
-                            <li className="list-group-item">Dashboard</li>
                             <li className="list-group-item">Dashboard</li>
                             <li className="list-group-item" onClick={() => {this.setActiveDisplay("account-details")}}>Account Details</li>
                             <li className="list-group-item" onClick={() => {this.setActiveDisplay("social-media")}}>Contact &amp; Social Media</li>
@@ -386,7 +504,7 @@ export default class EditProfileForm extends React.Component {
                     <div className="account-creation-form">
                         <div className="d-grid gap-2 account-creation-button mb-2">
                             <button 
-                                onClick={this.addFreelancer}
+                                onClick={this.updateProfile}
                                 className="btn btn-secondary btn-lg account-btn" 
                                 type="button">
                                     Update and Close
@@ -394,7 +512,7 @@ export default class EditProfileForm extends React.Component {
                         </div>
                         <div className="d-grid gap-2 account-creation-button mb-2">
                             <button 
-                                onClick=""
+                                onClick={this.props.hideForm}
                                 className="btn btn-secondary btn-lg account-btn" 
                                 type="button">
                                     Cancel

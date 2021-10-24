@@ -67,13 +67,27 @@ export default class WeddingFreelancerPlatform extends React.Component {
 
     /*............. to handle new Freelancer Submission .............*/ 
 
-    addNewFreelancer = () => {
+    afterAddNewFreelancer = () => {
+        this.setState({
+            active: "listing"
+        })
+    } 
+
+    /*............. to handle Edit/Update Freelancer Submission .............*/ 
+
+    hideEditProfileForm = () => {
         this.setState({
             active: "listing"
         })
     }
 
-    /*............. end of to handle new Freelancer Submission .............*/ 
+    afterUpdateFreelancerProfile = () => {
+        this.setState({
+            active: "listing"
+        })
+    }
+    
+    /*............. end of to handle Edit/Update Freelancer Submission .............*/
 
 
     
@@ -82,9 +96,9 @@ export default class WeddingFreelancerPlatform extends React.Component {
         if (this.state.active === "listing") {
             return <Listing/>
         } else if (this.state.active === "register") {
-            return <RegisterForm afterAddNewFreelancer={this.addNewFreelancer}/>
+            return <RegisterForm afterAddNewFreelancer={this.afterAddNewFreelancer}/>
         } else if (this.state.active === "manage-profile") {
-            return <EditProfileForm/>
+            return <EditProfileForm afterUpdateFreelancerProfile={this.afterUpdateFreelancerProfile} hideForm={this.hideEditProfileForm} />
         }
             
     }
