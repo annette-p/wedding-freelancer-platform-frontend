@@ -4,6 +4,7 @@ import Nav from 'react-bootstrap/Nav'
 import Listing from "./components/Listing"
 import RegisterForm from "./components/RegisterForm"
 import Login from "./components/Login"
+import EditProfileForm from "./components/EditProfileForm"
 
 export default class WeddingFreelancerPlatform extends React.Component {
     state = {
@@ -82,7 +83,10 @@ export default class WeddingFreelancerPlatform extends React.Component {
             return <Listing/>
         } else if (this.state.active === "register") {
             return <RegisterForm afterAddNewFreelancer={this.addNewFreelancer}/>
+        } else if (this.state.active === "manage-profile") {
+            return <EditProfileForm/>
         }
+            
     }
     
 
@@ -118,7 +122,7 @@ export default class WeddingFreelancerPlatform extends React.Component {
                                 navbarScroll
                                 >
                                 <Nav.Link onClick={()=>{this.setActive("listing")}}>View Freelancers</Nav.Link>
-                                <Nav.Link onClick={()=>{this.setActive("profile")}}>Manage Profile</Nav.Link>
+                                <Nav.Link onClick={()=>{this.setActive("manage-profile")}}>Manage Profile</Nav.Link>
                                 <Nav.Link onClick={()=>{this.setActive("about-us")}}>About Us</Nav.Link>
                                 </Nav>
                             </Navbar.Collapse>
