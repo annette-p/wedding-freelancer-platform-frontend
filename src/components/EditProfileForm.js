@@ -362,10 +362,11 @@ export default class EditProfileForm extends React.Component {
                     <div className="card" style={{width: "15rem"}}>
                         <ul className="list-group list-group-flush">
                             <li className="list-group-item">Dashboard</li>
-                            <li className="list-group-item" onClick={this.setActiveDisplay("account-details")}>Account Details</li>
-                            <li className="list-group-item" onClick={this.setActiveDisplay("social-media")}>Contact &amp; Social Media</li>
-                            <li className="list-group-item" onClick={this.setActiveDisplay("showcase")}>Profile Image &amp; Showcase</li>
-                            <li className="list-group-item" onClick={this.setActiveDisplay("portfolio")}>Portfolio</li>
+                            <li className="list-group-item">Dashboard</li>
+                            <li className="list-group-item" onClick={() => {this.setActiveDisplay("account-details")}}>Account Details</li>
+                            <li className="list-group-item" onClick={() => {this.setActiveDisplay("social-media")}}>Contact &amp; Social Media</li>
+                            <li className="list-group-item" onClick={() => {this.setActiveDisplay("showcase")}}>Profile Image &amp; Showcase</li>
+                            <li className="list-group-item" onClick={() => {this.setActiveDisplay("portfolio")}}>Portfolio</li>
                             <li className="list-group-item">Change Password</li>
                             <li className="list-group-item">Delete Account</li>
                         </ul>
