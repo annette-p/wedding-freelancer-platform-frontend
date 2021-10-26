@@ -456,7 +456,7 @@ export default class EditProfileForm extends React.Component {
                         <div className="col-7">
                             <div className="mt-4">
                                 <select className="" name="reasonToDelete" value={this.state.reasonToDelete} onChange={this.updateFormField}>
-                                    <option value="empty"> ----- </option>
+                                    <option value=""> ----- Select One ----- </option>
                                     <option value="second-account">Create second account</option>
                                     <option value="remove-data">Want to remove something</option>
                                     <option value="data-privacy">Concerned about my data</option>
@@ -738,6 +738,7 @@ export default class EditProfileForm extends React.Component {
         this.props.afterUpdateFreelancerProfile();
             
     }
+
 
     addReasonToDelete = async () => {
         let newData = {
