@@ -203,7 +203,34 @@
   margin-right: 1px;
 }
 
-/* .....style for delete account page..... */
+/* .....style for Manage account page..... */
+
+.nav-card {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.nav-card:hover {
+  color: rgb(5, 5, 202);
+}
+
+.nav-card:visited {
+  color: rgb(5, 5, 202);
+  font-weight: bold;
+}
+
+.disabled {
+  color: rgb(61, 60, 60);
+  font-style: italic;
+}
+
+.beta {
+  color: red;
+  font-variant: small-caps;
+  font-style: oblique;
+}
+
+/* .....style for delete account tab..... */
 
 .bold {
   font-weight: bold;

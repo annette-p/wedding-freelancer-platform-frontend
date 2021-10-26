@@ -652,13 +652,13 @@ export default class EditProfileForm extends React.Component {
                 <div className="col-3 mt-5">
                     <div className="card" style={{width: "15rem"}}>
                         <ul className="list-group list-group-flush">
-                            <li className="list-group-item">Dashboard</li>
-                            <li className="list-group-item" onClick={() => {this.setActiveDisplay("account-details")}}>Account Details</li>
-                            <li className="list-group-item" onClick={() => {this.setActiveDisplay("social-media")}}>Contact &amp; Social Media</li>
-                            <li className="list-group-item" onClick={() => {this.setActiveDisplay("showcase")}}>Profile Image &amp; Showcase</li>
-                            <li className="list-group-item" onClick={() => {this.setActiveDisplay("portfolio")}}>Portfolio</li>
-                            <li className="list-group-item" onClick={() => {this.setActiveDisplay("change-password")}}>Change Password</li>
-                            <li className="list-group-item" onClick={() => {this.setActiveDisplay("delete-account")}}>Delete Account</li>
+                            <li className="list-group-item disabled nav-card">Dashboard <span class="beta">(beta)</span></li>
+                            <li className="list-group-item nav-card" onClick={() => {this.setActiveDisplay("account-details")}}>Account Details</li>
+                            <li className="list-group-item nav-card" onClick={() => {this.setActiveDisplay("social-media")}}>Contact &amp; Social Media</li>
+                            <li className="list-group-item nav-card" onClick={() => {this.setActiveDisplay("showcase")}}>Profile Image &amp; Showcase</li>
+                            <li className="list-group-item nav-card" onClick={() => {this.setActiveDisplay("portfolio")}}>Portfolio</li>
+                            <li className="list-group-item nav-card" onClick={() => {this.setActiveDisplay("change-password")}}>Change Password</li>
+                            <li className="list-group-item nav-card" onClick={() => {this.setActiveDisplay("delete-account")}}>Delete Account</li>
                         </ul>
                     </div>
                 </div>
