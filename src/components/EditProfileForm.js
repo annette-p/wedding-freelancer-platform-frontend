@@ -296,6 +296,17 @@ export default class EditProfileForm extends React.Component {
         }
     }
 
+    displayDeleteAccount() {
+        if (this.state.activeDisplay === "delete-account") {
+            return (
+                <div className="row register-text"></div>
+            )
+        } else {
+            return null
+        }
+    }
+        
+
     /* ............. related functions to process value for each key ............. */ 
 
 
@@ -337,6 +348,9 @@ export default class EditProfileForm extends React.Component {
     getImage = (key) => {
         return {backgroundImage: `url("${this.state[key]}")`}
     }
+
+    /* ............. end of related functions to process value for each key ............. */ 
+
 
     // React Form Validations / https://allegra9.medium.com/react-form-validations-286590d26b6f
     validateForm = () => {
@@ -447,7 +461,7 @@ export default class EditProfileForm extends React.Component {
     
                 // get latest freelancer info from DB
                 let latestFreelancerInfo = await axios.get(`${this.apiUrl}/freelancer/${this.state._id}`)
-                // update session with latest freelancer info
+                // update session with latest freelancer info // JSON.stringify - convert object to string in json format
                 sessionStorage.setItem("authenticatedUser", JSON.stringify(latestFreelancerInfo.data))
                 
                 updateCompleted = true
@@ -487,6 +501,20 @@ export default class EditProfileForm extends React.Component {
         }
     }
 
+    
+    deleteFreelancer = async () => {
+        let freelancerToDelete = this.state._id
+
+        await axios.delete(`${this.apiUrl}/freelancer/${freelancerToDelete}`)
+        .then( async (result) => {
+            sessionStorage.removeItem("authenticatedUser")
+        })
+
+        this.props.afterUpdateFreelancerProfile();
+            
+    }
+    
+
     render() {
         return (
             <React.Fragment>
@@ -500,7 +528,7 @@ export default class EditProfileForm extends React.Component {
                             <li className="list-group-item" onClick={() => {this.setActiveDisplay("showcase")}}>Profile Image &amp; Showcase</li>
                             <li className="list-group-item" onClick={() => {this.setActiveDisplay("portfolio")}}>Portfolio</li>
                             <li className="list-group-item">Change Password</li>
-                            <li className="list-group-item">Delete Account</li>
+                            <li className="list-group-item" onClick={() => {this.setActiveDisplay("delete-account")}}>Delete Account</li>
                         </ul>
                     </div>
                 </div>
@@ -514,6 +542,8 @@ export default class EditProfileForm extends React.Component {
                     {this.displayShowCase()}
                     {/* Portfolio*/}
                     {this.displayPortfolio()}
+                    {/* Delete Account*/}
+                    {this.displayDeleteAccount()}
                     {/* ........... submit buttons ........... */}
                     <div className="account-creation-form">
                     <div className="d-grid gap-2 account-creation-button mb-2">
