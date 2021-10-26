@@ -30,7 +30,10 @@ export default class EditProfileForm extends React.Component {
             {title: "", description: "", url: ""}, 
             {title: "", description: "", url: ""}, 
             {title: "", description: "", url: ""} 
-        ]
+        ],
+
+        reasonToDelete: "",
+        specifyDeleteReason: ""
     }
 
     async componentDidMount() {
@@ -299,7 +302,59 @@ export default class EditProfileForm extends React.Component {
     displayDeleteAccount() {
         if (this.state.activeDisplay === "delete-account") {
             return (
-                <div className="row register-text"></div>
+                <div className="row register-text">
+                    <h3 className="mt-4 account-form">Delete Your Account</h3>
+                    <p>Dear {this.name}</p>
+                    <p>We are sorry to hear that you would like to delete your account.</p>
+                    <p>Are you sure you want to proceed?</p>
+                    <p>
+                        This mean you are deleting your portfolio profile and account permanently. You won't be able to retrieve the content or information that tag to your profile in Wedding Freelancer platform. All account information including reviews &amp; rating will be deleted permanently. 
+                    </p>
+                    <hr></hr>
+                    {/* Drop down list for reason to delete */}
+                    <div className="row">
+                        <div className="col-2">
+                            Why do you want to delete this account?
+                        </div>
+                        <div className="col-10">
+                            <div className="mt-4">
+                                <select className="" name="reasonToDelete" value={this.state.reasonToDelete} onChange={this.updateFormField}>
+                                    <option value="second-account">Create second account</option>
+                                    <option value="remove-data">Want to remove something</option>
+                                    <option value="data-privacy">Concerned about my data</option>
+                                    <option value="privacy">Privacy concerns</option>
+                                    <option value="navigation">Trouble nagivating platform</option>
+                                    <option value="other">Something else</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    {/* Speficy Reason */}
+                    <div className="row">
+                        <div className="col-2">
+                            Please specify: 
+                        </div>
+                        <div className="col-10">
+                            <input type="text" name="specifyDeleteReason" value={this.state.specifyDeleteReason} onChange={this.updateFormField} className="form-control"/>
+                        </div>
+                    </div>
+                    {/* buttons */}
+                    <div className="row">
+                        <button 
+                            onClick={this.props.hideForm}
+                            className="btn btn-secondary account-btn" 
+                            type="button">
+                            Cancel
+                        </button>
+
+                        <button 
+                            onClick={this.addReasonToDelete}
+                            className="btn btn-secondary account-btn" 
+                            type="button">
+                            Proceed to delete my account
+                        </button>
+                    </div>   
+                </div> 
             )
         } else {
             return null
@@ -512,6 +567,14 @@ export default class EditProfileForm extends React.Component {
 
         this.props.afterUpdateFreelancerProfile();
             
+    }
+
+    addReasonToDelete = async () => {
+        let newData = {
+            "reasonToDelete": this.state.reasonToDelete,
+            "specifyDeleteReason": this.state.specifyDeleteReason
+        }
+        return newData
     }
     
 
