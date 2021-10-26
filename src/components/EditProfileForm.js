@@ -9,9 +9,6 @@ export default class EditProfileForm extends React.Component {
         updateCompleted: false,
         errors: {},
         "_id": "",
-        username: "",
-        password: "",
-        confirmPassword: "",
         name: "",
         type: "",
         specialized: [],
@@ -35,9 +32,12 @@ export default class EditProfileForm extends React.Component {
         reasonToDelete: "",
         specifyDeleteReason: "",
 
+        username: "",
         currentPassword: "",
         newPassword: "",
-        confirmNewPassword: ""
+        confirmNewPassword: "",
+        changePasswordFailed: false,
+        changePasswordSuccess: false
     }
 
     async componentDidMount() {
@@ -308,6 +308,17 @@ export default class EditProfileForm extends React.Component {
             return (
                 <div className="row register-text">
                     <h3 className="mt-4 mb-4 account-form">Change Password</h3>
+                    {this.renderChangePasswordFailMessage()}
+                    {this.renderChangePasswordSuccessMessage()}
+                    {/* username */}
+                    <div className="row mt-4">
+                        <div className="col-3">
+                            <p className="bold">Username: </p>
+                        </div>
+                        <div className="col-9">
+                            <input type="text" name="username" value={this.state.username} onChange={this.updateFormField} className="form-control"/>
+                        </div>
+                    </div>
                     {/* Current password */}
                     <div className="row mt-4">
                         <div className="col-3">
@@ -337,7 +348,7 @@ export default class EditProfileForm extends React.Component {
                     </div>
                     {/* buttons */}
                     <div className="mt-4 delete-account">
-                        {/* <button 
+                        <button 
                             onClick={this.props.hideForm}
                             className="btn btn-secondary account-btn delete-account-btn me-3" 
                             type="button">
@@ -345,12 +356,32 @@ export default class EditProfileForm extends React.Component {
                         </button>
 
                         <button 
-                            onClick={this.updateProfile}
+                            onClick={this.changePassword}
                             className="btn btn-secondary account-btn delete-account-btn" 
                             type="button">
-                            Proceed to delete my account
-                        </button> */}
+                            Change Password
+                        </button>
                     </div>
+                </div>
+            )
+        }
+    }
+
+    renderChangePasswordFailMessage() {
+        if (this.state.changePasswordFailed) {
+            return (
+                <div className="row mt-4 login-fail">
+                    <p>Change Password Failed</p>
+                </div>
+            )
+        }
+    }
+
+    renderChangePasswordSuccessMessage() {
+        if (this.state.changePasswordSuccess) {
+            return (
+                <div className="row mt-4 login-fail">
+                    <p>Completed. Password has been changed</p>
                 </div>
             )
         }
@@ -621,6 +652,29 @@ export default class EditProfileForm extends React.Component {
         if (this.state.updateCompleted) {
             this.props.afterUpdateFreelancerProfile();
         }
+    }
+
+
+    changePassword = async () => {
+        let newUserPassword = {
+            username: this.state.username,
+            currentPassword: this.state.currentPassword,
+            newPassword: this.state.newPassword
+        } 
+        let changePasswordFailed = false
+        let changePasswordSuccess = false
+        await axios.put(`${this.apiUrl}/change-password`, newUserPassword)
+        .then( async (result) => {   
+            changePasswordSuccess = true
+        })
+        .catch( (error) => {
+
+            changePasswordFailed = true
+        })
+
+        this.setState({
+            changePasswordSuccess, changePasswordFailed
+        })
     }
 
     
