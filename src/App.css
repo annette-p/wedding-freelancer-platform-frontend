@@ -230,6 +230,11 @@
   font-style: oblique;
 }
 
+.head-center {
+  display: flex;
+  justify-content: center;
+}
+
 /* .....style for change password tab..... */
 
 .change-success {

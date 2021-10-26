@@ -195,35 +195,35 @@ export default class EditProfileForm extends React.Component {
             return (
                 <div className="row register-text">
                     <h3 className="mt-4 account-form">Contact &amp; Social Media Setting</h3>
-                    {/* Social Media */}
-                    <div className="mt-4">
-                        <label className="form-label register-form-headline">Social Media:</label>
+                    {/* Social Media */}                   
+                    <div className="col mt-4 mb-4">
+                        <label className="form-label register-form-headline head-center mt-4">Social Media:</label>
                         <div className="mt-3">
                             <label className="form-label">Facebook:</label>
                             <input type="text" name="facebook" value={this.state.facebook} onChange={this.updateFormField} placeholder="Facebook URL" className="form-control"/>
                         </div>
-                        <div className="mt-2">
+                        <div className="mt-4">
                             <label className="form-label">Instagram:</label>
                             <input type="text" name="instagram" value={this.state.instagram} onChange={this.updateFormField} placeholder="Instagram URL" className="form-control"/>
                         </div>
-                        <div className="mt-2">
+                        <div className="mt-4">
                             <label className="form-label">Tiktok:</label>
                             <input type="text" name="tiktok" value={this.state.tiktok} onChange={this.updateFormField} placeholder="Tiktok URL" className="form-control"/>
                         </div>
                         <div className="error-msg">{this.state.errors.socialMedia}</div>
                     </div>
                     {/* Contact */}
-                    <div className="mt-4">
-                        <label className="form-label register-form-headline">Contact:</label>
+                    <div className="col mt-4 mb-4">
+                        <label className="form-label register-form-headline head-center mt-4">Contact:</label>
                         <div className="mt-3">
                             <label className="form-label">Mobile:</label>
                             <input type="text" name="mobile" value={this.state.mobile} onChange={this.updateFormField} placeholder="mobile number" className="form-control"/>
                         </div>
-                        <div className="mt-2">
+                        <div className="mt-4">
                             <label className="form-label">Email:</label>
                             <input type="text" name="email" value={this.state.email} onChange={this.updateFormField} placeholder="email address" className="form-control"/>
                         </div>
-                        <div className="mt-2">
+                        <div className="mt-4">
                             <label className="form-label">Website:</label>
                             <input type="text" name="web" value={this.state.website} onChange={this.updateFormField} placeholder="website URL" className="form-control"/>
                         </div>
