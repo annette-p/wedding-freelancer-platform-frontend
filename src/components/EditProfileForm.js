@@ -96,6 +96,38 @@ export default class EditProfileForm extends React.Component {
     
     /* ............. related functions to process each account section tab  ............. */ 
 
+    displayProfileUpdateButtons() {
+        return (
+            /* ........... submit buttons ........... */
+            <div className="account-creation-form">
+                <div className="d-grid gap-2 account-creation-button mb-2">
+                    <button 
+                        onClick={this.updateProfile}
+                        className="btn btn-secondary btn-lg account-btn" 
+                        type="button">
+                            Update
+                    </button>
+                </div>
+                <div className="d-grid gap-2 account-creation-button mb-2">
+                    <button 
+                        onClick={this.updateProfileAndClose}
+                        className="btn btn-secondary btn-lg account-btn" 
+                        type="button">
+                            Update and Close
+                    </button>
+                </div>
+                <div className="d-grid gap-2 account-creation-button mb-2">
+                    <button 
+                        onClick={this.props.hideForm}
+                        className="btn btn-secondary btn-lg account-btn" 
+                        type="button">
+                            Cancel
+                    </button>
+                </div>
+            </div>
+        )
+    }
+
     displayAccountDetails() {
         if (this.state.activeDisplay === "account-details") {
             return (
@@ -148,6 +180,8 @@ export default class EditProfileForm extends React.Component {
                         
                         <div className="error-msg">{this.state.errors.bio}</div>
                     </div>
+                    {/* ........... submit buttons ........... */}
+                    {this.displayProfileUpdateButtons()}
                 </div>                
             )
         } else {
@@ -195,6 +229,8 @@ export default class EditProfileForm extends React.Component {
                         </div>
                         <div className="error-msg">{this.state.errors.email}</div>
                     </div>
+                    {/* ........... submit buttons ........... */}
+                    {this.displayProfileUpdateButtons()}
                 </div>
             )
         } else {
@@ -225,6 +261,8 @@ export default class EditProfileForm extends React.Component {
                             <p className="img-discription">{this.state.showCase === "" ? "Preview image" : ""}</p>
                         </div>
                     </div>
+                    {/* ........... submit buttons ........... */}
+                    {this.displayProfileUpdateButtons()}
                 </div>
             )
         } else {
@@ -296,6 +334,8 @@ export default class EditProfileForm extends React.Component {
                         </div>
                     </div>
                     <div className="error-msg-portfolio">{this.state.errors.portfolios}</div>
+                    {/* ........... submit buttons ........... */}
+                    {this.displayProfileUpdateButtons()}
                 </div>
             )
         } else {
@@ -380,7 +420,7 @@ export default class EditProfileForm extends React.Component {
     renderChangePasswordSuccessMessage() {
         if (this.state.changePasswordSuccess) {
             return (
-                <div className="row mt-4 login-fail">
+                <div className="row mt-4 change-success">
                     <p>Completed. Password has been changed</p>
                 </div>
             )
@@ -730,33 +770,6 @@ export default class EditProfileForm extends React.Component {
                     {this.displayChangePassword()}
                     {/* Delete Account*/}
                     {this.displayDeleteAccount()}
-                    {/* ........... submit buttons ........... */}
-                    <div className="account-creation-form">
-                    <div className="d-grid gap-2 account-creation-button mb-2">
-                            <button 
-                                onClick={this.updateProfile}
-                                className="btn btn-secondary btn-lg account-btn" 
-                                type="button">
-                                    Update
-                            </button>
-                        </div>
-                        <div className="d-grid gap-2 account-creation-button mb-2">
-                            <button 
-                                onClick={this.updateProfileAndClose}
-                                className="btn btn-secondary btn-lg account-btn" 
-                                type="button">
-                                    Update and Close
-                            </button>
-                        </div>
-                        <div className="d-grid gap-2 account-creation-button mb-2">
-                            <button 
-                                onClick={this.props.hideForm}
-                                className="btn btn-secondary btn-lg account-btn" 
-                                type="button">
-                                    Cancel
-                            </button>
-                        </div>
-                    </div>
                 </div>
  
                 
