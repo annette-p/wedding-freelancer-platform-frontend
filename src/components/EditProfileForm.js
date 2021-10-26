@@ -33,7 +33,11 @@ export default class EditProfileForm extends React.Component {
         ],
 
         reasonToDelete: "",
-        specifyDeleteReason: ""
+        specifyDeleteReason: "",
+
+        currentPassword: "",
+        newPassword: "",
+        confirmNewPassword: ""
     }
 
     async componentDidMount() {
@@ -296,6 +300,59 @@ export default class EditProfileForm extends React.Component {
             )
         } else {
             return null
+        }
+    }
+
+    displayChangePassword() {
+        if (this.state.activeDisplay === "change-password") {
+            return (
+                <div className="row register-text">
+                    <h3 className="mt-4 mb-4 account-form">Change Password</h3>
+                    {/* Current password */}
+                    <div className="row mt-4">
+                        <div className="col-3">
+                            <p className="bold">Current password: </p>
+                        </div>
+                        <div className="col-9">
+                            <input type="text" name="currentPassword" value={this.state.currentPassword} onChange={this.updateFormField} className="form-control"/>
+                        </div>
+                    </div>
+                    {/* New password */}
+                    <div className="row mt-3">
+                        <div className="col-3">
+                            <p className="bold">New password: </p>
+                        </div>
+                        <div className="col-9">
+                            <input type="text" name="newPassword" value={this.state.newPassword} onChange={this.updateFormField} className="form-control"/>
+                        </div>
+                    </div>
+                    {/* Confirm new password */}
+                    <div className="row mt-3 mb-4">
+                        <div className="col-3">
+                            <p className="bold">Confirm new password: </p>
+                        </div>
+                        <div className="col-9">
+                            <input type="text" name="confirmNewPassword" value={this.state.confirmNewPassword} onChange={this.updateFormField} className="form-control"/>
+                        </div>
+                    </div>
+                    {/* buttons */}
+                    <div className="mt-4 delete-account">
+                        {/* <button 
+                            onClick={this.props.hideForm}
+                            className="btn btn-secondary account-btn delete-account-btn me-3" 
+                            type="button">
+                            Cancel
+                        </button>
+
+                        <button 
+                            onClick={this.updateProfile}
+                            className="btn btn-secondary account-btn delete-account-btn" 
+                            type="button">
+                            Proceed to delete my account
+                        </button> */}
+                    </div>
+                </div>
+            )
         }
     }
 
@@ -600,7 +657,7 @@ export default class EditProfileForm extends React.Component {
                             <li className="list-group-item" onClick={() => {this.setActiveDisplay("social-media")}}>Contact &amp; Social Media</li>
                             <li className="list-group-item" onClick={() => {this.setActiveDisplay("showcase")}}>Profile Image &amp; Showcase</li>
                             <li className="list-group-item" onClick={() => {this.setActiveDisplay("portfolio")}}>Portfolio</li>
-                            <li className="list-group-item">Change Password</li>
+                            <li className="list-group-item" onClick={() => {this.setActiveDisplay("change-password")}}>Change Password</li>
                             <li className="list-group-item" onClick={() => {this.setActiveDisplay("delete-account")}}>Delete Account</li>
                         </ul>
                     </div>
@@ -615,6 +672,8 @@ export default class EditProfileForm extends React.Component {
                     {this.displayShowCase()}
                     {/* Portfolio*/}
                     {this.displayPortfolio()}
+                    {/* Change password*/}
+                    {this.displayChangePassword()}
                     {/* Delete Account*/}
                     {this.displayDeleteAccount()}
                     {/* ........... submit buttons ........... */}
