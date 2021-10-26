@@ -203,6 +203,27 @@
   margin-right: 1px;
 }
 
+/* .....style for delete account page..... */
+
+.bold {
+  font-weight: bold;
+}
+
+.delete-account {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 40px;
+}
+
+.delete-account-btn {
+  font-size: 19px;
+}
+
+.delete-account-btn:hover {
+  background-color: rgb(161, 32, 32);
+  font-weight: bold;
+}
+
 
 /* ................................................style for meduim and large screen..................................................... */
 
