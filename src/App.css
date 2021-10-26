@@ -235,6 +235,10 @@
   justify-content: center;
 }
 
+.showcase {
+  margin-left: 45px;
+}
+
 /* .....style for change password tab..... */
 
 .change-success {
@@ -380,11 +384,10 @@
   }
 
   .portfolio-number {
-    margin-left: 150px;
+    /* margin-left: 150px; */
     margin-top: 20px;
     margin-bottom: 15px;
     font-weight: bold;
-    text-align: center !important;
   }
 
   .portfolio-title {

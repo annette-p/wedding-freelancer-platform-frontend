@@ -133,24 +133,26 @@ export default class EditProfileForm extends React.Component {
             return (
                 <div className="row register-text">
                     <h3 className="account-form">Account Setting</h3>
-                    {/* Name */}
-                    <div className="mt-4">
-                        <label className="form-label register-form-headline">Name:</label>
-                        <input type="text" name="name" value={this.state.name} onChange={this.updateFormField} className="form-control"/>
-                        <div className="error-msg">{this.state.errors.name}</div>
-                    </div>
-                    {/* Profession */}
-                    <div>
-                        <label className="form-label register-form-headline mt-4">Profession:</label>
-                        <div>
-                            <input type="radio" name="type" value="photographer" onChange={this.updateFormField} checked={this.state.type === "photographer"}/><span className="ms-2">Photographer</span>
-                            <input className="ms-3" type="radio" name="type" value="videographer" onChange={this.updateFormField} checked={this.state.type === "videographer"}/><span className="ms-2">Videographer</span>
-                            <input className="ms-3" type="radio" name="type" value="makeup-artist" onChange={this.updateFormField} checked={this.state.type === "makeup-artist"}/><span className="ms-2">Makeup-artist</span>
+                    <div className="row mb-3">
+                        {/* Name */}
+                        <div className="col mt-4">
+                            <label className="form-label register-form-headline">Name:</label>
+                            <input type="text" name="name" value={this.state.name} onChange={this.updateFormField} className="form-control"/>
+                            <div className="error-msg">{this.state.errors.name}</div>
                         </div>
-                        <div className="error-msg">{this.state.errors.type}</div>
+                        {/* Profession */}
+                        <div className="col mt-4">
+                            <label className="form-label register-form-headline">Profession:</label>
+                            <div>
+                                <input type="radio" name="type" value="photographer" onChange={this.updateFormField} checked={this.state.type === "photographer"}/><span className="ms-2">Photographer</span>
+                                <input className="ms-3" type="radio" name="type" value="videographer" onChange={this.updateFormField} checked={this.state.type === "videographer"}/><span className="ms-2">Videographer</span>
+                                <input className="ms-3" type="radio" name="type" value="makeup-artist" onChange={this.updateFormField} checked={this.state.type === "makeup-artist"}/><span className="ms-2">Makeup-artist</span>
+                            </div>
+                            <div className="error-msg">{this.state.errors.type}</div>
+                        </div>
                     </div>
                     {/* Specialization */}
-                    <div className="mt-4">
+                    <div className="mt-4 mb-3">
                         <label className="form-label register-form-headline">Specialization <span className="side-note">(only 3 list will be displayed)</span> :</label>
                         <div className="col">
                             <input type="checkbox" name="specialized" value="photography" checked={this.state.specialized.indexOf("photography") >= 0} onChange={this.updateSpecialization}/><span className="ms-2">Photography</span>
@@ -243,18 +245,18 @@ export default class EditProfileForm extends React.Component {
         if (this.state.activeDisplay === "showcase") {
             return (
                 <div className="row register-text">
-                    <h3 className="mt-4 account-form">Profile Image &amp; Showcase Setting</h3>
+                    <h3 className="mt-4 mb-2 account-form">Profile Image &amp; Showcase Setting</h3>
                     {/* profile Image */}
-                    <div className="mt-4">
-                        <label className="form-label register-form-headline">Upload your profile image:</label>
+                    <div className="col mt-4 mb-4">
+                        <label className="form-label register-form-headline head-center">Upload your profile image:</label>
                         <input type="text" name="profileImage" value={this.state.profileImage} onChange={this.updateFormField} placeholder="image URL (portrait orientation image)" className="form-control"/>
                         <div className="preview profile-img-preview" style={this.getImage("profileImage")}>
                             <p className="img-discription">{this.state.profileImage === "" ? "Preview image": ""}</p>
                         </div>
                     </div>
                     {/* showCase */}
-                    <div className="mt-3">
-                        <label className="form-label register-form-headline">Upload your showcase <span className="side-note">(to display on profile first page)</span>:</label>
+                    <div className="col mt-4 mb-4">
+                        <label className="form-label register-form-headline showcase">Upload your showcase <span className="side-note">(to display on profile first page)</span>:</label>
                         <input type="text" name="showCase" value={this.state.showCase} onChange={this.updateFormField} placeholder="image/VDO URL (portrait orientation image)" className="form-control"/>
                         <div className="error-msg">{this.state.errors.showCase}</div>
                         <div className="preview" style={this.getImage("showCase")}>
@@ -276,63 +278,70 @@ export default class EditProfileForm extends React.Component {
                 <div className="row register-text">
                     <h3 className="mt-4 account-form">Portfolio Setting</h3>
                     <label className="form-label register-form-headline mt-4">Upload your portfolio:</label>
-                    {/* Portfolio 1 */}
-                    <div className="mt-3">  
-                        <label className="form-label portfolio-number">Portfolio 1</label>
-                        <div>
-                            <label className="form-label">Title:</label>
-                            <input type="text" name="title" value={this.state.portfolios[0].title} onChange={(e) => this.updatePortfolio(0, e)} className="form-control portfolio-title" placeholder="portfolio title"/>
+                    <div className="row">
+                        {/* Portfolio 1 */}
+                        <div className="col mt-3">  
+                            <label className="form-label portfolio-number head-center">Portfolio 1</label>
+                            <div>
+                                <label className="form-label">Title:</label>
+                                <input type="text" name="title" value={this.state.portfolios[0].title} onChange={(e) => this.updatePortfolio(0, e)} className="form-control portfolio-title" placeholder="portfolio title"/>
+                            </div>
+                            <div>
+                                <label className="form-label">Description:</label>
+                                <input type="text" name="description" value={this.state.portfolios[0].description} onChange={(e) => this.updatePortfolio(0, e)} className="form-control" placeholder="describe your portfolio (max 60 characters)"/>
+                            </div>
+                            <div>
+                                <label className="form-label">url:</label>
+                                <input type="text" name="url" value={this.state.portfolios[0].url} onChange={(e) => this.updatePortfolio(0, e)} placeholder="image URL (landscape orientation image)" className="form-control"/>
+                            </div>
+                            <div className="preview portfolio-preview" style={this.getPortfolioImage(0)}>
+                                <p className="img-discription">{this.state.portfolios[0].url === "" ? "Preview image" : ""}</p>
+                            </div>
                         </div>
-                        <div>
-                            <label className="form-label">Description:</label>
-                            <input type="text" name="description" value={this.state.portfolios[0].description} onChange={(e) => this.updatePortfolio(0, e)} className="form-control" placeholder="describe your portfolio (max 60 characters)"/>
-                        </div>
-                        <div>
-                            <label className="form-label">url:</label>
-                            <input type="text" name="url" value={this.state.portfolios[0].url} onChange={(e) => this.updatePortfolio(0, e)} placeholder="image URL (landscape orientation image)" className="form-control"/>
-                        </div>
-                        <div className="preview portfolio-preview" style={this.getPortfolioImage(0)}>
-                            <p className="img-discription">{this.state.portfolios[0].url === "" ? "Preview image" : ""}</p>
-                        </div>
-                    </div>
-                    {/* Portfolio 2 */}
-                    <div className="mt-3">  
-                        <label className="form-label portfolio-number">Portfolio 2</label>
-                        <div>
-                            <label className="form-label">Title:</label>
-                            <input type="text" name="title" value={this.state.portfolios[1].title} onChange={(e) => this.updatePortfolio(1, e)} className="form-control portfolio-title" placeholder="portfolio title"/>
-                        </div>
-                        <div>
-                            <label className="form-label">Description:</label>
-                            <input type="text" name="description" value={this.state.portfolios[1].description} onChange={(e) => this.updatePortfolio(1, e)} className="form-control" placeholder="describe your portfolio (max 60 characters)"/>
-                        </div>
-                        <div>
-                            <label className="form-label">url:</label>
-                            <input type="text" name="url" value={this.state.portfolios[1].url} onChange={(e) => this.updatePortfolio(1, e)} placeholder="image URL (landscape orientation image)" className="form-control"/>
-                        </div>
-                        <div className="preview portfolio-preview" style={this.getPortfolioImage(1)}>
-                            <p className="img-discription">{this.state.portfolios[1].url === "" ? "Preview image" : ""}</p>
-                        </div>
-                    </div>
-                    {/* Portfolio 3 */}
-                    <div className="mt-3">  
-                        <label className="form-label portfolio-number">Portfolio 3</label>
-                        <div>
-                            <label className="form-label">Title:</label>
-                            <input type="text" name="title" value={this.state.portfolios[2].title} onChange={(e) => this.updatePortfolio(2, e)} className="form-control portfolio-title" placeholder="portfolio title"/>
-                        </div>
-                        <div>
-                            <label className="form-label">Description:</label>
-                            <input type="text" name="description" value={this.state.portfolios[2].description} onChange={(e) => this.updatePortfolio(2, e)} className="form-control" placeholder="describe your portfolio (max 60 characters)"/>
-                        </div>
-                        <div>
-                            <label className="form-label">url:</label>
-                            <input type="text" name="url" value={this.state.portfolios[2].url} onChange={(e) => this.updatePortfolio(2, e)} placeholder="image URL (landscape orientation image)" className="form-control"/>
-                        </div>
-                        <div className="preview portfolio-preview" style={this.getPortfolioImage(2)}>
-                            <p className="img-discription">{this.state.portfolios[2].url === "" ? "Preview image" : ""}</p>
+                        {/* Portfolio 2 */}
+                        <div className="col mt-3">  
+                            <label className="form-label portfolio-number head-center">Portfolio 2</label>
+                            <div>
+                                <label className="form-label">Title:</label>
+                                <input type="text" name="title" value={this.state.portfolios[1].title} onChange={(e) => this.updatePortfolio(1, e)} className="form-control portfolio-title" placeholder="portfolio title"/>
+                            </div>
+                            <div>
+                                <label className="form-label">Description:</label>
+                                <input type="text" name="description" value={this.state.portfolios[1].description} onChange={(e) => this.updatePortfolio(1, e)} className="form-control" placeholder="describe your portfolio (max 60 characters)"/>
+                            </div>
+                            <div>
+                                <label className="form-label">url:</label>
+                                <input type="text" name="url" value={this.state.portfolios[1].url} onChange={(e) => this.updatePortfolio(1, e)} placeholder="image URL (landscape orientation image)" className="form-control"/>
+                            </div>
+                            <div className="preview portfolio-preview" style={this.getPortfolioImage(1)}>
+                                <p className="img-discription">{this.state.portfolios[1].url === "" ? "Preview image" : ""}</p>
+                            </div>
                         </div>
                     </div>
+                    <div className="row mt-3">
+                        {/* Portfolio 3 */}
+                        <div className="col mt-3">  
+                            <label className="form-label portfolio-number head-center">Portfolio 3</label>
+                            <div>
+                                <label className="form-label">Title:</label>
+                                <input type="text" name="title" value={this.state.portfolios[2].title} onChange={(e) => this.updatePortfolio(2, e)} className="form-control portfolio-title" placeholder="portfolio title"/>
+                            </div>
+                            <div>
+                                <label className="form-label">Description:</label>
+                                <input type="text" name="description" value={this.state.portfolios[2].description} onChange={(e) => this.updatePortfolio(2, e)} className="form-control" placeholder="describe your portfolio (max 60 characters)"/>
+                            </div>
+                            <div>
+                                <label className="form-label">url:</label>
+                                <input type="text" name="url" value={this.state.portfolios[2].url} onChange={(e) => this.updatePortfolio(2, e)} placeholder="image URL (landscape orientation image)" className="form-control"/>
+                            </div>
+                            <div className="preview portfolio-preview" style={this.getPortfolioImage(2)}>
+                                <p className="img-discription">{this.state.portfolios[2].url === "" ? "Preview image" : ""}</p>
+                            </div>
+                        </div>
+                        <div className="col"></div>
+                    </div>
+                    
+                    
                     <div className="error-msg-portfolio">{this.state.errors.portfolios}</div>
                     {/* ........... submit buttons ........... */}
                     {this.displayProfileUpdateButtons()}
