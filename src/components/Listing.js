@@ -110,6 +110,7 @@ export default class Listing extends React.Component {
     render() {
         return (
             <React.Fragment>
+                {/* filter section */}
                 <div className="row filter-row">
                     <div className="d-none d-lg-block col-md-3 mt-2">
                         {/* <p>Displaying 21 results</p> */}
@@ -136,7 +137,7 @@ export default class Listing extends React.Component {
                         </select>
                     </div>
                     <div className="col col-md-12 col-lg-3 position-right filter-col">
-                        <label className="form-label bold filter-tab">Filter by: </label>
+                        <label className="form-label bold filter-tab">Sorted by: </label>
                         <select className="" name="" value="" onChange="">
                             <option value="high-rated">Most rated (high rating)</option>
                             <option value="review">Most reviewed</option>
@@ -147,6 +148,7 @@ export default class Listing extends React.Component {
                         </select>
                     </div>
                 </div>
+                {/* card listing - each freelancer */}
                 {this.state.freelancer.map( eachFreelancer => 
                     <div className="col col-lg-4 freelancer-card" key={eachFreelancer._id}>
                         <div className="card card-listing">
@@ -184,10 +186,10 @@ export default class Listing extends React.Component {
                                     </div> 
                                 </div> 
                                 <hr className="hr-line"></hr>
-                                <button href="#" className="btn btn-outline-secondary ms-4" onClick={() => {
+                                <button href="#" className="btn btn-outline-secondary ms-4 ms-5-md ms-4-lg listing-btn" onClick={() => {
                                     this.displayModal(eachFreelancer, "view_profile")
                                 }}>View Profile</button> 
-                                <button href="#" className="btn btn-outline-secondary ms-2" onClick={() => {
+                                <button href="#" className="btn btn-outline-secondary ms-2 listing-btn" onClick={() => {
                                     this.displayModal(eachFreelancer, "give_review")
                                 }}>Give Review</button>
                             </div>
