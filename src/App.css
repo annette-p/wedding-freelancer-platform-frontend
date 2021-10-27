@@ -71,13 +71,18 @@
   margin-left: -10px;
 }
 
+.filter-row {
+  margin-bottom: 10px;
+}
+
 .filter-tab {
+  display: none;
   margin-right: 15px;
   margin-top: 5px;
 }
 
 .filter-col {
-  margin-right: 60px;
+  margin-bottom: 5px;
 }
 
 .logout {
@@ -338,6 +343,11 @@
     font-size: 21px;
   }
 
+  .filter-col {
+    font-size: 21px;
+    margin-bottom: 10px;
+  }
+
   .card-listing {
     margin-left: 8px;
     margin-bottom: 15px;
@@ -387,6 +397,21 @@
 
   .nav-text {
     font-size: 20px;
+  }
+
+  .filter-row {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .filter-tab {
+    display: block;
+    margin-right: 15px;
+    margin-top: 5px;
+  }
+  
+  .filter-col {
+    font-size: 17px;
   }
 
   .card-listing {

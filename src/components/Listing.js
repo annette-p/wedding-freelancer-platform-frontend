@@ -110,11 +110,11 @@ export default class Listing extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div className="row mb-5-lg mt-3-lg">
-                    <div className="col mt-2">
+                <div className="row filter-row">
+                    <div className="d-none d-lg-block col-md-3 mt-2">
                         {/* <p>Displaying 21 results</p> */}
                     </div>
-                    <div className="col position-right">
+                    <div className="col col-md-12 col-lg-3 position-right filter-col">
                         <label className="form-label bold filter-tab">Filter by: </label>
                         <select className="" name="" value="" onChange="">
                             <option value=""> ----- Specialization ----- </option>
@@ -126,7 +126,7 @@ export default class Listing extends React.Component {
                             <option value="newborn">Newborn shoot</option>
                         </select>
                     </div>
-                    <div className="col position-right">
+                    <div className="col col-md-12 col-lg-3 position-right filter-col">
                         <label className="form-label bold filter-tab">Filter by: </label>
                         <select className="" name="" value="" onChange="">
                             <option value=""> ----- Service type ----- </option>
@@ -135,7 +135,7 @@ export default class Listing extends React.Component {
                             <option value="makeup-artist">Makeup-artist</option>
                         </select>
                     </div>
-                    <div className="col position-right filter-col">
+                    <div className="col col-md-12 col-lg-3 position-right filter-col">
                         <label className="form-label bold filter-tab">Filter by: </label>
                         <select className="" name="" value="" onChange="">
                             <option value="high-rated">Most rated (high rating)</option>
