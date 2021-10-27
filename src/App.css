@@ -102,7 +102,8 @@
 }
 
 .card-listing {
-  margin-left: 12px;
+  width: 21rem;
+  margin-left: -3px;
   margin-bottom: 12px;
 }
 
@@ -349,8 +350,13 @@
   }
 
   .card-listing {
-    margin-left: 8px;
+    width: 30rem;
+    margin-left: 110px;
     margin-bottom: 15px;
+  }
+
+  #portfolio-1 {
+    height: 570px;
   }
 
   /* .....style for login page..... */
@@ -415,8 +421,13 @@
   }
 
   .card-listing {
+    width: 21rem;
     margin-left: 35px;
     margin-bottom: 15px;
+  }
+
+  #portfolio-1 {
+    height: 350px;
   }
 
   /* .....style for Profile Register form page..... */
