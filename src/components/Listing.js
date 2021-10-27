@@ -110,9 +110,9 @@ export default class Listing extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div className="row mb-5 mt-3">
+                <div className="row mb-5-lg mt-3-lg">
                     <div className="col mt-2">
-                        <p>Displaying 21 results</p>
+                        {/* <p>Displaying 21 results</p> */}
                     </div>
                     <div className="col position-right">
                         <label className="form-label bold filter-tab">Filter by: </label>

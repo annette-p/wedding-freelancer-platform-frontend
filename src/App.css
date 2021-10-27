@@ -44,14 +44,31 @@
 }
 
 .logo {
-  background-image: url("images/logo/logo.png");
-  height: 70px;
+  /* background-image: url("images/logo/logo.png"); */
+  margin-left: -8px;
+  height: 60px;
   border-radius: 50%;
   background-position: center;
 }
 
 .search-box {
-  width: 650px;
+  display: none;
+}
+
+.search-box-sm {
+  display: flex;
+  margin-left: -18px;
+}
+
+.navAuthenFrame {
+  font-weight: bold;
+  text-align: end;
+  /* margin-right: -40px; */
+}
+
+.navAuthen {
+  font-weight: bold;
+  margin-left: -10px;
 }
 
 .filter-tab {
@@ -61,25 +78,6 @@
 
 .filter-col {
   margin-right: 60px;
-}
-
-.navAuthenFrame {
-  /* position: relative; */
-  /* padding-left: 80px; */
-  font-weight: bold;
-  text-align: end;
-  margin-right: -40px;
-}
-
-.navAuthen {
-  /* display: inline-block; */
-  font-weight: bold;
-  text-align: end;
-  margin-right: 10px;
-  /* display: none; */
-  /* position:absolute;
-  top:0;
-  right:0; */
 }
 
 .logout {
@@ -179,6 +177,10 @@
 
 
 /* .....style for login page..... */
+
+.modal-box {
+    width: 350px;
+  }
 
 .logo-login {
   /* background-image: url("images/logo/logo.png"); */
@@ -301,14 +303,51 @@
 
 /*.................................. for iPad .................................. */
 
-/* style for View Freelancer page */
 
 @media (min-width: 768px) {
+
+  /* style for View Freelancer / listing page */
+
+  .logo {
+    margin-left: 15px;
+    height: 80px;
+  }
+
+  .search-box-sm {
+    margin-left: -10px;
+  }
+  
+  .search-input-box {
+    width: 500px;
+    height: 50px;
+    font-size: 22px;
+  }
+
+  .navAuthenFrame {
+    font-size: 22px;
+    text-align: end;
+    /* margin-right: -40px; */
+  }
+  
+  .navAuthen {
+    font-size: 22px;
+    margin-left: -15px;
+  }
+
+  .nav-text {
+    font-size: 21px;
+  }
 
   .card-listing {
     margin-left: 8px;
     margin-bottom: 15px;
   }
+
+  /* .....style for login page..... */
+
+  /* .modal-box {
+    width: 400px;
+  } */
 
 
 }
@@ -320,7 +359,35 @@
 
 @media (min-width: 992px) {
 
-  /* style for View Freelancer page */
+  /* style for View Freelancer / listing page */
+
+  .search-box {
+    display: flex;
+  }
+
+  .search-box-sm {
+    display: none;
+  }
+
+  .search-input-box {
+    width: 650px;
+    font-size: 20px;
+  }
+
+  .navAuthenFrame {
+    font-size: 20px;
+    margin-right: -40px;
+  }
+  
+  .navAuthen {
+    font-size: 20px;
+    margin-right: 10px;
+    text-align: end;
+  }
+
+  .nav-text {
+    font-size: 20px;
+  }
 
   .card-listing {
     margin-left: 35px;

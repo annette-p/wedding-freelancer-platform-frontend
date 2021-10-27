@@ -110,24 +110,33 @@ export default class WeddingFreelancerPlatform extends React.Component {
                 <div className="container">
                     {/* Registration & Login button */}
                     <div className="row mb-2">
-                        <div className="col-11 mt-2">
+                        <div className="col-10 col-md-11 mt-2">
                             <div className="navAuthenFrame" 
                                 onClick={()=>{this.setActive("register")}}>
                                 Become a Freelancer &nbsp; |
                             </div>
                         </div>
-                        <div className="col-1 mt-2">
+                        <div className="col col-md-1 mt-2">
                             {this.renderLoginLogoutLinks()}
                             {this.renderLoginModal()}
-                        </div>
-                        
+                        </div>  
                     </div> 
                     {/* Navbar */}
-                    <div className="row">
+                    <div className="row nav-text">
                         <Navbar bg="light" expand="lg">
-                            <Navbar.Brand className="ms-2" href="#">
+                            <Navbar.Brand className="ms-2-lg" href="#">
                                 <img src={require('./images/logo/logo.png').default} className="logo" alt="logo"/>
                             </Navbar.Brand>
+                            <div className="search-box-sm">
+                                <input
+                                    type="text"
+                                    placeholder="Search"
+                                    className="mr-2 form-control search-input-box"
+                                    aria-label="Search"
+                                />
+                                <button className="btn-success"></button>
+                            </div>
+
                             <Navbar.Toggle aria-controls="navbarScroll" />
                             <Navbar.Collapse id="navbarScroll">
                                 <Nav
@@ -140,11 +149,11 @@ export default class WeddingFreelancerPlatform extends React.Component {
                                 <Nav.Link onClick={()=>{this.setActive("about-us")}}>About Us</Nav.Link>
                                 </Nav>
                             </Navbar.Collapse>
-                            <div className="d-flex me-3">
+                            <div className="search-box me-3">
                                 <input
                                     type="text"
                                     placeholder="Search"
-                                    className="mr-2 form-control search-box"
+                                    className="mr-2 form-control search-input-box"
                                     aria-label="Search"
                                 />
                                 <button className="btn-success">Search</button>
