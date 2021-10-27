@@ -482,7 +482,7 @@ export default class EditProfileForm extends React.Component {
                             <p className="bold">To continue, please re-enter your password</p>
                         </div>
                         <div className="col-7 mt-2">
-                            <input type="text" name="" value="" onChange={this.updateFormField} className="form-control"/>
+                            <input type="text" name="currentPassword" value={this.state.currentPassword} onChange={this.updateFormField} className="form-control"/>
                         </div>
                     </div>
                     {/* buttons */}

@@ -144,7 +144,7 @@ export default class WeddingFreelancerPlatform extends React.Component {
                                 <input
                                     type="text"
                                     placeholder="Search"
-                                    className="mr-2 form-control"
+                                    className="mr-2 form-control search-box"
                                     aria-label="Search"
                                 />
                                 <button className="btn-success">Search</button>

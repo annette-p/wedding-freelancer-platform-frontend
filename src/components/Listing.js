@@ -110,6 +110,43 @@ export default class Listing extends React.Component {
     render() {
         return (
             <React.Fragment>
+                <div className="row mb-5 mt-3">
+                    <div className="col mt-2">
+                        <p>Displaying 21 results</p>
+                    </div>
+                    <div className="col position-right">
+                        <label className="form-label bold filter-tab">Filter by: </label>
+                        <select className="" name="" value="" onChange="">
+                            <option value=""> ----- Specialization ----- </option>
+                            <option value="pre-wedding">Pre-wedding</option>
+                            <option value="ROM">Wedding day / ROM</option>
+                            <option value="bridal-makeup">Bridal makeup</option>
+                            <option value="glow-makeup">Natural glow makeup</option>
+                            <option value="maternity">Maternity shoot</option>
+                            <option value="newborn">Newborn shoot</option>
+                        </select>
+                    </div>
+                    <div className="col position-right">
+                        <label className="form-label bold filter-tab">Filter by: </label>
+                        <select className="" name="" value="" onChange="">
+                            <option value=""> ----- Service type ----- </option>
+                            <option value="photographer">Photographer</option>
+                            <option value="videographer">Videographer</option>
+                            <option value="makeup-artist">Makeup-artist</option>
+                        </select>
+                    </div>
+                    <div className="col position-right filter-col">
+                        <label className="form-label bold filter-tab">Filter by: </label>
+                        <select className="" name="" value="" onChange="">
+                            <option value="high-rated">Most rated (high rating)</option>
+                            <option value="review">Most reviewed</option>
+                            <option value="recent">Most recent</option>
+                            <option value="recommended">Most recommended</option>
+                            <option value="hourly-rate">Rate range (by hour)</option>
+                            <option value="project-rate">Rate range (by project)</option>
+                        </select>
+                    </div>
+                </div>
                 {this.state.freelancer.map( eachFreelancer => 
                     <div className="col freelancer-card" key={eachFreelancer._id}>
                         <div className="card card-listing" style={{width: "20rem"}}>

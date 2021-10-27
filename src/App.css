@@ -1,5 +1,38 @@
 
-/* .....style for View Freelancer page..... */
+
+/* .....Global class..... */
+
+.position-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.disabled {
+  color: rgb(110, 108, 108);
+  font-style: italic;
+}
+
+.beta {
+  color: red;
+  font-variant: small-caps;
+  font-style: oblique;
+}
+
+.head-center {
+  display: flex;
+  justify-content: center;
+}
+
+.error-msg {
+  color: red;
+}
+
+
+/* .....style for View Freelancer page / Listing page..... */
 
 .background-img {
   background-image: url("images/background/white-ring.jpg");
@@ -15,6 +48,19 @@
   height: 70px;
   border-radius: 50%;
   background-position: center;
+}
+
+.search-box {
+  width: 650px;
+}
+
+.filter-tab {
+  margin-right: 15px;
+  margin-top: 5px;
+}
+
+.filter-col {
+  margin-right: 60px;
 }
 
 .navAuthenFrame {
@@ -130,9 +176,7 @@
   height: 100px;
 }
 
-.error-msg {
-  color: red;
-}
+
 
 /* .....style for login page..... */
 
@@ -219,22 +263,6 @@
   font-weight: bold;
 }
 
-.disabled {
-  color: rgb(110, 108, 108);
-  font-style: italic;
-}
-
-.beta {
-  color: red;
-  font-variant: small-caps;
-  font-style: oblique;
-}
-
-.head-center {
-  display: flex;
-  justify-content: center;
-}
-
 .showcase {
   margin-left: 45px;
 }
@@ -251,10 +279,6 @@
 }
 
 /* .....style for delete account tab..... */
-
-.bold {
-  font-weight: bold;
-}
 
 .delete-account {
   display: flex;
