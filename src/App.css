@@ -172,16 +172,6 @@
 }
 
 
-.reviewer-name {
-  color: rgb(27, 26, 26);
-}
-
-.carousel-img {
-  /* width: 100px; */
-  height: 510px;
-}
-
-
 /* .....style for Give review form page..... */
 
 .modal-body {
@@ -191,6 +181,7 @@
 
 .review-title {
   text-align: center;
+  margin-right: 5px;
 }
 
 .comment-box {
@@ -199,6 +190,17 @@
 
 .submit-review-btn {
   font-weight: bold;
+}
+
+/* .....style for View profile page..... */
+
+.reviewer-name {
+  color: rgb(27, 26, 26);
+}
+
+.carousel-img {
+  /* width: 100px; */
+  height: 510px;
 }
 
 
@@ -365,6 +367,10 @@
     margin-right: 10px;
   }
 
+  .review-title {
+    margin-right: 0px;
+  }
+
 
   /* .....style for login page..... */
 
@@ -461,6 +467,10 @@
 
   .modal-body {
     font-size: 17px;
+  }
+
+  .review-title {
+    margin-left: 15px;
   }
 
   .submit-review-btn {
