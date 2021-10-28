@@ -9,7 +9,14 @@ import EditProfileForm from "./components/EditProfileForm"
 export default class WeddingFreelancerPlatform extends React.Component {
     state = {
         active: "listing",
-        showLoginModal: false
+        showLoginModal: false,
+        searchText: ""
+    }
+
+    updateFormField = (e) => {
+        this.setState({
+            [e.target.name] : e.target.value
+        })
     }
 
     setActive(nextPage) {
@@ -94,7 +101,7 @@ export default class WeddingFreelancerPlatform extends React.Component {
     // set condtional rending of the page as per the current active page
     renderContent() {
         if (this.state.active === "listing") {
-            return <Listing/>
+            return <Listing searchText={this.state.searchText} />
         } else if (this.state.active === "register") {
             return <RegisterForm afterAddNewFreelancer={this.afterAddNewFreelancer}/>
         } else if (this.state.active === "manage-profile") {
@@ -155,8 +162,11 @@ export default class WeddingFreelancerPlatform extends React.Component {
                                     placeholder="Search"
                                     className="mr-2 form-control search-input-box"
                                     aria-label="Search"
+                                    name="searchText"
+                                    value={this.state.searchText}
+                                    onChange={this.updateFormField}
                                 />
-                                <button className="btn-success">Search</button>
+                                {/* <button className="btn-success">Search</button> */}
                             </div>
                         </Navbar>
                     </div> 

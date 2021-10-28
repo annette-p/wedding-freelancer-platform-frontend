@@ -34,10 +34,26 @@ export default class Listing extends React.Component {
         if (prevState.activeFreelancer._id !== this.state.activeFreelancer._id) {
             await this.fetchData();
         }
+
+        // when there are changes in the search text, fetch new data from api/backend
+        if (prevProps.searchText !== this.props.searchText) {
+            await this.fetchData();
+        }
     }
 
     fetchData = async () => {
-        let responseFreelancer = await axios.get(this.apiUrl + "/freelancers");
+
+        // handle search text provided by user
+        let params = {}
+        if (this.props.searchText) {
+            params = {
+                params: {
+                    searchText: this.props.searchText
+                }
+            }
+        }
+
+        let responseFreelancer = await axios.get(this.apiUrl + "/freelancers", params);
         let freelancers = responseFreelancer.data;
         let reviews = []
 
