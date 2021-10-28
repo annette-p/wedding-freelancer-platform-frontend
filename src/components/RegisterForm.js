@@ -130,9 +130,9 @@ export default class RegisterForm extends React.Component {
             errors["specialized"] = "Please select at least 1 specialization"
         }
 
-        if (this.state.specialized.length > 3) {
+        if (this.state.specialized.length > 6) {
             formIsValid = false
-            errors["specialized"] = "Only maximum 3 specialization are allowed"
+            errors["specialized"] = "Only maximum 6 specialization are allowed"
         }
 
         if (!this.state.rate || isNaN(this.state.rate)) {
@@ -332,12 +332,14 @@ export default class RegisterForm extends React.Component {
                             </div>
                             {/* Specialization */}
                             <div className="row register-text">
-                                <label className="form-label register-form-headline">Specialization <span className="side-note">(only 3 list will be displayed)</span> :</label>
+                                <label className="form-label register-form-headline">Specialization <span className="side-note">(only 6 list will be displayed)</span> :</label>
                                 <div className="col">
                                     <input type="checkbox" name="specialized" value="photography" onChange={this.updateSpecialization}/><span className="ms-2">Photography</span>
                                     <input className="ms-3" type="checkbox" name="specialized" value="videography" onChange={this.updateSpecialization}/><span className="ms-2">Videography</span>
                                     <input className="ms-3" type="checkbox" name="specialized" value="pre-wedding" onChange={this.updateSpecialization}/><span className="ms-2">Pre-wedding</span>
                                     <input className="ms-3" type="checkbox" name="specialized" value="Wedding day /ROM" onChange={this.updateSpecialization}/><span className="ms-2">Wedding day / ROM</span>
+                                    <input className="ms-3" type="checkbox" name="specialized" value="maternity" onChange={this.updateSpecialization}/><span className="ms-2">Maternity shoot</span>
+                                    <input className="ms-3" type="checkbox" name="specialized" value="newborn" onChange={this.updateSpecialization}/><span className="ms-2">Newborn shoot</span>
                                     <input className="ms-3" type="checkbox" name="specialized" value="bridal makeup" onChange={this.updateSpecialization}/><span className="ms-2">Bridal makeup</span>
                                     <input className="ms-3" type="checkbox" name="specialized" value="fancy makeup" onChange={this.updateSpecialization}/><span className="ms-2">Fancy makeup</span>
                                     <input className="ms-3" type="checkbox" name="specialized" value="natural glow makeup" onChange={this.updateSpecialization}/><span className="ms-2">Natural glow makeup</span>
