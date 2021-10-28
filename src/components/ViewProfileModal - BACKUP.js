@@ -8,10 +8,10 @@ export default function ViewProfileModal(props) {
     <React.Fragment>
         <div className="modal show fade" tabIndex="-1" style={{display: "block",backgroundColor: "rgba(0.5, 0.5, 0.5, 0.5)"}}>
             <div className="modal-dialog modal-lg">
+                {/* title / total review / total recommend */}
                 <div className="modal-content">
-                    {/* title / total review / total recommend */}
                     <div className="modal-header">
-                        <div className="col ms-3"><h5 className="modal-title">{props.freelancer.name}</h5></div>
+                        <div className="col"><h5 className="modal-title">{props.freelancer.name}</h5></div>
                         <div className="col">Total Reviews: {props.reviews.length}</div>
                         <div className="col me-4">Total Recommend to a friend: {(props.reviews.filter( eachReview => eachReview.recommend === true)).length}</div>
                         <button
@@ -23,21 +23,27 @@ export default function ViewProfileModal(props) {
                         ></button>
                     </div>
                     <div className="modal-body">
-                        {/* Contact */}
+                        {/* Social Media & Contact */}
                         {/* ref: https://stackoverflow.com/questions/39965579/how-to-loop-an-object-in-react */}
                         <div className="row">
-                            <h5 className="mt-2">Contact</h5>
-                            {Object.keys(props.freelancer.contact).map( eachContact  => 
-                                <div className="col" key={eachContact}>
-                                    {eachContact}: {props.freelancer.contact[eachContact]}
-                                </div>
-                            )}  
+                            <div className="col">
+                                <h5>Social media</h5>
+                                {Object.keys(props.freelancer.socialMedia).map( eachSocialMedia  => 
+                                    <div key={eachSocialMedia}>{eachSocialMedia}: {props.freelancer.socialMedia[eachSocialMedia]}</div>
+                                )}
+                            </div>
+                            <div className="col">
+                                <h5 className="mt-2">Contact</h5>
+                                {Object.keys(props.freelancer.contact).map( eachContact  => 
+                                    <div key={eachContact}>{eachContact}: {props.freelancer.contact[eachContact]}</div>
+                                )}
+                            </div>
                         </div>
                         <hr></hr>
                         {/* Overview */}
-                        <div className="row profile-overview">
+                        <div className="row">
                             <h5>Overview</h5>
-                            <div className="col">{props.freelancer.bio}</div>
+                            {props.freelancer.bio}
                         </div>
                         <hr></hr>
                         {/* Carousel */}
@@ -64,23 +70,26 @@ export default function ViewProfileModal(props) {
                         <div className="row">
                             <h5 className="mb-4 mt-1">Customer Reviews</h5>
                             {props.reviews.map( eachReview =>
-                                <div key={eachReview._id} className="mb-3">
+                                <div key={eachReview._id}>
                                     <div className="rating">
-                                        <FontAwesomeIcon icon={faStar}/> {eachReview.rating} &nbsp; &nbsp; &nbsp;
-                                        <span className="reviewer-name">From: {eachReview.reviewer.name}</span>
+                                    <FontAwesomeIcon icon={faStar}/> {eachReview.rating} &nbsp; &nbsp; &nbsp;
+                                    <span className="reviewer-name">From: {eachReview.reviewer.name}</span>
                                     </div>
                                     {/* format the date & time */}
                                     {/* ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString */}
                                     {/* ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat */}
-                                    <div className="grey"><span className="me-3">Date:</span> {(new Date(eachReview.date)).toLocaleDateString('en-SG', { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' })}</div>
-                                    <div><span className="me-1">Detail:</span> {eachReview.description}</div>
+                                    <div>Date: {(new Date(eachReview.date)).toLocaleDateString('en-SG', { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' })}</div>
+                                    <div>Detail: {eachReview.description}</div>
                                 </div>
                             )}     
                         </div>
                     </div>
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-secondary large-btn account-btn" onClick={props.hideModal}>
+                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">
                             Close
+                        </button>
+                        <button type="button" className="btn btn-primary" onClick={props.hideModal}>
+                            Save changes
                         </button>
                     </div>
                 </div>

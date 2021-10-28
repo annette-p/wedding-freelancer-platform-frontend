@@ -31,6 +31,10 @@
   color: red;
 }
 
+.grey {
+  color: rgb(145, 140, 140);
+}
+
 /* ..... style for Navbar ..... */
 
 .background-img {
@@ -194,13 +198,19 @@
 
 /* .....style for View profile page..... */
 
+.profile-overview {
+  overflow-y: auto;
+  max-height: 130px;
+}
+
 .reviewer-name {
   color: rgb(27, 26, 26);
 }
-
+  
 .carousel-img {
   /* width: 100px; */
-  height: 510px;
+  /* height: 195px; */
+  height: 200px;
 }
 
 
@@ -371,6 +381,14 @@
     margin-right: 0px;
   }
 
+  /* .....style for View Profile page..... */
+
+  
+  .carousel-img {
+    /* height: 300px; */
+    height: 305px;
+  }
+
 
   /* .....style for login page..... */
 
@@ -475,6 +493,18 @@
 
   .submit-review-btn {
     font-size: 17px;
+  }
+
+  /* .....style for View Profile page..... */
+
+  
+  .carousel-img {
+    /* width: 100px; */
+    height: 500px;
+  }
+
+  .large-btn {
+    font-size: 19px;
   }
 
   /* .....style for Profile Register form page..... */
