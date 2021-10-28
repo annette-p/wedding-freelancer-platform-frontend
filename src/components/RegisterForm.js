@@ -337,7 +337,7 @@ export default class RegisterForm extends React.Component {
                                     <input type="checkbox" name="specialized" value="photography" onChange={this.updateSpecialization}/><span className="ms-2">Photography</span>
                                     <input className="ms-3" type="checkbox" name="specialized" value="videography" onChange={this.updateSpecialization}/><span className="ms-2">Videography</span>
                                     <input className="ms-3" type="checkbox" name="specialized" value="pre-wedding" onChange={this.updateSpecialization}/><span className="ms-2">Pre-wedding</span>
-                                    <input className="ms-3" type="checkbox" name="specialized" value="Wedding day /ROM" onChange={this.updateSpecialization}/><span className="ms-2">Wedding day / ROM</span>
+                                    <input className="ms-3" type="checkbox" name="specialized" value="wedding-day-rom" onChange={this.updateSpecialization}/><span className="ms-2">Wedding day / ROM</span>
                                     <input className="ms-3" type="checkbox" name="specialized" value="maternity" onChange={this.updateSpecialization}/><span className="ms-2">Maternity shoot</span>
                                     <input className="ms-3" type="checkbox" name="specialized" value="newborn" onChange={this.updateSpecialization}/><span className="ms-2">Newborn shoot</span>
                                     <input className="ms-3" type="checkbox" name="specialized" value="bridal makeup" onChange={this.updateSpecialization}/><span className="ms-2">Bridal makeup</span>

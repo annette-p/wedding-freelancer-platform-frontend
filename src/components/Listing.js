@@ -39,8 +39,10 @@ export default class Listing extends React.Component {
             await this.fetchData();
         }
 
-        // when there are changes in the search text, fetch new data from api/backend
-        if (prevProps.searchText !== this.props.searchText) {
+        // when there are changes in the search, fetch new data from api/backend
+        if (prevProps.searchText !== this.props.searchText || 
+            prevState.filterByType !== this.state.filterByType || 
+            prevState.filterBySpecialization !== this.state.filterBySpecialization) {
             await this.fetchData();
         }
     }
@@ -48,13 +50,20 @@ export default class Listing extends React.Component {
     fetchData = async () => {
 
         // handle search text provided by user
-        let params = {}
+        let params = {
+            params: {}
+        }
+
         if (this.props.searchText) {
-            params = {
-                params: {
-                    searchText: this.props.searchText
-                }
-            }
+            params.params.searchText = this.props.searchText
+        }
+
+        if (this.state.filterByType) {
+            params.params.type = this.state.filterByType
+        }
+
+        if (this.state.filterBySpecialization) {
+            params.params.specialized = this.state.filterBySpecialization
         }
 
         let responseFreelancer = await axios.get(this.apiUrl + "/freelancers", params);
@@ -151,7 +160,7 @@ export default class Listing extends React.Component {
                         <select className="" name="filterBySpecialization" value={this.state.filterBySpecialization} onChange={this.updateFormField}>
                             <option value=""> ----- Specialization ----- </option>
                             <option value="pre-wedding">Pre-wedding</option>
-                            <option value="ROM">Wedding day / ROM</option>
+                            <option value="wedding-day-rom">Wedding day / ROM</option>
                             <option value="bridal-makeup">Bridal makeup</option>
                             <option value="glow-makeup">Natural glow makeup</option>
                             <option value="maternity">Maternity shoot</option>
