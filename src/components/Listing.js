@@ -14,7 +14,11 @@ export default class Listing extends React.Component {
         review: [],
         activeFreelancer: {},
         displayModalBox: false,
-        activeModalBox: ""      // which modal box to display when 'displayModalBox' is true
+        activeModalBox: "",     // which modal box to display when 'displayModalBox' is true
+
+        filterBySpecialization: "",
+        filterByType: "",
+        sorted: ""
     }
 
     async componentDidMount() {
@@ -121,7 +125,18 @@ export default class Listing extends React.Component {
             return null
         }
     }
-    /*............. end of to handle Model function .............*/ 
+    
+
+    /*............. form processing related function .............*/ 
+
+    updateFormField = (e) => {
+        this.setState({
+            [e.target.name] : e.target.value
+        })
+    }
+
+    /*............. End of form processing related function .............*/ 
+
 
     render() {
         return (
@@ -133,7 +148,7 @@ export default class Listing extends React.Component {
                     </div>
                     <div className="col col-md-12 col-lg-3 position-right filter-col">
                         <label className="form-label bold filter-tab">Filter by: </label>
-                        <select className="" name="" value="" onChange="">
+                        <select className="" name="filterBySpecialization" value={this.state.filterBySpecialization} onChange={this.updateFormField}>
                             <option value=""> ----- Specialization ----- </option>
                             <option value="pre-wedding">Pre-wedding</option>
                             <option value="ROM">Wedding day / ROM</option>
@@ -145,7 +160,7 @@ export default class Listing extends React.Component {
                     </div>
                     <div className="col col-md-12 col-lg-3 position-right filter-col">
                         <label className="form-label bold filter-tab">Filter by: </label>
-                        <select className="" name="" value="" onChange="">
+                        <select className="" name="filterByType" value={this.state.filterByType} onChange={this.updateFormField}>
                             <option value=""> ----- Service type ----- </option>
                             <option value="photographer">Photographer</option>
                             <option value="videographer">Videographer</option>
@@ -154,7 +169,7 @@ export default class Listing extends React.Component {
                     </div>
                     <div className="col col-md-12 col-lg-3 position-right filter-col">
                         <label className="form-label bold filter-tab">Sorted by: </label>
-                        <select className="" name="" value="" onChange="">
+                        <select className="" name="sorted" value={this.state.sorted} onChange={this.updateFormField}>
                             <option value="high-rated">Most rated (high rating)</option>
                             <option value="review">Most reviewed</option>
                             <option value="recent">Most recent</option>

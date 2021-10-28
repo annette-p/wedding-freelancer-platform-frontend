@@ -140,8 +140,11 @@ export default class WeddingFreelancerPlatform extends React.Component {
                                     placeholder="Search"
                                     className="mr-2 form-control search-input-box"
                                     aria-label="Search"
+                                    name="searchText"
+                                    value={this.state.searchText}
+                                    onChange={this.updateFormField}
                                 />
-                                <button className="btn-success"></button>
+                                {/* <button className="btn-success"></button> */}
                             </div>
 
                             <Navbar.Toggle aria-controls="navbarScroll" />
@@ -166,7 +169,7 @@ export default class WeddingFreelancerPlatform extends React.Component {
                                     value={this.state.searchText}
                                     onChange={this.updateFormField}
                                 />
-                                {/* <button className="btn-success">Search</button> */}
+                                <button className="btn-success" onChange={this.updateFormField}>Search</button>
                             </div>
                         </Navbar>
                     </div> 
