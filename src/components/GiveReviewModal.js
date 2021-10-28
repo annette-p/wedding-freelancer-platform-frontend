@@ -120,7 +120,7 @@ export default class GiveReviewModal extends React.Component {
                     <div className="modal-dialog modal-lg">
                         <div className="modal-content">
                             <div className="modal-header">
-                            <h4>Help other bridegrooms know about the services you just received</h4>
+                            <h4 className="review-title">Help other bridegrooms know about services you just received</h4>
                             <button
                                 type="button"
                                 className="btn-close"
@@ -165,7 +165,7 @@ export default class GiveReviewModal extends React.Component {
                             </div>
                             {/* Submit */}
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-primary" onClick={this.addReview}>Submit and Close
+                                <button type="button" className="btn btn-secondary submit-review-btn account-btn" onClick={this.addReview}>Submit and Close
                                 </button>
                             </div>
                         </div>

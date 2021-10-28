@@ -176,12 +176,25 @@
   height: 510px;
 }
 
-/* .....style for Give comment page..... */
+
+/* .....style for Give review form page..... */
+
+.modal-body {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.review-title {
+  text-align: center;
+}
 
 .comment-box {
   height: 100px;
 }
 
+.submit-review-btn {
+  font-weight: bold;
+}
 
 
 /* .....style for login page..... */
@@ -386,6 +399,14 @@
     font-size: 23px;
   }
 
+  /* .....style for Give review form page..... */
+
+  .modal-body {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+
   /* .....style for login page..... */
 
   /* .modal-box {
@@ -482,6 +503,16 @@
 
   .listing-btn {
     font-size: large;
+  }
+
+  /* .....style for Give review form page..... */
+
+  .modal-body {
+    font-size: 17px;
+  }
+
+  .submit-review-btn {
+    font-size: 17px;
   }
 
   /* .....style for Profile Register form page..... */
