@@ -186,10 +186,10 @@ export default class Listing extends React.Component {
                                     </div> 
                                 </div> 
                                 <hr className="hr-line"></hr>
-                                <button href="#" className="btn btn-outline-secondary ms-4 ms-5-md ms-4-lg listing-btn" onClick={() => {
+                                <button href="#" className="btn btn-outline-secondary listing-btn" onClick={() => {
                                     this.displayModal(eachFreelancer, "view_profile")
                                 }}>View Profile</button> 
-                                <button href="#" className="btn btn-outline-secondary ms-2 listing-btn" onClick={() => {
+                                <button href="#" className="btn btn-outline-secondary listing-btn ms-2" onClick={() => {
                                     this.displayModal(eachFreelancer, "give_review")
                                 }}>Give Review</button>
                             </div>

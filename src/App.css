@@ -31,8 +31,7 @@
   color: red;
 }
 
-
-/* .....style for View Freelancer page / Listing page..... */
+/* ..... style for Navbar ..... */
 
 .background-img {
   background-image: url("images/background/white-ring.jpg");
@@ -71,14 +70,15 @@
   margin-left: -10px;
 }
 
+
+/* .....style for View Freelancer page / Listing page..... */
+
 .filter-row {
   margin-bottom: 10px;
 }
 
 .filter-tab {
   display: none;
-  margin-right: 15px;
-  margin-top: 5px;
 }
 
 .filter-col {
@@ -166,6 +166,11 @@
 .hr-line {
   color: rgb(168, 165, 165);
 }
+
+.listing-btn {
+  margin-left: 40px;
+}
+
 
 .reviewer-name {
   color: rgb(27, 26, 26);
@@ -327,77 +332,31 @@
 
 @media (min-width: 768px) {
 
-  /* style for View Freelancer / listing page */
+  /* style for Navbar */
 
   .logo {
-    margin-left: 15px;
-    height: 80px;
+    margin-left: 5px;
+    height: 70px;
   }
 
-  .search-box-sm {
-    margin-left: -10px;
-  }
-  
   .search-input-box {
     width: 500px;
-    height: 50px;
-    font-size: 22px;
+    height: 42px;
+    font-size: 16px;
   }
 
-  .navAuthenFrame {
-    font-size: 22px;
-    text-align: end;
-    /* margin-right: -40px; */
-  }
-  
-  .navAuthen {
-    font-size: 22px;
-    margin-left: -15px;
-  }
 
-  .nav-text {
-    font-size: 21px;
-  }
-
-  .filter-col {
-    font-size: 21px;
-    margin-bottom: 10px;
-  }
+  /* style for View Freelancer / listing page */
 
   .card-listing {
-    width: 30rem;
-    margin-left: 110px;
-    margin-bottom: 15px;
-  }
-
-  #portfolio-1 {
-    height: 570px;
-  }
-
-  .card-title {
-    font-size: 26px;
-  }
-
-  .rating {
-    font-size: 23px;
+    margin-left: 0px;
   }
 
   .card-text {
-    font-size: 23px;
+    overflow-y: auto;
+    height: 35px;
   }
 
-  #profile-img {
-    height: 95px;
-    width: 105px;
-  }
-
-  .profile-info {
-    font-size: 24px;
-  }
-
-  .listing-btn {
-    font-size: 23px;
-  }
 
   /* .....style for Give review form page..... */
 
@@ -423,7 +382,12 @@
 
 @media (min-width: 992px) {
 
-  /* style for View Freelancer / listing page */
+  /* style for Navbar */
+
+  .logo {
+    margin-left: 15px;
+    height: 80px;
+  }
 
   .search-box {
     display: flex;
@@ -435,23 +399,26 @@
 
   .search-input-box {
     width: 650px;
-    font-size: 20px;
+    height: 45px;
+    font-size: 18px;
   }
 
   .navAuthenFrame {
-    font-size: 20px;
+    font-size: 18px;
     margin-right: -40px;
   }
-  
+
   .navAuthen {
-    font-size: 20px;
+    font-size: 18px;
     margin-right: 10px;
     text-align: end;
   }
 
   .nav-text {
-    font-size: 20px;
+    font-size: 19px;
   }
+
+  /* style for View Freelancer / listing page */
 
   .filter-row {
     margin-top: 10px;
@@ -469,13 +436,8 @@
   }
 
   .card-listing {
-    width: 21rem;
     margin-left: 35px;
     margin-bottom: 15px;
-  }
-
-  #portfolio-1 {
-    height: 350px;
   }
 
   .card-title {
@@ -487,22 +449,12 @@
   }
 
   .card-text {
-    overflow-y: auto;
-    height: 35px;
     font-size: 17px;
   }
 
-  #profile-img {
-    height: 75px;
-    width: 85px;
-  }
-
-  .profile-info {
-    font-size: large;
-  }
-
   .listing-btn {
-    font-size: large;
+    font-size: 17px;
+    margin-left: 30px;
   }
 
   /* .....style for Give review form page..... */
