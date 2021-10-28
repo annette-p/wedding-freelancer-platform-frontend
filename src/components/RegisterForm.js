@@ -340,9 +340,9 @@ export default class RegisterForm extends React.Component {
                                     <input className="ms-3" type="checkbox" name="specialized" value="wedding-day-rom" onChange={this.updateSpecialization}/><span className="ms-2">Wedding day / ROM</span>
                                     <input className="ms-3" type="checkbox" name="specialized" value="maternity" onChange={this.updateSpecialization}/><span className="ms-2">Maternity shoot</span>
                                     <input className="ms-3" type="checkbox" name="specialized" value="newborn" onChange={this.updateSpecialization}/><span className="ms-2">Newborn shoot</span>
-                                    <input className="ms-3" type="checkbox" name="specialized" value="bridal makeup" onChange={this.updateSpecialization}/><span className="ms-2">Bridal makeup</span>
-                                    <input className="ms-3" type="checkbox" name="specialized" value="fancy makeup" onChange={this.updateSpecialization}/><span className="ms-2">Fancy makeup</span>
-                                    <input className="ms-3" type="checkbox" name="specialized" value="natural glow makeup" onChange={this.updateSpecialization}/><span className="ms-2">Natural glow makeup</span>
+                                    <input className="ms-3" type="checkbox" name="specialized" value="bridal-makeup" onChange={this.updateSpecialization}/><span className="ms-2">Bridal makeup</span>
+                                    <input className="ms-3" type="checkbox" name="specialized" value="fancy-makeup" onChange={this.updateSpecialization}/><span className="ms-2">Fancy makeup</span>
+                                    <input className="ms-3" type="checkbox" name="specialized" value="natural-glow-makeup" onChange={this.updateSpecialization}/><span className="ms-2">Natural glow makeup</span>
                                 </div>
                                 <div className="error-msg">{this.state.errors.specialized}</div>
                             </div>

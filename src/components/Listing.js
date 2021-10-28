@@ -18,7 +18,7 @@ export default class Listing extends React.Component {
 
         filterBySpecialization: "",
         filterByType: "",
-        sorted: ""
+        sorted: "high-rated"
     }
 
     async componentDidMount() {
@@ -162,7 +162,7 @@ export default class Listing extends React.Component {
                             <option value="pre-wedding">Pre-wedding</option>
                             <option value="wedding-day-rom">Wedding day / ROM</option>
                             <option value="bridal-makeup">Bridal makeup</option>
-                            <option value="glow-makeup">Natural glow makeup</option>
+                            <option value="natural-glow-makeup">Natural glow makeup</option>
                             <option value="maternity">Maternity shoot</option>
                             <option value="newborn">Newborn shoot</option>
                         </select>
@@ -184,7 +184,7 @@ export default class Listing extends React.Component {
                             <option value="recent">Most recent</option>
                             <option value="recommended">Most recommended</option>
                             <option value="hourly-rate">Rate range (by hour)</option>
-                            <option value="project-rate">Rate range (by project)</option>
+                            <option value="session-rate">Rate range (by session)</option>
                         </select>
                     </div>
                 </div>
