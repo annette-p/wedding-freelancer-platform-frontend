@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { faStar, faGlobe, faEnvelope, faMobileAlt } from '@fortawesome/free-solid-svg-icons'
 import Carousel from 'react-bootstrap/Carousel'
 
 export default function ViewProfileModal(props) {
@@ -29,7 +29,10 @@ export default function ViewProfileModal(props) {
                             <h5 className="mt-2">Contact</h5>
                             {Object.keys(props.freelancer.contact).map( eachContact  => 
                                 <div className="col" key={eachContact}>
-                                    {eachContact}: {props.freelancer.contact[eachContact]}
+                                    {eachContact === "mobile" ? <FontAwesomeIcon icon={faMobileAlt}/> : ""}
+                                    {eachContact === "email" ? <FontAwesomeIcon icon={faEnvelope}/> : ""}
+                                    {eachContact === "website" ? <FontAwesomeIcon icon={faGlobe}/> : ""}
+                                    &nbsp;{props.freelancer.contact[eachContact]}
                                 </div>
                             )}  
                         </div>
