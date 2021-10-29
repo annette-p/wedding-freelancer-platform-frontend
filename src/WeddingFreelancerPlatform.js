@@ -175,7 +175,7 @@ export default class WeddingFreelancerPlatform extends React.Component {
                     </div> 
                     {/* End of Navbar */}  
                     <div className="row mt-3">
-                        {/* display Freelancer list*/}  
+                        {/* conditional rendering of display list*/}  
                         {this.renderContent()}
                     </div> 
                 </div>

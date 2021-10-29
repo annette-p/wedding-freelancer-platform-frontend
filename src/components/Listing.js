@@ -18,6 +18,7 @@ export default class Listing extends React.Component {
 
         filterBySpecialization: "",
         filterByType: "",
+        filterByRate: "",
         sorted: "high-rated"
     }
 
@@ -152,10 +153,10 @@ export default class Listing extends React.Component {
             <React.Fragment>
                 {/* filter section */}
                 <div className="row filter-row">
-                    <div className="d-none d-lg-block col-md-3 mt-2">
+                    <div className="d-none d-lg-block col-lg-1 mt-2">
                         {/* <p>Displaying 21 results</p> */}
                     </div>
-                    <div className="col col-md-12 col-lg-3 position-right filter-col">
+                    <div className="col col-md-12 col-lg-4 position-right filter-col">
                         <label className="form-label bold filter-tab">Filter by: </label>
                         <select className="" name="filterBySpecialization" value={this.state.filterBySpecialization} onChange={this.updateFormField}>
                             <option value=""> ----- Specialization ----- </option>
@@ -176,7 +177,19 @@ export default class Listing extends React.Component {
                             <option value="makeup-artist">Makeup-artist</option>
                         </select>
                     </div>
-                    <div className="col col-md-12 col-lg-3 position-right filter-col">
+                    <div className="col col-md-12 col-lg-4 position-right filter-col">
+                        <label className="form-label bold filter-tab">Filter by: </label>
+                        <select className="" name="filterByRate" value={this.state.filterByRate} onChange={this.updateFormField}>
+                            <option value=""> -- Hourly rate / Session rate -- </option>
+                            <option value="hourly-rate-lt">Hourly: &lt; $50</option>
+                            <option value="hourly-rate-gt">Hourly: $50 to $100</option>
+                            <option value="hourly-rate-gt-100">Hourly: &gt; $100</option>
+                            <option value="session-rate-lt">Session: &lt; $50</option>
+                            <option value="session-rate-gt">Session: $50 to $100</option>
+                            <option value="session-rate-gt-100">Session: &gt; $100</option>
+                        </select>
+                    </div>
+                    {/* <div className="col col-md-12 col-lg-3 position-right filter-col">
                         <label className="form-label bold filter-tab">Sorted by: </label>
                         <select className="" name="sorted" value={this.state.sorted} onChange={this.updateFormField}>
                             <option value="high-rated">Most rated (high rating)</option>
@@ -186,7 +199,7 @@ export default class Listing extends React.Component {
                             <option value="hourly-rate">Rate range (by hour)</option>
                             <option value="session-rate">Rate range (by session)</option>
                         </select>
-                    </div>
+                    </div> */}
                 </div>
                 {/* card listing - each freelancer */}
                 {this.state.freelancer.map( eachFreelancer => 
