@@ -198,6 +198,10 @@
 
 /* .....style for View profile page..... */
 
+.header-model-md {
+  display: none;
+}
+
 .profile-overview {
   overflow-y: auto;
   max-height: 130px;
@@ -385,6 +389,13 @@
 
   /* .....style for View Profile page..... */
 
+  .header-model-md {
+    display: flex;
+  }
+
+  .header-model-sm {
+    display: none;
+  }
   
   .carousel-img {
     /* height: 300px; */

@@ -10,17 +10,31 @@ export default function ViewProfileModal(props) {
             <div className="modal-dialog modal-lg">
                 <div className="modal-content">
                     {/* title / total review / total recommend */}
-                    <div className="modal-header">
+                    {/* display for iPad & Laptop only */}
+                    <div className="modal-header header-model-md">
                         <div className="col ms-3"><h5 className="modal-title">{props.freelancer.name}</h5></div>
-                        <div className="col">Total Reviews: {props.reviews.length}</div>
-                        <div className="col me-4">Total Recommend to a friend: {(props.reviews.filter( eachReview => eachReview.recommend === true)).length}</div>
+                        <div className="col me-md-4 me-lg-0">Total Reviews: {props.reviews.length}</div>
+                        <div className="col me-lg-4">Total Recommend to a friend: {(props.reviews.filter( eachReview => eachReview.recommend === true)).length}</div>
                         <button
                             type="button"
                             className="btn-close"
                             data-bs-dismiss="modal"
                             aria-label="Close"
                             onClick={props.hideModal}
-                        ></button>
+                        ></button>  
+                    </div>
+                    {/* display for iPhone only */}
+                    <div className="modal-header row header-model-sm">
+                        <button
+                            type="button"
+                            className="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                            onClick={props.hideModal}
+                        ></button>  
+                        <div className="col-sm-12 mb-2"><h5 className="modal-title">{props.freelancer.name}</h5></div>
+                        <div className="col-sm-12">Total Reviews: {props.reviews.length}</div>
+                        <div className="col-sm-12">Total Recommend to a friend: {(props.reviews.filter( eachReview => eachReview.recommend === true)).length}</div>
                     </div>
                     <div className="modal-body">
                         {/* Contact */}
@@ -28,7 +42,7 @@ export default function ViewProfileModal(props) {
                         <div className="row">
                             <h5 className="mt-2">Contact</h5>
                             {Object.keys(props.freelancer.contact).map( eachContact  => 
-                                <div className="col" key={eachContact}>
+                                <div className="col-sm-12 col-md-6 col-lg-4" key={eachContact}>
                                     {eachContact === "mobile" ? <FontAwesomeIcon icon={faMobileAlt}/> : ""}
                                     {eachContact === "email" ? <FontAwesomeIcon icon={faEnvelope}/> : ""}
                                     {eachContact === "website" ? <FontAwesomeIcon icon={faGlobe}/> : ""}
