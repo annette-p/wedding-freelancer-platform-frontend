@@ -255,32 +255,26 @@ export default class RegisterForm extends React.Component {
             <React.Fragment>
                 {/* create profile buttons */}
                 <div className="row">
-                    <div className="col d-grid gap-2 col-6 mx-auto mb-1">
+                    <div className="col-sm-12 col-md-6 d-grid gap-2 mx-auto mb-1">
                         <button
-                            className="btn btn-secondary btn-lg account-btn"
+                            className="btn btn-secondary btn-lg account-btn btn-acct-size"
                             type="button"
                             onClick={() => this.setOpen(true)}
                             aria-controls="example-collapse-text"
                             aria-expanded={this.state.open}>
                                 Create Account and Profile
                         </button>
+                        <p className="register-description">New? – register profile and start promote your talent</p>
                     </div>
-                    <div className="col d-grid gap-2 col-6 mx-auto mb-1">
+                    <div className="col-sm-12 col-md-6 d-grid gap-2 mx-auto mb-1">
                         <button
-                            className="btn btn-secondary btn-lg account-btn" 
+                            className="btn btn-secondary btn-lg account-btn btn-profile-size" 
                             type="button"
                             onClick={() => this.setOpen(false)}
                             aria-controls="example-collapse-text"
                             aria-expanded={this.state.open}>
                              Create Profile
                         </button>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col">
-                        <p className="register-description">New? – register profile and start promote your talent</p>
-                    </div>
-                    <div className="col">
                         <p className="register-description">OR listing profile without registeration (no ability to modify listing)</p>
                     </div>
                 </div>
@@ -292,17 +286,17 @@ export default class RegisterForm extends React.Component {
                             <h6 className="account-form">Create your account. It's free and takes only few seconds.</h6>
                             {/* Username & Password */}
                             <div className="row register-text">
-                                <div className="col">
+                                <div className="col-sm-12 col-md-4">
                                     <label className="form-label register-form-headline">User Name:</label>
                                     <input type="text" name="username" value={this.state.username} onChange={this.updateFormField} className="form-control"/>
                                     <div className="error-msg">{this.state.errors.username}</div>
                                 </div>
-                                <div className="col">
+                                <div className="col-sm-12 col-md-4 col-margin">
                                     <label className="form-label register-form-headline">Password:</label>
                                     <input type="password" name="password" value={this.state.password} onChange={this.updateFormField} className="form-control"/>
                                     <div className="error-msg">{this.state.errors.password}</div>
                                 </div>
-                                <div className="col">
+                                <div className="col-sm-12 col-md-4 col-margin">
                                     <label className="form-label register-form-headline">Confirm Password:</label>
                                     <input type="password" name="confirmPassword" value={this.state.confirmPassword} onChange={this.updateFormField} className="form-control"/>
                                     <div className="error-msg">{this.state.errors.confirmPassword}</div>
@@ -500,6 +494,7 @@ export default class RegisterForm extends React.Component {
                         </div>
                     </div>
                 </Collapse>
+                <div className="page-hight"></div>
             </React.Fragment>
         )
     }

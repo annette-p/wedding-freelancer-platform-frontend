@@ -125,7 +125,8 @@ export default class Login extends React.Component {
                 <div className="modal-dialog modal-lg">
                     <div className="modal-content img-fluid login-background">
                         <div className="modal-header">
-                            <h4 className="login-titile">Login to your account</h4>
+                            <h4 className="d-none d-md-block login-title">Login to your account</h4>
+                            <h5 className="d-md-none login-title">Login to your account</h5>
                             <div
                                 type="button"
                                 className="cross-btn"

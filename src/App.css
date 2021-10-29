@@ -44,6 +44,7 @@
   background-attachment: fixed;
   background-size:cover;
   z-index: -1;
+  /* height: 900px; */
 }
 
 .logo {
@@ -239,7 +240,7 @@
   filter: blur(5px); */
 }
 
-.login-titile {
+.login-title {
   margin-top: 3px;
   margin-left: 50px;
   color: white;
@@ -297,6 +298,55 @@
 .login-btn {
   font-size: 17px;
 }
+
+
+/* .....style for Profile Register form page..... */
+
+.page-hight {
+  height: 310px;
+}
+
+.register-description {
+  font-style: italic;
+  text-align: center;
+  /* color: rgb(248, 102, 48); */
+  color: rgb(190, 54, 4);
+  font-size: 14.5px;
+}
+
+.btn-profile-size {
+  /* margin-right: -20px; */
+  margin-left: 15px;
+  font-size: 17px;
+}
+
+.btn-acct-size {
+  margin-left: 15px;
+  font-size: 17px;
+}
+
+.account-form {
+  text-align: center;
+}
+
+.col-margin {
+  margin-top: 10px;
+}
+
+.register-form-headline {
+  font-weight: bold;
+}
+
+.register-text {
+  margin-top: 18px;
+}
+
+.account-creation-form {
+  margin-bottom: 40px;
+}
+
+
+
 
 /* .....style for Manage account page..... */
 
@@ -417,10 +467,9 @@
   }
 
 
-
   /* .....style for login page..... */
 
-  .login-titile {
+  .login-title {
     margin-top: 3px;
     margin-left: 120px;
   }
@@ -452,6 +501,42 @@
   .login-btn {
     font-size: 18px;
   }
+
+  /* .....style for Profile Register form page..... */
+
+  .page-hight {
+    height: 755px;
+  }
+
+  .btn-profile-size {
+    margin-right: -20px;
+    margin-left: 15px;
+    font-size: 18.5px;
+  }
+
+  .btn-acct-size {
+    margin-left: 5px;
+    font-size: 18.5px;
+  }
+
+  .register-description {
+    font-size: 15.5px;
+  }
+
+  .col-margin {
+    margin-top: 0px;
+  }
+
+
+  .register-text {
+    margin-top: 25px;
+    font-size: 17px;
+  }
+
+  .account-creation-form {
+    margin-bottom: 40px;
+  }
+  
 
 
 }
@@ -572,7 +657,7 @@
 
   /* .....style for login page..... */
 
-  .login-titile {
+  .login-title {
     margin-left: 270px;
   }
 
@@ -595,16 +680,27 @@
   }
 
 
-
-
   /* .....style for Profile Register form page..... */
 
-  .register-description {
-    font-style: italic;
-    text-align: center;
-    /* color: rgb(248, 102, 48); */
-    color: rgb(190, 54, 4);
+  .page-hight {
+    height: 600px;
   }
+
+  .btn-profile-size {
+    margin-right: -5px;
+    margin-left: 0px;
+    font-size: 20px;
+  }
+
+  .btn-acct-size {
+    margin-left: 5px;
+    font-size: 20px;
+  }
+
+  .register-description {
+    font-size: 16.5px;
+  }
+  
 
   #show-form {
     display: none;
@@ -615,17 +711,9 @@
     margin-bottom: 40px;
   }
 
-  .account-form {
-    text-align: center;
-  }
-
   .register-text {
     margin-top: 35px;
     font-size: larger;
-  }
-
-  .register-form-headline {
-    font-weight: bold;
   }
 
   .profession-session {

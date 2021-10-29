@@ -182,4 +182,5 @@ export default class WeddingFreelancerPlatform extends React.Component {
             </React.Fragment>
         )
     }
+    
 }
