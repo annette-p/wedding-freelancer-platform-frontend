@@ -69,8 +69,10 @@ export default function ViewProfileModal(props) {
                                             alt={eachPortfolio.title}
                                         />
                                         <Carousel.Caption>
-                                            <h3>{eachPortfolio.title}</h3>
-                                            <p>{eachPortfolio.description}</p>
+                                            <h3 className="d-none d-lg-block">{eachPortfolio.title}</h3>
+                                            <h4 className="d-none d-md-block d-lg-none carousel-caption">{eachPortfolio.title}</h4>
+                                            <h5 className="d-md-none">{eachPortfolio.title}</h5>
+                                            <p className="carousel-description">{eachPortfolio.description}</p>
                                         </Carousel.Caption>
                                     </Carousel.Item>
                                 )}

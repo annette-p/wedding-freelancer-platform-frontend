@@ -217,6 +217,11 @@
   height: 200px;
 }
 
+.carousel-description {
+  margin-bottom: -30px;
+  font-size: 15px;
+}
+
 
 /* .....style for login page..... */
 
@@ -402,6 +407,16 @@
     height: 305px;
   }
 
+  .carousel-caption {
+    margin-bottom: -4px;
+  }
+
+  .carousel-description {
+    margin-bottom: -14px;
+    font-size: 17px;
+  }
+
+
 
   /* .....style for login page..... */
 
@@ -543,6 +558,11 @@
   .carousel-img {
     /* width: 100px; */
     height: 500px;
+  }
+
+  .carousel-description {
+    margin-bottom: 0px;
+    font-size: 18px;
   }
 
   .large-btn {
