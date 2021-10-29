@@ -66,12 +66,14 @@
 
 .navAuthenFrame {
   font-weight: bold;
+  font-size: 15px;
   text-align: end;
   margin-right: -10px;
 }
 
 .navAuthen {
   font-weight: bold;
+  font-size: 15px;
   /* margin-left: -10px; */
 }
 
@@ -506,7 +508,12 @@
   /* style for Navbar */
 
   .navAuthenFrame {
+    font-size: 16px;
     margin-right: -3px;
+  }
+
+  .navAuthen {
+    font-size: 16px;
   }
 
   .logo {
@@ -750,7 +757,7 @@
 
   .navAuthenFrame {
     font-size: 18px;
-    margin-right: -40px;
+    margin-right: -30px;
   }
 
   .navAuthen {

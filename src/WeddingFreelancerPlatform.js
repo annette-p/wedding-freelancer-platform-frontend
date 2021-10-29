@@ -65,10 +65,38 @@ export default class WeddingFreelancerPlatform extends React.Component {
             )
         } else {
             return (
-                <div className="logout" 
+                <div className="navAuthen" 
                     onClick={this.performLogout}>Logout
                 </div>
             )
+        }
+    }
+
+    renderRegistrationLink() {
+        let freelancer = JSON.parse(sessionStorage.getItem("authenticatedUser"))
+        if (freelancer === null) {
+            return (
+                <div className="navAuthenFrame" 
+                    onClick={()=>{this.setActive("register")}}>
+                    Become a Freelancer &nbsp; |
+                </div>
+            )
+        } else {
+            return (
+                <div className="navAuthenFrame">
+                    {freelancer.name} &nbsp; |
+                </div>
+            )
+        }
+    }
+
+    renderManageProfileLink() {
+        if (JSON.parse(sessionStorage.getItem("authenticatedUser")) !== null) {
+            return (
+                <Nav.Link onClick={()=>{this.setActive("manage-profile")}}>Manage Profile</Nav.Link>
+            )
+        } else {
+            return null
         }
     }
 
@@ -118,10 +146,7 @@ export default class WeddingFreelancerPlatform extends React.Component {
                     {/* Registration & Login button */}
                     <div className="row mb-2">
                         <div className="col-9 col-md-11 mt-2">
-                            <div className="navAuthenFrame" 
-                                onClick={()=>{this.setActive("register")}}>
-                                Become a Freelancer &nbsp; |
-                            </div>
+                            {this.renderRegistrationLink()}
                         </div>
                         <div className="col col-md-1 mt-2">
                             {this.renderLoginLogoutLinks()}
@@ -155,7 +180,7 @@ export default class WeddingFreelancerPlatform extends React.Component {
                                 navbarScroll
                                 >
                                 <Nav.Link onClick={()=>{this.setActive("listing")}}>View Freelancers</Nav.Link>
-                                <Nav.Link onClick={()=>{this.setActive("manage-profile")}}>Manage Profile</Nav.Link>
+                                {this.renderManageProfileLink()}
                                 <Nav.Link onClick={()=>{this.setActive("about-us")}}>About Us</Nav.Link>
                                 </Nav>
                             </Navbar.Collapse>
