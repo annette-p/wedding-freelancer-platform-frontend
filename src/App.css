@@ -345,6 +345,98 @@
   margin-bottom: 40px;
 }
 
+.profession-small {
+  margin-top: 20px;
+}
+
+.side-note {
+  font-style: italic;
+  font-size: small;
+  font-weight: normal;
+}
+
+.rate-field {
+  margin-left: 5px;
+}
+
+.rate-input {
+  width: 110px;
+}
+
+.bio-box {
+  height: 120px;
+}
+
+.media-field {
+  margin-left: 5px;
+  width: 270px;
+}
+
+.tiktok {
+  margin-left: 34px;
+}
+
+.contact-col {
+  margin-top: 15px;
+}
+
+.mobile {
+  margin-left: 25px;
+}
+
+.email {
+  margin-left: 36px;
+}
+
+.web {
+  margin-left: 17px;
+}
+
+.preview {
+  margin-top: 20px;
+  margin-left: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: whitesmoke;
+  border: 1px solid grey;
+  height: 230px;
+  width: 230px;
+  background-position: center;
+  background-size:cover;
+  background-repeat: no-repeat;
+}
+
+.profile-img-preview {
+  border-radius: 50%;
+}
+
+.img-discription {
+  text-align: center;
+}
+
+.showcase-col {
+  margin-top: 17px;
+}
+
+.portfolio-head {
+  margin-top: 25px;
+  margin-bottom: -17px;
+}
+
+.portfolio-preview {
+  margin-left: 60px;
+}
+
+.portfolio-number {
+  margin-top: 35px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.portfolio-title {
+  margin-bottom: 10px;
+}
 
 
 
@@ -536,6 +628,76 @@
   .account-creation-form {
     margin-bottom: 40px;
   }
+
+  .profession-session {
+    margin-left: 100px;
+  }
+
+  .profession-small {
+    margin-top: 0px;
+  }
+
+  .media-field {
+    margin-left: 5px;
+    width: 250px;
+  }
+
+  .tiktok {
+    margin-left: 34px;
+  }
+
+  .contact-col {
+    margin-top: 0px;
+  }
+  
+  .mobile {
+    margin-left: 13px;
+  }
+
+  .email {
+    margin-left: 25px;
+  }
+
+  .web {
+    margin-left: 5px;
+  }
+
+  .preview {
+    margin-top: 20px;
+    margin-left: 230px;
+    height: 230px;
+    width: 230px;
+  }
+
+  .showcase-col {
+    margin-top: 20px;
+  }
+
+  .portfolio-head {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .portfolio-preview {
+    margin-left: 50px;
+  }
+
+  .img-discription {
+    text-align: center;
+  }
+
+  .portfolio-number {
+    /* margin-left: 150px; */
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+
+  .portfolio-title {
+    margin-bottom: 10px;
+  }
+
+  
   
 
 
@@ -720,62 +882,6 @@
     margin-left: 170px;
   }
 
-  .bio-box {
-    height: 120px;
-  }
-
-  .side-note {
-    font-style: italic;
-    font-size: small;
-    font-weight: normal;
-  }
-
-  .rate-field {
-    margin-left: 5px;
-  }
-
-  .rate-input {
-    width: 110px;
-  }
-
-  .preview {
-    margin-top: 20px;
-    margin-left: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: whitesmoke;
-    border: 1px solid grey;
-    height: 230px;
-    width: 230px;
-    background-position: center;
-    background-size:cover;
-    background-repeat: no-repeat;
-  }
-
-  .profile-img-preview {
-    border-radius: 50%;
-  }
-
-  .portfolio-preview {
-    margin-left: 90px;
-  }
-
-  .img-discription {
-    text-align: center;
-  }
-
-  .portfolio-number {
-    /* margin-left: 150px; */
-    margin-top: 20px;
-    margin-bottom: 15px;
-    font-weight: bold;
-  }
-
-  .portfolio-title {
-    margin-bottom: 10px;
-  }
-
   .media-field {
     margin-left: 5px;
     width: 400px;
@@ -796,6 +902,42 @@
   .web {
     margin-left: 5px;
   }
+
+  .preview {
+    margin-top: 20px;
+    margin-left: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: whitesmoke;
+    border: 1px solid grey;
+    height: 230px;
+    width: 230px;
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+  }
+
+  .showcase-col {
+    margin-top: 0px;
+  }
+
+  .portfolio-preview {
+    margin-left: 90px;
+  }
+
+  .portfolio-number {
+    /* margin-left: 150px; */
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+
+  .portfolio-title {
+    margin-bottom: 10px;
+  }
+
+  
 
   .account-btn:hover {
     background-color: rgb(221, 169, 178);

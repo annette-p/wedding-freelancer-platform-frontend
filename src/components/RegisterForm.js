@@ -308,13 +308,13 @@ export default class RegisterForm extends React.Component {
                             <h3 className="mt-4 account-form">Create Profile and Post Your Services</h3>
                             <div className="row register-text">
                                 {/* Name */}
-                                <div className="col">
+                                <div className="col-sm-12 col-md">
                                     <label className="form-label register-form-headline">Name:</label>
                                     <input type="text" name="name" value={this.state.name} onChange={this.updateFormField} className="form-control"/>
                                     <div className="error-msg">{this.state.errors.name}</div>
                                 </div>
                                 {/* Profession */}
-                                <div className="col profession-session">
+                                <div className="col-sm-12 col-md profession-session profession-small">
                                     <label className="form-label register-form-headline">Profession:</label>
                                     <div>
                                         <input type="radio" name="type" value="photographer" onChange={this.updateFormField} checked={this.state.type === "photographer"}/><span className="ms-2">Photographer</span>
@@ -379,7 +379,7 @@ export default class RegisterForm extends React.Component {
                                     <div className="error-msg">{this.state.errors.socialMedia}</div>
                                 </div>
                                 {/* Contact */}
-                                <div className="col">
+                                <div className="col contact-col">
                                     <label className="form-label register-form-headline">Contact:</label>
                                     <div>
                                         <label className="form-label">Mobile:</label>
@@ -406,7 +406,7 @@ export default class RegisterForm extends React.Component {
                                     </div>
                                 </div>
                                 {/* showCase */}
-                                <div className="col">
+                                <div className="col showcase-col">
                                     <label className="form-label register-form-headline">Upload your showcase <span className="side-note">(to display on profile first page)</span>:</label>
                                     <input type="text" name="showCase" value={this.state.showCase} onChange={this.updateFormField} placeholder="image/VDO URL (portrait orientation image)" className="form-control"/>
                                     <div className="error-msg">{this.state.errors.showCase}</div>
@@ -417,7 +417,7 @@ export default class RegisterForm extends React.Component {
                             </div>
                             {/* Portfolio */}
                             <div className="row register-text">
-                                <label className="form-label register-form-headline">Upload your portfolio:</label>
+                                <label className="form-label register-form-headline portfolio-head">Upload your portfolio:</label>
                                 {/* Portfolio 1 */}
                                 <div className="col">  
                                     <label className="form-label portfolio-number head-center">Portfolio 1</label>
