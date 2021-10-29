@@ -103,7 +103,7 @@ export default class EditProfileForm extends React.Component {
                 <div className="d-grid gap-2 account-creation-button mb-2">
                     <button 
                         onClick={this.updateProfile}
-                        className="btn btn-secondary btn-lg account-btn" 
+                        className="btn btn-secondary btn-lg account-btn edit-acct-btn" 
                         type="button">
                             Update
                     </button>
@@ -111,7 +111,7 @@ export default class EditProfileForm extends React.Component {
                 <div className="d-grid gap-2 account-creation-button mb-2">
                     <button 
                         onClick={this.updateProfileAndClose}
-                        className="btn btn-secondary btn-lg account-btn" 
+                        className="btn btn-secondary btn-lg account-btn edit-acct-btn" 
                         type="button">
                             Update and Close
                     </button>
@@ -119,7 +119,7 @@ export default class EditProfileForm extends React.Component {
                 <div className="d-grid gap-2 account-creation-button mb-2">
                     <button 
                         onClick={this.props.hideForm}
-                        className="btn btn-secondary btn-lg account-btn" 
+                        className="btn btn-secondary btn-lg account-btn edit-acct-btn" 
                         type="button">
                             Cancel
                     </button>
@@ -132,16 +132,17 @@ export default class EditProfileForm extends React.Component {
         if (this.state.activeDisplay === "account-details") {
             return (
                 <div className="row register-text">
-                    <h3 className="account-form">Account Setting</h3>
+                    <h3 className="account-form d-none d-md-block">Account Setting</h3>
+                    <h4 className="account-form d-md-none">Account Setting</h4>
                     <div className="row mb-3">
                         {/* Name */}
-                        <div className="col mt-4">
+                        <div className="col-sm-12 col-md mt-4">
                             <label className="form-label register-form-headline">Name:</label>
                             <input type="text" name="name" value={this.state.name} onChange={this.updateFormField} className="form-control"/>
                             <div className="error-msg">{this.state.errors.name}</div>
                         </div>
                         {/* Profession */}
-                        <div className="col mt-4">
+                        <div className="col-sm-12 col-md mt-4 profession-edit">
                             <label className="form-label register-form-headline">Profession:</label>
                             <div>
                                 <input type="radio" name="type" value="photographer" onChange={this.updateFormField} checked={this.state.type === "photographer"}/><span className="ms-2">Photographer</span>
@@ -178,7 +179,7 @@ export default class EditProfileForm extends React.Component {
                         <div className="error-msg">{this.state.errors.rate}</div>
                     </div>
                     {/* Bio */}
-                    <div className="mt-4">
+                    <div className="mt-4 edit-bio-col">
                         <label className="form-label register-form-headline">Bio:</label>
                         <input type="text" name="bio" value={this.state.bio} onChange={this.updateFormField} placeholder="Describe about past experience and overall profile" className="form-control bio-box"/>
                         

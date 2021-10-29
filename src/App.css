@@ -464,6 +464,14 @@
   font-weight: bold;
 }
 
+.edit-bio-col {
+  margin-bottom: 20px;
+}
+
+.edit-acct-btn {
+  font-size: 18px;
+}
+
 .showcase {
   margin-left: 45px;
 }
@@ -721,6 +729,18 @@
     width: 25rem;
     margin-left: 180px;
     margin-bottom: 20px;
+  }
+
+  .profession-edit {
+    margin-left: 80px;
+  }
+
+  .edit-bio-col {
+    margin-bottom: 30px;
+  }
+
+  .edit-acct-btn {
+  font-size: 20px;
   }
   
 
@@ -981,6 +1001,14 @@
     width: 15rem;
     margin-left: 0px;
     margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .profession-edit {
+    margin-left: 0px;
+  }
+
+  .edit-bio-col {
     margin-bottom: 0px;
   }
 
