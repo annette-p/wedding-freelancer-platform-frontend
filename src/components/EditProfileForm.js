@@ -88,7 +88,9 @@ export default class EditProfileForm extends React.Component {
         // validate before switch to different tab
         if (this.validateForm()) {
             this.setState({
-                "activeDisplay": activeDisplay
+                "activeDisplay": activeDisplay,
+                "changePasswordFailed": false,
+                "changePasswordSuccess": false
             })
         }
     }
@@ -363,6 +365,16 @@ export default class EditProfileForm extends React.Component {
                     <h3 className="mt-4 mb-4 account-form">Change Password</h3>
                     {this.renderChangePasswordFailMessage()}
                     {this.renderChangePasswordSuccessMessage()}
+                    {this.renderChangePasswordForm()}
+                </div>
+            )
+        }
+    }
+
+    renderChangePasswordForm() {
+        if (!this.state.changePasswordSuccess) {
+            return (
+                <div>
                     {/* username */}
                     <div className="row mt-4">
                         <div className="col-3">
@@ -370,6 +382,7 @@ export default class EditProfileForm extends React.Component {
                         </div>
                         <div className="col-9">
                             <input type="text" name="username" value={this.state.username} onChange={this.updateFormField} className="form-control"/>
+                            <div className="error-msg">{this.state.errors.username}</div>
                         </div>
                     </div>
                     {/* Current password */}
@@ -378,7 +391,8 @@ export default class EditProfileForm extends React.Component {
                             <p className="bold">Current password: </p>
                         </div>
                         <div className="col-9">
-                            <input type="text" name="currentPassword" value={this.state.currentPassword} onChange={this.updateFormField} className="form-control"/>
+                            <input type="password" name="currentPassword" value={this.state.currentPassword} onChange={this.updateFormField} className="form-control"/>
+                            <div className="error-msg">{this.state.errors.currentPassword}</div>
                         </div>
                     </div>
                     {/* New password */}
@@ -387,7 +401,8 @@ export default class EditProfileForm extends React.Component {
                             <p className="bold">New password: </p>
                         </div>
                         <div className="col-9">
-                            <input type="text" name="newPassword" value={this.state.newPassword} onChange={this.updateFormField} className="form-control"/>
+                            <input type="password" name="newPassword" value={this.state.newPassword} onChange={this.updateFormField} className="form-control"/>
+                            <div className="error-msg">{this.state.errors.newPassword}</div>
                         </div>
                     </div>
                     {/* Confirm new password */}
@@ -396,7 +411,8 @@ export default class EditProfileForm extends React.Component {
                             <p className="bold">Confirm new password: </p>
                         </div>
                         <div className="col-9">
-                            <input type="text" name="confirmNewPassword" value={this.state.confirmNewPassword} onChange={this.updateFormField} className="form-control"/>
+                            <input type="password" name="confirmNewPassword" value={this.state.confirmNewPassword} onChange={this.updateFormField} className="form-control"/>
+                            <div className="error-msg">{this.state.errors.confirmNewPassword}</div>
                         </div>
                     </div>
                     {/* buttons */}
@@ -417,6 +433,8 @@ export default class EditProfileForm extends React.Component {
                     </div>
                 </div>
             )
+        } else {
+            return null
         }
     }
 
@@ -707,27 +725,72 @@ export default class EditProfileForm extends React.Component {
         }
     }
 
+    validateChangePasswordForm = () => {
+        let errors = {}
+        let formIsValid = true
+
+        if (!this.state.username) {
+            formIsValid = false
+            errors["username"] = "Please enter your username"
+        }
+
+        if (!this.state.currentPassword) {
+            formIsValid = false
+            errors["currentPassword"] = "Please enter your current password"
+        }
+
+        if (!this.state.newPassword) {
+            formIsValid = false
+            errors["newPassword"] = "Please enter your new password"
+        }
+
+        if (this.state.newPassword && this.state.newPassword === this.state.currentPassword) {
+            formIsValid = false
+            errors["newPassword"] = "Current password and new password cannot be the same"
+        }
+
+        if (!this.state.confirmNewPassword) {
+            formIsValid = false
+            errors["confirmNewPassword"] = "Please re-enter your new password"
+        }
+
+        if (this.state.confirmNewPassword && this.state.newPassword !== this.state.confirmNewPassword) {
+            formIsValid = false
+            errors["confirmNewPassword"] = "New password mismatch"
+        }
+
+        this.setState({errors})
+
+        return formIsValid
+    }
 
     changePassword = async () => {
-        let newUserPassword = {
-            username: this.state.username,
-            currentPassword: this.state.currentPassword,
-            newPassword: this.state.newPassword
-        } 
-        let changePasswordFailed = false
-        let changePasswordSuccess = false
-        await axios.put(`${this.apiUrl}/change-password`, newUserPassword)
-        .then( async (result) => {   
-            changePasswordSuccess = true
-        })
-        .catch( (error) => {
-
-            changePasswordFailed = true
-        })
-
-        this.setState({
-            changePasswordSuccess, changePasswordFailed
-        })
+        if (this.validateChangePasswordForm()) {
+            let newUserPassword = {
+                username: this.state.username,
+                currentPassword: this.state.currentPassword,
+                newPassword: this.state.newPassword
+            } 
+            let changePasswordFailed = false
+            let changePasswordSuccess = false
+            await axios.put(`${this.apiUrl}/change-password`, newUserPassword)
+            .then( async (result) => {   
+                changePasswordSuccess = true
+            })
+            .catch( (error) => {
+    
+                changePasswordFailed = true
+            })
+    
+            this.setState({
+                changePasswordFailed: changePasswordFailed,
+                changePasswordSuccess: changePasswordSuccess, 
+                username: "",
+                currentPassword: "",
+                newPassword: "",
+                confirmNewPassword: ""
+            })
+        }
     }
 
     

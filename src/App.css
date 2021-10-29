@@ -448,6 +448,7 @@
   margin-left: 35px;
   margin-top: -40px;
   margin-bottom: 15px;
+  font-size: 16px;
 }
 
 .nav-card {
@@ -729,6 +730,7 @@
     width: 25rem;
     margin-left: 170px;
     margin-bottom: 20px;
+    font-size: 16.5px;
   }
 
   .profession-edit {
@@ -1002,6 +1004,7 @@
     margin-left: 0px;
     margin-top: 0px;
     margin-bottom: 0px;
+    font-size: 17px;
   }
 
   .profession-edit {
