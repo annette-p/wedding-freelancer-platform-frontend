@@ -216,21 +216,6 @@
 
 /* .....style for login page..... */
 
-.modal-box {
-    width: 350px;
-  }
-
-.logo-login {
-  /* background-image: url("images/logo/logo.png"); */
-  height: 150px;
-  width: 180px;
-  border-radius: 50%;
-  background-position: center;
-  align-items: center;
-  margin-left: 280px;
-  margin-bottom: 30px;
-}
-
 .login-background {
   background-image: url("../src/images/background/ring-on-neckless-blur.jpg");
   background-position: right bottom;
@@ -247,9 +232,20 @@
 
 .login-titile {
   margin-top: 3px;
-  margin-left: 270px;
+  margin-left: 50px;
   color: white;
   font-weight: bold;
+}
+
+.logo-login {
+  /* background-image: url("images/logo/logo.png"); */
+  height: 110px;
+  width: 140px;
+  border-radius: 50%;
+  background-position: center;
+  align-items: center;
+  margin-left: 75px;
+  margin-bottom: 20px;
 }
 
 .cross-btn {
@@ -276,15 +272,21 @@
 }
 
 .user-icon {
-  font-size: 30px;
+  font-size: 25px;
+  margin-left: -20px;
+  margin-right: 12px;
   color: rgb(243, 208, 214);
 }
 
+.login-btn-div {
+  margin-top: 25px;
+  margin-bottom: 20px;
+  margin-left: 15px;
+  margin-right: 5px;
+}
+
 .login-btn {
-  margin-top: 45px;
-  margin-bottom: 35px;
-  margin-left: 60px;
-  margin-right: 1px;
+  font-size: 17px;
 }
 
 /* .....style for Manage account page..... */
@@ -392,9 +394,38 @@
 
   /* .....style for login page..... */
 
-  /* .modal-box {
-    width: 400px;
-  } */
+  .login-titile {
+    margin-top: 3px;
+    margin-left: 120px;
+  }
+
+  .logo-login {
+    height: 130px;
+    width: 160px;
+    margin-left: 170px;
+    margin-bottom: 30px;
+  }
+
+  .user-icon {
+    font-size: 30px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .icon-col {
+    margin-left: 0px;
+  }
+
+  .login-btn-div {
+    margin-top: 40px;
+    margin-bottom: 35px;
+    margin-left: 38px;
+    margin-right: 1px;
+  }
+
+  .login-btn {
+    font-size: 18px;
+  }
 
 
 }
@@ -506,6 +537,34 @@
   .large-btn {
     font-size: 19px;
   }
+
+
+  /* .....style for login page..... */
+
+  .login-titile {
+    margin-left: 270px;
+  }
+
+  .logo-login {
+    height: 150px;
+    width: 180px;
+    margin-left: 280px;
+    margin-bottom: 30px;
+  }
+
+  .login-btn-div {
+    margin-top: 45px;
+    margin-bottom: 35px;
+    margin-left: 60px;
+    margin-right: 1px;
+  }
+
+  .login-btn {
+    font-size: 20px;
+  }
+
+
+
 
   /* .....style for Profile Register form page..... */
 

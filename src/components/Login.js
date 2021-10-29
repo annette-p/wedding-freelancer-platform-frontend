@@ -123,7 +123,7 @@ export default class Login extends React.Component {
                 backgroundColor: "rgba(0.5, 0.5, 0.5, 0.5)"
                 }}>
                 <div className="modal-dialog modal-lg">
-                    <div className="modal-content login-background">
+                    <div className="modal-content img-fluid login-background">
                         <div className="modal-header">
                             <h4 className="login-titile">Login to your account</h4>
                             <div
@@ -158,8 +158,8 @@ export default class Login extends React.Component {
                                 </div>
                             </div>
                             {/* button */}
-                            <div className="row login-btn">
-                                <button type="button" className="btn btn-secondary btn-lg account-btn" onClick={this.loginUser}>LOGIN
+                            <div className="row login-btn-div">
+                                <button type="button" className="btn btn-secondary btn-lg account-btn login-btn" onClick={this.loginUser}>LOGIN
                                 </button>
                             </div>
                         </div>
