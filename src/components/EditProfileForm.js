@@ -204,7 +204,7 @@ export default class EditProfileForm extends React.Component {
                     <h3 className="account-form d-none d-md-block">Contact &amp; Social Media Setting</h3>
                     <h4 className="account-form d-md-none">Contact &amp; Social Media Setting</h4>
                     {/* Social Media */}                   
-                    <div className="col-sm-12 col-md mt-4 mb-md-4">
+                    <div className="col-sm-12 col-md mt-2 mt-md-4 mb-md-4">
                         <label className="form-label register-form-headline head-center mt-4">Social Media:</label>
                         <div className="mt-sm-3 mt-md-4">
                             <label className="form-label">Facebook:</label>
@@ -251,7 +251,8 @@ export default class EditProfileForm extends React.Component {
         if (this.state.activeDisplay === "showcase") {
             return (
                 <div className="row register-text">
-                    <h3 className="mt-4 mb-2 account-form">Profile Image &amp; Showcase Setting</h3>
+                    <h3 className="account-form d-none d-md-block">Profile Image &amp; Showcase Setting</h3>
+                    <h4 className="account-form d-md-none">Profile Image &amp; Showcase Setting</h4>
                     {/* profile Image */}
                     <div className="col mt-4 mb-4">
                         <label className="form-label register-form-headline head-center">Upload your profile image:</label>
@@ -282,7 +283,8 @@ export default class EditProfileForm extends React.Component {
         if (this.state.activeDisplay === "portfolio") {
             return (
                 <div className="row register-text">
-                    <h3 className="mt-4 account-form">Portfolio Setting</h3>
+                    <h3 className="account-form d-none d-md-block">Portfolio Setting</h3>
+                    <h4 className="account-form d-md-none">Portfolio Setting</h4>
                     <label className="form-label register-form-headline mt-4">Upload your portfolio:</label>
                     <div className="row">
                         {/* Portfolio 1 */}
@@ -326,7 +328,7 @@ export default class EditProfileForm extends React.Component {
                     </div>
                     <div className="row mt-3">
                         {/* Portfolio 3 */}
-                        <div className="col mt-3">  
+                        <div className="col mt-3 mb-4 mb-md-4 mb-lg-0">  
                             <label className="form-label portfolio-number head-center">Portfolio 3</label>
                             <div>
                                 <label className="form-label">Title:</label>
@@ -344,7 +346,7 @@ export default class EditProfileForm extends React.Component {
                                 <p className="img-discription">{this.state.portfolios[2].url === "" ? "Preview image" : ""}</p>
                             </div>
                         </div>
-                        <div className="col"></div>
+                        <div className="col d-none d-md-block"></div>
                     </div>
                     
                     
@@ -362,7 +364,8 @@ export default class EditProfileForm extends React.Component {
         if (this.state.activeDisplay === "change-password") {
             return (
                 <div className="row register-text">
-                    <h3 className="mt-4 mb-4 account-form">Change Password</h3>
+                    <h3 className="account-form d-none d-md-block">Change Password</h3>
+                    <h4 className="account-form d-md-none">Change Password</h4>
                     {this.renderChangePasswordFailMessage()}
                     {this.renderChangePasswordSuccessMessage()}
                     {this.renderChangePasswordForm()}
@@ -377,40 +380,40 @@ export default class EditProfileForm extends React.Component {
                 <div>
                     {/* username */}
                     <div className="row mt-4">
-                        <div className="col-3">
+                        <div className="col-sm-12 col-md-3">
                             <p className="bold">Username: </p>
                         </div>
-                        <div className="col-9">
+                        <div className="col-sm-12 col-md-9">
                             <input type="text" name="username" value={this.state.username} onChange={this.updateFormField} className="form-control"/>
                             <div className="error-msg">{this.state.errors.username}</div>
                         </div>
                     </div>
                     {/* Current password */}
                     <div className="row mt-4">
-                        <div className="col-3">
+                        <div className="col-sm-12 col-md-3">
                             <p className="bold">Current password: </p>
                         </div>
-                        <div className="col-9">
+                        <div className="col-sm-12 col-md-9">
                             <input type="password" name="currentPassword" value={this.state.currentPassword} onChange={this.updateFormField} className="form-control"/>
                             <div className="error-msg">{this.state.errors.currentPassword}</div>
                         </div>
                     </div>
                     {/* New password */}
                     <div className="row mt-3">
-                        <div className="col-3">
+                        <div className="col-sm-12 col-md-3">
                             <p className="bold">New password: </p>
                         </div>
-                        <div className="col-9">
+                        <div className="col-sm-12 col-md-9">
                             <input type="password" name="newPassword" value={this.state.newPassword} onChange={this.updateFormField} className="form-control"/>
                             <div className="error-msg">{this.state.errors.newPassword}</div>
                         </div>
                     </div>
                     {/* Confirm new password */}
                     <div className="row mt-3 mb-4">
-                        <div className="col-3">
+                        <div className="col-sm-12 col-md-3">
                             <p className="bold">Confirm new password: </p>
                         </div>
-                        <div className="col-9">
+                        <div className="col-sm-12 col-md-9 mt-md-2 mt-lg-0">
                             <input type="password" name="confirmNewPassword" value={this.state.confirmNewPassword} onChange={this.updateFormField} className="form-control"/>
                             <div className="error-msg">{this.state.errors.confirmNewPassword}</div>
                         </div>
@@ -462,7 +465,8 @@ export default class EditProfileForm extends React.Component {
         if (this.state.activeDisplay === "delete-account") {
             return (
                 <div className="row register-text">
-                    <h3 className="mt-4 account-form">Delete Your Account</h3>
+                    <h3 className="account-form d-none d-md-block">Delete Your Account</h3>
+                    <h4 className="account-form d-md-none">Delete Your Account</h4>
                     <p className="mt-3">Dear <span className="bold">{this.state.name}</span></p>
                     <p>We are sorry to hear that you would like to delete your account.</p>
                     <p className="bold mt-3">Are you sure you want to proceed?</p>
@@ -472,11 +476,11 @@ export default class EditProfileForm extends React.Component {
                     <hr></hr>
                     {/* Drop down list for reason to delete */}
                     <div className="row">
-                        <div className="col-5">
+                        <div className="col-sm-12 col-md-5">
                             <p className="bold mt-4">Why do you want to delete this account ?</p>
                         </div>
-                        <div className="col-7">
-                            <div className="mt-4">
+                        <div className="col-sm-12 col-md-7">
+                            <div className="mt-0 mt-md-4">
                                 <select className="" name="reasonToDelete" value={this.state.reasonToDelete} onChange={this.updateFormField}>
                                     <option value=""> ----- Select One ----- </option>
                                     <option value="second-account">Create second account</option>
@@ -491,19 +495,19 @@ export default class EditProfileForm extends React.Component {
                     </div>
                     {/* Speficy Reason */}
                     <div className="row mt-3">
-                        <div className="col-2">
-                            <p className="bold">Please specify: </p>
+                        <div className="col-sm-12 col-md-2">
+                            <p className="bold mt-3 mt-md-0">Please specify: </p>
                         </div>
-                        <div className="col-10">
+                        <div className="col-sm-12 col-md-10">
                             <input type="text" name="specifyDeleteReason" value={this.state.specifyDeleteReason} onChange={this.updateFormField} className="form-control"/>
                         </div>
                     </div>
                     {/* Enter password */}
                     <div className="row mt-3">
-                        <div className="col-5">
-                            <p className="bold">To continue, please re-enter your password</p>
+                        <div className="col-sm-12 col-md-5">
+                            <p className="bold mt-3 mt-md-0">To continue, please re-enter your password</p>
                         </div>
-                        <div className="col-7 mt-2">
+                        <div className="col-sm-12 col-md-7 mt-0 mt-md-2">
                             <input type="text" name="currentPassword" value={this.state.currentPassword} onChange={this.updateFormField} className="form-control"/>
                         </div>
                     </div>
@@ -520,7 +524,7 @@ export default class EditProfileForm extends React.Component {
                             onClick={this.addReasonToDelete}
                             className="btn btn-secondary delete-account-btn" 
                             type="button">
-                            Proceed to delete my account
+                            Delete Account
                         </button>
                     </div>   
                 </div> 

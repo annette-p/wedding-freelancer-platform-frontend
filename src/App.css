@@ -498,7 +498,7 @@
 }
 
 .delete-account-btn {
-  font-size: 19px;
+  font-size: 17px;
 }
 
 .delete-account-btn:hover {
@@ -744,7 +744,11 @@
   .edit-acct-btn {
   font-size: 20px;
   }
-  
+
+  /* .....style for Delete Profile page..... */
+  .delete-account-btn {
+    font-size: 19px;
+  }
 
 
 }
