@@ -117,7 +117,7 @@ export default class WeddingFreelancerPlatform extends React.Component {
                 <div className="container">
                     {/* Registration & Login button */}
                     <div className="row mb-2">
-                        <div className="col-10 col-md-11 mt-2">
+                        <div className="col-9 col-md-11 mt-2">
                             <div className="navAuthenFrame" 
                                 onClick={()=>{this.setActive("register")}}>
                                 Become a Freelancer &nbsp; |

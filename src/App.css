@@ -67,12 +67,12 @@
 .navAuthenFrame {
   font-weight: bold;
   text-align: end;
-  /* margin-right: -40px; */
+  margin-right: -10px;
 }
 
 .navAuthen {
   font-weight: bold;
-  margin-left: -10px;
+  /* margin-left: -10px; */
 }
 
 
@@ -439,8 +439,14 @@
 }
 
 
+/* .....style for Edit Profile form / Manage account page..... */
 
-/* .....style for Manage account page..... */
+.edit-acct-nav-card {
+  width: 18rem;
+  margin-left: 35px;
+  margin-top: -40px;
+  margin-bottom: 15px;
+}
 
 .nav-card {
   margin-top: 5px;
@@ -498,6 +504,10 @@
 @media (min-width: 768px) {
 
   /* style for Navbar */
+
+  .navAuthenFrame {
+    margin-right: -3px;
+  }
 
   .logo {
     margin-left: 5px;
@@ -697,7 +707,14 @@
     margin-bottom: 10px;
   }
 
-  
+
+  /* .....style for Edit Profile form / Manage account page..... */
+
+  .edit-acct-nav-card {
+    width: 25rem;
+    margin-left: 180px;
+    margin-bottom: 20px;
+  }
   
 
 
@@ -951,6 +968,17 @@
     padding-top: 15px;
   }
 
-  /* .....END of style for Register form page..... */
+  /* .....style for Edit Profile form / Manage account page..... */
+
+  .edit-acct-nav-card {
+    width: 15rem;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+
+
+
 
 }

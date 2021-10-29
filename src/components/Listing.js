@@ -43,7 +43,8 @@ export default class Listing extends React.Component {
         // when there are changes in the search, fetch new data from api/backend
         if (prevProps.searchText !== this.props.searchText || 
             prevState.filterByType !== this.state.filterByType || 
-            prevState.filterBySpecialization !== this.state.filterBySpecialization) {
+            prevState.filterBySpecialization !== this.state.filterBySpecialization || 
+            prevState.filterByRate !== this.state.filterByRate) {
             await this.fetchData();
         }
     }
@@ -65,6 +66,29 @@ export default class Listing extends React.Component {
 
         if (this.state.filterBySpecialization) {
             params.params.specialized = this.state.filterBySpecialization
+        }
+
+        if (this.state.filterByRate) {
+            if (this.state.filterByRate === "hourly-rate-lt") {
+                params.params.maxHourlyRate = "49"
+            }
+            if (this.state.filterByRate === "hourly-rate-gt") {
+                params.params.minHourlyRate = "50"
+                params.params.maxHourlyRate = "100"
+            }
+            if (this.state.filterByRate === "hourly-rate-gt-100") {
+                params.params.minHourlyRate = "101"
+            }
+            if (this.state.filterByRate === "session-rate-lt") {
+                params.params.maxSessionRate = "49"
+            }
+            if (this.state.filterByRate === "session-rate-gt") {
+                params.params.minSessionRate = "50"
+                params.params.maxSessionRate = "100"
+            }
+            if (this.state.filterByRate === "session-rate-gt-100") {
+                params.params.minSessionRate = "101"
+            }
         }
 
         let responseFreelancer = await axios.get(this.apiUrl + "/freelancers", params);

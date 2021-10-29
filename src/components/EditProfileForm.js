@@ -755,9 +755,9 @@ export default class EditProfileForm extends React.Component {
         return (
             <React.Fragment>
                 {/* Navigation card */}
-                <div className="col-3 mt-5">
-                    <div className="card" style={{width: "15rem"}}>
-                        <ul className="list-group list-group-flush">
+                <div className="col-sm-12 col-lg-3 mt-5">
+                    <div className="card edit-acct-nav-card">
+                        <ul className="list-group list-group-flush nav-card-ul">
                             <li className="list-group-item disabled nav-card">Dashboard <span class="beta">(beta)</span></li>
                             <li className="list-group-item nav-card" onClick={() => {this.setActiveDisplay("account-details")}}>Account Details</li>
                             <li className="list-group-item nav-card" onClick={() => {this.setActiveDisplay("social-media")}}>Contact &amp; Social Media</li>
@@ -769,7 +769,7 @@ export default class EditProfileForm extends React.Component {
                     </div>
                 </div>
                 {/* Display Fields */}
-                <div className="col-9">
+                <div className="col-sm-12 col-lg-9">
                     {/* Account Setting */}
                     {this.displayAccountDetails()}
                     {/* Social Media / Contact */}
