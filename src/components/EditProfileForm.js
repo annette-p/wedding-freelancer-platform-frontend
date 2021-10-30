@@ -461,19 +461,20 @@ export default class EditProfileForm extends React.Component {
                     <div className="mt-4 delete-account">
                         <button 
                             onClick={this.props.hideForm}
-                            className="btn btn-secondary account-btn delete-account-btn me-3" 
+                            className="btn btn-secondary account-btn font-size-btn me-3" 
                             type="button">
                             Cancel
                         </button>
 
                         <button 
                             onClick={this.changePassword}
-                            className="btn btn-secondary account-btn delete-account-btn" 
+                            className="btn btn-secondary account-btn font-size-btn" 
                             type="button">
                             Change Password
                         </button>
                     </div>
                     <div className="d-none d-md-block d-lg-none" style={{height: "185px"}}></div>
+                    <div className="d-none d-lg-block" style={{height: "70px"}}></div>
                 </div>
             )
         } else {
@@ -494,9 +495,12 @@ export default class EditProfileForm extends React.Component {
     renderChangePasswordSuccessMessage() {
         if (this.state.changePasswordSuccess) {
             return (
-                <div className="row mt-4 change-success">
-                    <p>Completed. Password has been changed</p>
+                <div style={{height: "750px"}}>
+                    <div className="row mt-4 change-success">
+                        <p>Completed. Password has been changed</p>
+                    </div>
                 </div>
+                
             )
         }
     }
@@ -565,7 +569,7 @@ export default class EditProfileForm extends React.Component {
                     <div className="mt-4 delete-account">
                         <button 
                             onClick={this.props.hideForm}
-                            className="btn btn-secondary account-btn delete-account-btn me-3" 
+                            className="btn btn-secondary account-btn font-size-btn me-3" 
                             type="button">
                             Cancel
                         </button>
@@ -617,9 +621,11 @@ export default class EditProfileForm extends React.Component {
     renderDeleteAccountSuccessMessage() {
         if (this.state.deleteAccountSuccess) {
             return (
-                <div className="row mt-4 change-success">
-                    <p>Completed. Account Deleted</p>
-                </div>
+                <div style={{height: "750px"}}>
+                    <div className="row mt-4 change-success">
+                        <p>Completed. Account Deleted</p>
+                    </div>
+                </div>  
             )
         }
     }
@@ -953,7 +959,7 @@ export default class EditProfileForm extends React.Component {
                 deleteAccountSuccess = true
                 sessionStorage.removeItem("authenticatedUser")
     
-                setTimeout(this.props.afterUpdateFreelancerProfile, 5000);
+                // setTimeout(this.props.afterUpdateFreelancerProfile, 5000);
             })
             .catch( (e) => {
                 deleteAccountFailed = true

@@ -512,10 +512,13 @@
 .change-success {
   background-color: rgb(161, 238, 161);
   font-weight: bolder;
-  font-size: xx-large;
+  font-size: large;
   text-align: center;
+  margin-top: 30px;
   padding-top: 10px;
   margin-bottom: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 /* .....style for delete account tab..... */
@@ -797,9 +800,17 @@
   font-size: 20px;
   }
 
+  /* .....style for change password tab..... */
+
+.change-success {
+  background-color: rgb(161, 238, 161);
+  font-size: xx-large;
+  margin-top: 60px;
+}
+
   /* .....style for Delete Profile page..... */
   .delete-account-btn {
-    font-size: 19px;
+    font-size: 20px;
   }
 
   /* .....style for Feedback form page..... */
@@ -1079,6 +1090,11 @@
 
   .edit-bio-col {
     margin-bottom: 0px;
+  }
+
+  /* .....style for Delete Profile page..... */
+  .delete-account-btn {
+    font-size: 21px;
   }
 
 
