@@ -213,17 +213,20 @@ export default class Listing extends React.Component {
                             <option value="session-rate-gt-100">Session: &gt; $100</option>
                         </select>
                     </div>
-                    {/* <div className="col col-md-12 col-lg-3 position-right filter-col">
-                        <label className="form-label bold filter-tab">Sorted by: </label>
-                        <select className="" name="sorted" value={this.state.sorted} onChange={this.updateFormField}>
-                            <option value="high-rated">Most rated (high rating)</option>
-                            <option value="review">Most reviewed</option>
-                            <option value="recent">Most recent</option>
-                            <option value="recommended">Most recommended</option>
-                            <option value="hourly-rate">Rate range (by hour)</option>
-                            <option value="session-rate">Rate range (by session)</option>
-                        </select>
-                    </div> */}
+                    {/* KIV - sorted */}
+                    <div>
+                        {/* <div className="col col-md-12 col-lg-3 position-right filter-col">
+                            <label className="form-label bold filter-tab">Sorted by: </label>
+                            <select className="" name="sorted" value={this.state.sorted} onChange={this.updateFormField}>
+                                <option value="high-rated">Most rated (high rating)</option>
+                                <option value="review">Most reviewed</option>
+                                <option value="recent">Most recent</option>
+                                <option value="recommended">Most recommended</option>
+                                <option value="hourly-rate">Rate range (by hour)</option>
+                                <option value="session-rate">Rate range (by session)</option>
+                            </select>
+                        </div> */}
+                    </div> 
                 </div>
                 {/* card listing - each freelancer */}
                 {this.state.freelancer.map( eachFreelancer => 

@@ -35,6 +35,12 @@
   color: rgb(145, 140, 140);
 }
 
+.account-btn:hover {
+  background-color: rgb(221, 169, 178);
+  color: black;
+  font-weight: bold;
+}
+
 /* ..... style for Navbar ..... */
 
 .background-img {
@@ -443,6 +449,11 @@
 
 /* .....style for Edit Profile form / Manage account page..... */
 
+.arrow-down {
+  font-size: 16px;
+  color: rgb(2, 2, 77);
+}
+
 .edit-acct-nav-card {
   width: 18rem;
   margin-left: 35px;
@@ -726,6 +737,10 @@
 
   /* .....style for Edit Profile form / Manage account page..... */
 
+  .arrow-down {
+    font-size: 18px;
+  }
+
   .edit-acct-nav-card {
     width: 25rem;
     margin-left: 170px;
@@ -987,13 +1002,6 @@
     margin-bottom: 10px;
   }
 
-  
-
-  .account-btn:hover {
-    background-color: rgb(221, 169, 178);
-    color: black;
-    font-weight: bold;
-  }
 
   .error-msg-portfolio {
     text-align: center;

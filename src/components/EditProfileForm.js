@@ -1,10 +1,14 @@
 import React from 'react'
 import axios from 'axios'
+import Collapse from 'react-bootstrap/Collapse'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons'
 
 export default class EditProfileForm extends React.Component {
     apiUrl = process.env.REACT_APP_BACKEND_API
     state = {
         activeDisplay: "account-details",
+        showNavigationCard: true,
         loading: false,
         updateCompleted: false,
         errors: {},
@@ -95,8 +99,35 @@ export default class EditProfileForm extends React.Component {
         }
     }
 
+    // set Collapse
+    setOpen(showNavigationCard) {
+        this.setState({
+            'open': !this.state.open,
+            'showNavigationCard': showNavigationCard
+        })
+    }
+
     
     /* ............. related functions to process each account section tab  ............. */ 
+
+    displayNavigationCard() {
+        return (
+            <div className="card edit-acct-nav-card">
+                <ul className="list-group list-group-flush nav-card-ul">
+                    {/* <li className="list-group-item disabled nav-card">
+                        My Profile Setting <span className="ms-2"><FontAwesomeIcon icon={faAngleDoubleDown}/></span>
+                    </li> */}
+                    <li className="list-group-item disabled nav-card">Dashboard <span class="beta">(beta)</span></li>
+                    <li className="list-group-item nav-card" onClick={() => {this.setActiveDisplay("account-details")}}>Account Details</li>
+                    <li className="list-group-item nav-card" onClick={() => {this.setActiveDisplay("social-media")}}>Contact &amp; Social Media</li>
+                    <li className="list-group-item nav-card" onClick={() => {this.setActiveDisplay("showcase")}}>Profile Image &amp; Showcase</li>
+                    <li className="list-group-item nav-card" onClick={() => {this.setActiveDisplay("portfolio")}}>Portfolio</li>
+                    <li className="list-group-item nav-card" onClick={() => {this.setActiveDisplay("change-password")}}>Change Password</li>
+                    <li className="list-group-item nav-card" onClick={() => {this.setActiveDisplay("delete-account")}}>Delete Account</li>
+                </ul>
+            </div>
+        )
+    }
 
     displayProfileUpdateButtons() {
         return (
@@ -823,19 +854,33 @@ export default class EditProfileForm extends React.Component {
     render() {
         return (
             <React.Fragment>
-                {/* Navigation card */}
-                <div className="col-sm-12 col-lg-3 mt-5">
-                    <div className="card edit-acct-nav-card">
-                        <ul className="list-group list-group-flush nav-card-ul">
-                            <li className="list-group-item disabled nav-card">Dashboard <span class="beta">(beta)</span></li>
-                            <li className="list-group-item nav-card" onClick={() => {this.setActiveDisplay("account-details")}}>Account Details</li>
-                            <li className="list-group-item nav-card" onClick={() => {this.setActiveDisplay("social-media")}}>Contact &amp; Social Media</li>
-                            <li className="list-group-item nav-card" onClick={() => {this.setActiveDisplay("showcase")}}>Profile Image &amp; Showcase</li>
-                            <li className="list-group-item nav-card" onClick={() => {this.setActiveDisplay("portfolio")}}>Portfolio</li>
-                            <li className="list-group-item nav-card" onClick={() => {this.setActiveDisplay("change-password")}}>Change Password</li>
-                            <li className="list-group-item nav-card" onClick={() => {this.setActiveDisplay("delete-account")}}>Delete Account</li>
-                        </ul>
+                {/* Collapse Section - Navigation card for MD and SM screen */}
+                <div className="d-block d-lg-none">
+                    <div className="row">
+                        {/* Collapse button */}
+                        <div className="row">
+                            <button
+                                className="btn btn-outline-secondary btn-lg account-btn btn-acct-size"
+                                type="button"
+                                onClick={() => this.setOpen(true)}
+                                aria-controls="example-collapse-text"
+                                aria-expanded={this.state.open}>
+                                    My Profile Setting <span className="ms-3 arrow-down"><FontAwesomeIcon icon={faAngleDoubleDown}/></span>  
+                            </button>
+                        </div>
+                        
                     </div>
+                    <Collapse in={this.state.open}>
+                    <div id="example-collapse-text">
+                        <div className="col-sm-12 col-lg-3 mt-5">
+                            {this.displayNavigationCard()}
+                        </div>
+                    </div>
+                    </Collapse>
+                </div>
+                {/* Navigation card for laptop size screem*/}
+                <div className="d-none d-lg-block col-sm-12 col-lg-3 mt-5">
+                    {this.displayNavigationCard()}
                 </div>
                 {/* Display Fields */}
                 <div className="col-sm-12 col-lg-9">
