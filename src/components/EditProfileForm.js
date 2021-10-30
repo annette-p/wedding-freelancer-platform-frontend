@@ -41,7 +41,9 @@ export default class EditProfileForm extends React.Component {
         newPassword: "",
         confirmNewPassword: "",
         changePasswordFailed: false,
-        changePasswordSuccess: false
+        changePasswordSuccess: false,
+        deleteAccountFailed: false,
+        deleteAccountSuccess: false
     }
 
     async componentDidMount() {
@@ -498,6 +500,20 @@ export default class EditProfileForm extends React.Component {
                 <div className="row register-text">
                     <h3 className="account-form d-none d-md-block">Delete Your Account</h3>
                     <h4 className="account-form d-md-none">Delete Your Account</h4>
+                    {this.renderDeleteAccountFailMessage()}
+                    {this.renderDeleteAccountSuccessMessage()}
+                    {this.renderDeleteAccountForm()}
+                </div> 
+            )
+        } else {
+            return null
+        }
+    }
+
+    renderDeleteAccountForm() {
+        if (!this.state.deleteAccountSuccess) {
+            return (
+                <div>
                     <p className="mt-3">Dear <span className="bold">{this.state.name}</span></p>
                     <p>We are sorry to hear that you would like to delete your account.</p>
                     <p className="bold mt-3">Are you sure you want to proceed?</p>
@@ -521,25 +537,20 @@ export default class EditProfileForm extends React.Component {
                                     <option value="navigation">Trouble nagivating platform</option>
                                     <option value="other">Something else</option>
                                 </select>
+                                <div className="error-msg">{this.state.errors.reasonToDelete}</div>
                             </div>
                         </div>
                     </div>
-                    {/* Speficy Reason */}
-                    <div className="row mt-3">
-                        <div className="col-sm-12 col-md-2">
-                            <p className="bold mt-3 mt-md-0">Please specify: </p>
-                        </div>
-                        <div className="col-sm-12 col-md-10">
-                            <input type="text" name="specifyDeleteReason" value={this.state.specifyDeleteReason} onChange={this.updateFormField} className="form-control"/>
-                        </div>
-                    </div>
+                    {/* Specify Reason */}
+                    {this.renderDeleteAccountSpecifyReasonTextbox()}
                     {/* Enter password */}
                     <div className="row mt-3">
                         <div className="col-sm-12 col-md-5">
                             <p className="bold mt-3 mt-md-0">To continue, please re-enter your password</p>
                         </div>
                         <div className="col-sm-12 col-md-7 mt-0 mt-md-2">
-                            <input type="text" name="currentPassword" value={this.state.currentPassword} onChange={this.updateFormField} className="form-control"/>
+                            <input type="password" name="currentPassword" value={this.state.currentPassword} onChange={this.updateFormField} className="form-control"/>
+                            <div className="error-msg">{this.state.errors.currentPassword}</div>
                         </div>
                     </div>
                     {/* buttons */}
@@ -552,16 +563,55 @@ export default class EditProfileForm extends React.Component {
                         </button>
 
                         <button 
-                            onClick={this.addReasonToDelete}
+                            onClick={this.deleteFreelancer}
                             className="btn btn-secondary delete-account-btn" 
                             type="button">
                             Delete Account
                         </button>
-                    </div>   
-                </div> 
+                    </div> 
+                </div>
             )
         } else {
             return null
+        }
+    }
+
+    renderDeleteAccountSpecifyReasonTextbox() {
+        // display the input textbox for specify reason for delete account
+        if (this.state.reasonToDelete === "other") {
+            return (
+                <div className="row mt-3">
+                    <div className="col-sm-12 col-md-2">
+                        <p className="bold mt-3 mt-md-0">Please specify: </p>
+                    </div>
+                    <div className="col-sm-12 col-md-10">
+                        <input type="text" name="specifyDeleteReason" value={this.state.specifyDeleteReason} onChange={this.updateFormField} className="form-control"/>
+                        <div className="error-msg">{this.state.errors.specifyDeleteReason}</div>
+                    </div>
+                </div>
+            )
+        } else {
+            return null
+        }
+    }
+
+    renderDeleteAccountFailMessage() {
+        if (this.state.deleteAccountFailed) {
+            return (
+                <div className="row mt-4 login-fail">
+                    <p>Delete Account Failed</p>
+                </div>
+            )
+        }
+    }
+
+    renderDeleteAccountSuccessMessage() {
+        if (this.state.deleteAccountSuccess) {
+            return (
+                <div className="row mt-4 change-success">
+                    <p>Completed. Account Deleted</p>
+                </div>
+            )
         }
     }
         
@@ -829,25 +879,61 @@ export default class EditProfileForm extends React.Component {
     }
 
     
-    deleteFreelancer = async () => {
-        let freelancerToDelete = this.state._id
+    validateDeleteAccountForm = () => {
+        let errors = {}
+        let formIsValid = true
 
-        await axios.delete(`${this.apiUrl}/freelancer/${freelancerToDelete}`)
-        .then( async (result) => {
-            sessionStorage.removeItem("authenticatedUser")
-        })
-
-        this.props.afterUpdateFreelancerProfile();
-            
-    }
-
-
-    addReasonToDelete = async () => {
-        let newData = {
-            "reasonToDelete": this.state.reasonToDelete,
-            "specifyDeleteReason": this.state.specifyDeleteReason
+        if (!this.state.reasonToDelete) {
+            formIsValid = false
+            errors["reasonToDelete"] = "Please specify why you want to delete this account"
         }
-        return newData
+
+        if (this.state.reasonToDelete === "other" && !this.state.specifyDeleteReason) {
+            formIsValid = false
+            errors["specifyDeleteReason"] = "Please specify why you want to delete this account"
+        }
+
+        if (!this.state.currentPassword) {
+            formIsValid = false
+            errors["currentPassword"] = "Please enter your password"
+        }
+
+        this.setState({errors})
+
+        return formIsValid
+    }
+    
+    deleteFreelancer = async () => {
+        if (this.validateDeleteAccountForm()) {
+            let freelancerToDelete = this.state._id
+            let deleteAccountFailed = false
+            let deleteAccountSuccess = false
+
+            let data = {
+                "password": this.state.currentPassword,
+                "reasonToLeave": this.state.reasonToDelete,
+                "additionalInfo": this.state.specifyDeleteReason
+            }
+
+            await axios.delete(`${this.apiUrl}/freelancer/${freelancerToDelete}`, {data: data})
+            .then( async (result) => {
+                deleteAccountSuccess = true
+                sessionStorage.removeItem("authenticatedUser")
+    
+                setTimeout(this.props.afterUpdateFreelancerProfile, 5000);
+            })
+            .catch( (e) => {
+                deleteAccountFailed = true
+            })
+
+            this.setState({
+                deleteAccountFailed: deleteAccountFailed,
+                deleteAccountSuccess: deleteAccountSuccess, 
+                currentPassword: "",
+                reasonToDelete: "",
+                specifyDeleteReason: ""
+            })
+        }
     }
     
 
