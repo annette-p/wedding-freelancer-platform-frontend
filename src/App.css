@@ -65,6 +65,11 @@
   display: none;
 }
 
+.search-btn {
+  /* background-color: rgb(247, 194, 203); */
+  color: black;
+}
+
 .search-box-sm {
   display: flex;
   margin-left: -18px;

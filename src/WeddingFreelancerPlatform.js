@@ -194,7 +194,7 @@ export default class WeddingFreelancerPlatform extends React.Component {
                                     value={this.state.searchText}
                                     onChange={this.updateFormField}
                                 />
-                                <button className="btn-success" onChange={this.updateFormField}>Search</button>
+                                <button type="button" className="btn-outline-secondary search-btn account-btn" onChange={this.updateFormField}>Search</button>
                             </div>
                         </Navbar>
                     </div> 
