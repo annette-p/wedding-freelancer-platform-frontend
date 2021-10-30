@@ -3,6 +3,7 @@ import axios from 'axios'
 import Collapse from 'react-bootstrap/Collapse'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons'
+import { validURL } from '../utils/Validations'
 
 export default class EditProfileForm extends React.Component {
     apiUrl = process.env.REACT_APP_BACKEND_API
@@ -267,9 +268,10 @@ export default class EditProfileForm extends React.Component {
                         </div>
                         <div className="mt-sm-3 mt-md-4">
                             <label className="form-label">Website:</label>
-                            <input type="text" name="web" value={this.state.website} onChange={this.updateFormField} placeholder="website URL" className="form-control"/>
+                            <input type="text" name="website" value={this.state.website} onChange={this.updateFormField} placeholder="website URL" className="form-control"/>
                         </div>
                         <div className="error-msg">{this.state.errors.email}</div>
+                        <div className="error-msg">{this.state.errors.website}</div>
                     </div>
                     {/* ........... submit buttons ........... */}
                     {this.displayProfileUpdateButtons()}
@@ -292,6 +294,7 @@ export default class EditProfileForm extends React.Component {
                     <div className="col mt-4 mb-4">
                         <label className="form-label register-form-headline head-center">Upload your profile image:</label>
                         <input type="text" name="profileImage" value={this.state.profileImage} onChange={this.updateFormField} placeholder="image URL (portrait orientation image)" className="form-control"/>
+                        <div className="error-msg">{this.state.errors.profileImage}</div>
                         <div className="preview profile-img-preview" style={this.getImage("profileImage")}>
                             <p className="img-discription">{this.state.profileImage === "" ? "Preview image": ""}</p>
                         </div>
@@ -707,14 +710,32 @@ export default class EditProfileForm extends React.Component {
             errors["email"] = "Please enter email address"
         }
 
+        if (this.state.website && !validURL(this.state.website)) {
+            formIsValid = false
+            errors["website"] = "Please provide a valid website address"
+        }
+
+        if (this.state.profileImage && !validURL(this.state.profileImage)) {
+            formIsValid = false
+            errors["profileImage"] = "Please provide valid image URL for your profile"
+        }
+
         if (!this.state.showCase) {
             formIsValid = false
             errors["showCase"] = "Please provide image URL to be displayed on your profile first page"
+        } else if (!validURL(this.state.showCase)) {
+            formIsValid = false
+            errors["showCase"] = "Please provide valid image URL to be displayed on your profile first page"
         }
 
         if (!this.state.facebook && !this.state.instagram && !this.state.tiktok) {
             formIsValid = false
             errors["socialMedia"] = "Please provide at least 1 social media"
+        } else if ( (this.state.facebook && !validURL(this.state.facebook)) || 
+                    (this.state.instagram && !validURL(this.state.instagram)) || 
+                    (this.state.tiktok && !validURL(this.state.tiktok)) ) {
+            formIsValid = false
+            errors["socialMedia"] = "Please provide valid url for your social media" 
         }
 
         let numPortfolios = 0
@@ -732,6 +753,13 @@ export default class EditProfileForm extends React.Component {
         if (numPortfolios === 0) {
             formIsValid = false
             errors["portfolios"] = "Please provide at least 1 portfolio"
+        } else {
+            this.state.portfolios.forEach( portfolio => {
+                if (portfolio.url && !validURL(portfolio.url)) {
+                    formIsValid = false
+                    errors["portfolios"] = "Please ensure that the portfolios' urls are valid"
+                }
+            }) 
         }
 
 

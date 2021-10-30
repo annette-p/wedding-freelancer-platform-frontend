@@ -30,6 +30,7 @@ export default class WeddingFreelancerPlatform extends React.Component {
 
     hideLogin = () => {
         this.setState({
+            'active': "listing",
             showLoginModal: false
         })
     }
