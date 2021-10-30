@@ -818,6 +818,10 @@
     margin-bottom: 20px;
   }
 
+  .filter-row-spacing {
+    margin-right: 35px;
+  }
+
   .filter-tab {
     display: block;
     margin-right: 14px;

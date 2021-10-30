@@ -137,7 +137,7 @@ export default class Listing extends React.Component {
 
     displayFilterOptions() {
         return (
-            <div className="row filter-row">
+            <div className="row filter-row filter-row-spacing">
                 <div className="d-none d-lg-block col-lg-1 position-right mt-2"></div>
                 <div className="col col-md-12 col-lg-4 position-right filter-col">
                     <label className="form-label bold filter-tab">Filter by: </label>
