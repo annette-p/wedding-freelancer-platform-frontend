@@ -5,6 +5,7 @@ import Listing from "./components/Listing"
 import RegisterForm from "./components/RegisterForm"
 import Login from "./components/Login"
 import EditProfileForm from "./components/EditProfileForm"
+import FeedbackForm from "./components/FeedbackForm"
 
 export default class WeddingFreelancerPlatform extends React.Component {
     state = {
@@ -134,6 +135,8 @@ export default class WeddingFreelancerPlatform extends React.Component {
             return <RegisterForm afterAddNewFreelancer={this.afterAddNewFreelancer}/>
         } else if (this.state.active === "manage-profile") {
             return <EditProfileForm afterUpdateFreelancerProfile={this.afterUpdateFreelancerProfile} hideForm={this.hideEditProfileForm} />
+        } else if (this.state.active === "feedback") {
+            return <FeedbackForm/>
         }
             
     }
@@ -181,7 +184,7 @@ export default class WeddingFreelancerPlatform extends React.Component {
                                 >
                                 <Nav.Link onClick={()=>{this.setActive("listing")}}>View Freelancers</Nav.Link>
                                 {this.renderManageProfileLink()}
-                                <Nav.Link onClick={()=>{this.setActive("about-us")}}>About Us</Nav.Link>
+                                <Nav.Link onClick={()=>{this.setActive("feedback")}}>Send feedback</Nav.Link>
                                 </Nav>
                             </Navbar.Collapse>
                             <div className="search-box me-3">
