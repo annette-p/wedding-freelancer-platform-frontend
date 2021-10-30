@@ -229,6 +229,25 @@ export default class Listing extends React.Component {
     }
     
 
+    // condtional rendering social media
+    renderSocialMedia(socialMedia) {
+        // https://atomizedobjects.com/blog/react/how-to-render-an-array-of-components-in-react/
+        let socialMediaDisplay = Object.keys(socialMedia).map( sm => {
+            if (sm === "facebook") {
+                return <a href={socialMedia[sm]} target="_blank" rel="noreferrer noopener"><span className="facebook-icon"><FontAwesomeIcon icon={faFacebookF}/></span></a>
+            } else if (sm === "instagram") {
+                return <a href={socialMedia[sm]} target="_blank" rel="noreferrer noopener"><span className="instagram-icon"><FontAwesomeIcon icon={faInstagram}/></span></a>
+            } else if (sm === "tiktok") {
+                return <a href={socialMedia[sm]} target="_blank" rel="noreferrer noopener"><span className="tiktok-icon"><FontAwesomeIcon icon={faTiktok}/></span></a>
+            } else {
+                return null
+            }
+        } )
+        return (
+            <div>{socialMediaDisplay}</div>
+        )
+    }
+
     /*............. form processing related function .............*/ 
 
     updateFormField = (e) => {
@@ -262,12 +281,10 @@ export default class Listing extends React.Component {
                         </div>
                     </Collapse>
                 </div>
-
                 {/* Filtering display for laptop size screen*/}
                 <div className="d-none d-lg-block">
                     {this.displayFilterOptions()}
-                </div>
-                
+                </div>              
                 {/* card listing - each freelancer */}
                 {this.state.freelancer.map( eachFreelancer => 
                     <div className="col col-lg-4 freelancer-card" key={eachFreelancer._id}>
@@ -298,9 +315,7 @@ export default class Listing extends React.Component {
                                     <div className="col-7 mt-1 profile-info">
                                         {eachFreelancer.name}
                                         <div>
-                                            <span className="facebook-icon"><FontAwesomeIcon icon={faFacebookF}/></span>
-                                            <span className="instagram-icon"><FontAwesomeIcon icon={faInstagram}/></span>
-                                            <span className="tiktok-icon"><FontAwesomeIcon icon={faTiktok}/></span> 
+                                            {this.renderSocialMedia(eachFreelancer.socialMedia)} 
                                             <div className="text-wrapper type mt-2">{eachFreelancer.type}</div>
                                         </div>
                                     </div> 
