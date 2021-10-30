@@ -43,9 +43,9 @@ export default function ViewProfileModal(props) {
                             <h5 className="mt-2">Contact</h5>
                             {Object.keys(props.freelancer.contact).map( eachContact  => 
                                 <div className="col-sm-12 col-md-6 col-lg-4" key={eachContact}>
-                                    {eachContact === "mobile" ? <FontAwesomeIcon icon={faMobileAlt}/> : ""}
-                                    {eachContact === "email" ? <FontAwesomeIcon icon={faEnvelope}/> : ""}
-                                    {eachContact === "website" ? <FontAwesomeIcon icon={faGlobe}/> : ""}
+                                    {eachContact === "mobile" ? <span className="mobile-icon"><FontAwesomeIcon icon={faMobileAlt}/></span> : ""}
+                                    {eachContact === "email" ? <span className="email-icon"><FontAwesomeIcon icon={faEnvelope}/></span> : ""}
+                                    {eachContact === "website" ? <span className="website-icon"><FontAwesomeIcon icon={faGlobe}/></span> : ""}
                                     &nbsp;{props.freelancer.contact[eachContact]}
                                 </div>
                             )}  

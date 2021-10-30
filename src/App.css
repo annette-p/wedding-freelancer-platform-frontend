@@ -224,6 +224,20 @@
 .reviewer-name {
   color: rgb(27, 26, 26);
 }
+
+.mobile-icon {
+  /* color: rgb(146, 143, 143); */
+  color: brown;
+}
+
+.email-icon {
+  color: rgb(5, 172, 172);
+  /* color: rgb(78, 193, 231); */
+}
+
+.website-icon {
+  color: blue;
+}
   
 .carousel-img {
   /* width: 100px; */
