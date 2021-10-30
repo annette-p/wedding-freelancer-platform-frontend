@@ -213,7 +213,9 @@ export default class Listing extends React.Component {
                 // filter the review for respective freelancer
                 let filteredReview = this.state.review.filter( eachReview => eachReview.for === eachFreelancer._id)
                 // return each freelancer profile, return filtered review match each freelancer
-                return <ViewProfileModal freelancer={eachFreelancer} reviews={filteredReview} hideModal={this.hideModal}/>
+                return <ViewProfileModal 
+                    freelancer={eachFreelancer} reviews={filteredReview} 
+                    hideModal={this.hideModal} displayModal={this.displayModal} />
             } else if (this.state.activeModalBox === "give_review") {
                 return <GiveReviewModal 
                     freelancer={eachFreelancer} 

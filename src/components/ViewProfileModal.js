@@ -98,6 +98,9 @@ export default function ViewProfileModal(props) {
                         </div>
                     </div>
                     <div className="modal-footer">
+                        <button type="button" className="btn btn-secondary large-btn account-btn" onClick={ () => props.displayModal(props.freelancer, "give_review") }>
+                            Give Review
+                        </button>
                         <button type="button" className="btn btn-secondary large-btn account-btn" onClick={props.hideModal}>
                             Close
                         </button>
