@@ -222,6 +222,7 @@ export default class EditProfileForm extends React.Component {
                     </div>
                     {/* ........... submit buttons ........... */}
                     {this.displayProfileUpdateButtons()}
+                    <div className="d-none d-md-block d-lg-none" style={{height: "40px"}}></div>
                 </div>                
             )
         } else {
@@ -272,6 +273,7 @@ export default class EditProfileForm extends React.Component {
                     </div>
                     {/* ........... submit buttons ........... */}
                     {this.displayProfileUpdateButtons()}
+                    <div className="d-none d-md-block d-lg-none" style={{height: "173px"}}></div>
                 </div>
             )
         } else {
@@ -393,6 +395,7 @@ export default class EditProfileForm extends React.Component {
         }
     }
 
+    // conditional display of password change form VS status (success/fail)
     displayChangePassword() {
         if (this.state.activeDisplay === "change-password") {
             return (
@@ -467,6 +470,7 @@ export default class EditProfileForm extends React.Component {
                             Change Password
                         </button>
                     </div>
+                    <div className="d-none d-md-block d-lg-none" style={{height: "185px"}}></div>
                 </div>
             )
         } else {
@@ -494,6 +498,7 @@ export default class EditProfileForm extends React.Component {
         }
     }
 
+    // conditional display of delete change form VS status (success/fail)
     displayDeleteAccount() {
         if (this.state.activeDisplay === "delete-account") {
             return (
@@ -569,6 +574,7 @@ export default class EditProfileForm extends React.Component {
                             Delete Account
                         </button>
                     </div> 
+                    <div className="d-none d-md-block d-lg-none" style={{height: "45px"}}></div>
                 </div>
             )
         } else {
@@ -877,7 +883,6 @@ export default class EditProfileForm extends React.Component {
             })
         }
     }
-
     
     validateDeleteAccountForm = () => {
         let errors = {}
@@ -982,8 +987,7 @@ export default class EditProfileForm extends React.Component {
                     {/* Delete Account*/}
                     {this.displayDeleteAccount()}
                 </div>
- 
-                
+  
             </React.Fragment>
         )
     }
