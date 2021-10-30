@@ -536,6 +536,24 @@
   font-weight: bold;
 }
 
+/* .....style for Feedback form page..... */
+
+.feedback-title {
+  text-align: center;
+}
+
+.feedback-form {
+  margin-left: 8px;
+}
+
+.feedback-btn {
+  margin-top: 20px;
+}
+
+.font-size-btn {
+  font-size: 17px;
+}
+
 
 /* ................................................style for meduim and large screen..................................................... */
 
@@ -784,6 +802,19 @@
     font-size: 19px;
   }
 
+  /* .....style for Feedback form page..... */
+
+  .feedback-form {
+    margin-left: 0px;
+  }
+
+  .feedback-btn {
+    margin-top: 0px;
+  }
+  
+  .font-size-btn {
+    font-size: 20px;
+  }
 
 }
 
@@ -1050,6 +1081,12 @@
     margin-bottom: 0px;
   }
 
+
+  /* .....style for Feedback form page..... */
+
+  .font-size-btn {
+    font-size: 21px;
+  }
 
 
 
