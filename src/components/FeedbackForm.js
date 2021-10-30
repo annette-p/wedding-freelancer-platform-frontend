@@ -1,7 +1,5 @@
 import React from 'react'
-
-// initialize EmailJS
-import emailjs from 'emailjs-com';
+import emailjs from 'emailjs-com';  // initialize EmailJS
 emailjs.init(process.env.REACT_APP_EMAILJS_USER_ID);
 
 export default class FeedbackForm extends React.Component {
@@ -68,7 +66,14 @@ export default class FeedbackForm extends React.Component {
         } else {
             return (
                 <div className="row feedback-form ms-md-2">
-                    <div>Thank you for your feedback!</div>
+                    <div className="thankyou-message">
+                        <h2 className="mt-3 thanks-msg-headline">Thank you for your feedback! </h2>
+
+                        <p className="mt-3 thanks-msg-content">We collect and manage all your feedback because we are absolutely committed to making the services better for you and other customers.</p>
+
+                        <p className="mt-3 thanks-msg-ending">We will read your feedback and we will love to hear more from you.</p>
+                    </div>
+                    {/* <div className="d-none d-md-block d-lg-none" style={{height: "300px"}}></div> */}
                 </div>
             )
         }

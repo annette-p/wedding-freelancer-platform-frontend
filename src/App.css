@@ -41,6 +41,17 @@
   font-weight: bold;
 }
 
+.thankyou-message {
+  background-color: rgb(228, 241, 245);
+  border: dotted grey;
+  align-items: center;
+}
+
+.thanks-msg-headline {
+  text-align: center;
+}
+
+
 /* ..... style for Navbar ..... */
 
 .background-img {
@@ -297,10 +308,13 @@
 .login-fail {
   background-color: rgb(240, 140, 122);
   font-weight: bolder;
-  font-size: xx-large;
+  font-size: large;
   text-align: center;
   padding-top: 10px;
+  margin-top: 15px;
   margin-bottom: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .login-content {
@@ -546,7 +560,8 @@
 }
 
 .feedback-form {
-  margin-left: 8px;
+  margin-left: 5px;
+  height: 500px;
 }
 
 .feedback-btn {
@@ -555,6 +570,23 @@
 
 .font-size-btn {
   font-size: 17px;
+}
+
+.thankyou-message {
+  height: 350px;
+  width: 400px;
+  margin-left: 10px;
+  margin-top: 30px;
+}
+
+.thanks-msg-content {
+  font-size: 18px;
+  padding-top: 20px;
+}
+
+.thanks-msg-ending {
+  font-size: 18px;
+  padding-top: 10px;
 }
 
 
@@ -669,6 +701,11 @@
 
   .login-btn {
     font-size: 18px;
+  }
+
+  .login-fail {
+    margin-top: 30px;
+    font-size: xx-large;
   }
 
   /* .....style for Profile Register form page..... */
@@ -817,6 +854,7 @@
 
   .feedback-form {
     margin-left: 0px;
+    height: 850px;
   }
 
   .feedback-btn {
@@ -826,6 +864,25 @@
   .font-size-btn {
     font-size: 20px;
   }
+
+  .thankyou-message {
+    height: 350px;
+    width: 600px;
+    margin-left: 40px;
+    margin-top: 50px;
+  }
+
+  .thanks-msg-content {
+    font-size: 25px;
+    padding-top: 30px;
+  }
+  
+  .thanks-msg-ending {
+    font-size: 23px;
+    padding-top: 20px;
+  }
+
+  
 
 }
 
@@ -1100,8 +1157,19 @@
 
   /* .....style for Feedback form page..... */
 
+  .feedback-form {
+    height: 650px;
+  }
+
   .font-size-btn {
     font-size: 21px;
+  }
+
+  .thankyou-message {
+    height: 300px;
+    width: 800px;
+    margin-left: 200px;
+    margin-top: 50px;
   }
 
 

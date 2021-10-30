@@ -959,7 +959,7 @@ export default class EditProfileForm extends React.Component {
                 deleteAccountSuccess = true
                 sessionStorage.removeItem("authenticatedUser")
     
-                // setTimeout(this.props.afterUpdateFreelancerProfile, 5000);
+                setTimeout(this.props.afterUpdateFreelancerProfile, 5000);
             })
             .catch( (e) => {
                 deleteAccountFailed = true
