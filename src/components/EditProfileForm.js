@@ -868,17 +868,16 @@ export default class EditProfileForm extends React.Component {
                                     My Profile Setting <span className="ms-3 arrow-down"><FontAwesomeIcon icon={faAngleDoubleDown}/></span>  
                             </button>
                         </div>
-                        
                     </div>
                     <Collapse in={this.state.open}>
-                    <div id="example-collapse-text">
-                        <div className="col-sm-12 col-lg-3 mt-5">
-                            {this.displayNavigationCard()}
+                        <div id="example-collapse-text">
+                            <div className="col-sm-12 col-lg-3 mt-5">
+                                {this.displayNavigationCard()}
+                            </div>
                         </div>
-                    </div>
                     </Collapse>
                 </div>
-                {/* Navigation card for laptop size screem*/}
+                {/* Navigation card for laptop size screen*/}
                 <div className="d-none d-lg-block col-sm-12 col-lg-3 mt-5">
                     {this.displayNavigationCard()}
                 </div>

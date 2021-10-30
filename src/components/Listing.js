@@ -1,7 +1,8 @@
 import React from 'react'
 import axios from 'axios'
+import Collapse from 'react-bootstrap/Collapse'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar, faCommentDots } from '@fortawesome/free-solid-svg-icons'
+import { faStar, faCommentDots, faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons'
 import { faFacebookF, faInstagram, faTiktok } from "@fortawesome/free-brands-svg-icons"
 import ViewProfileModal from "./ViewProfileModal"
 import GiveReviewModal from "./GiveReviewModal"
@@ -13,6 +14,7 @@ export default class Listing extends React.Component {
         loading:false,
         review: [],
         activeFreelancer: {},
+        showFilterOptions: true,
         displayModalBox: false,
         activeModalBox: "",     // which modal box to display when 'displayModalBox' is true
 
@@ -123,7 +125,73 @@ export default class Listing extends React.Component {
         }
     }
 
+    /*............. to handle display collapse of filtering options .............*/ 
+
+    // set Collapse
+    setOpen(showFilterOptions) {
+        this.setState({
+            'open': !this.state.open,
+            'showFilterOptions': showFilterOptions
+        })
+    }
+
+    displayFilterOptions() {
+        return (
+            <div className="row filter-row">
+                <div className="d-none d-lg-block col-lg-1 position-right mt-2"></div>
+                <div className="col col-md-12 col-lg-4 position-right filter-col">
+                    <label className="form-label bold filter-tab">Filter by: </label>
+                    <select className="" name="filterBySpecialization" value={this.state.filterBySpecialization} onChange={this.updateFormField}>
+                        <option value=""> ----- Specialization ----- </option>
+                        <option value="pre-wedding">Pre-wedding</option>
+                        <option value="wedding-day-rom">Wedding day / ROM</option>
+                        <option value="bridal-makeup">Bridal makeup</option>
+                        <option value="natural-glow-makeup">Natural glow makeup</option>
+                        <option value="maternity">Maternity shoot</option>
+                        <option value="newborn">Newborn shoot</option>
+                    </select>
+                </div>
+                <div className="col col-md-12 col-lg-3 position-right filter-col">
+                    <label className="form-label bold filter-tab">Filter by: </label>
+                    <select className="" name="filterByType" value={this.state.filterByType} onChange={this.updateFormField}>
+                        <option value=""> ----- Service type ----- </option>
+                        <option value="photographer">Photographer</option>
+                        <option value="videographer">Videographer</option>
+                        <option value="makeup-artist">Makeup-artist</option>
+                    </select>
+                </div>
+                <div className="col col-md-12 col-lg-4 position-right filter-col">
+                    <label className="form-label bold filter-tab">Filter by: </label>
+                    <select className="" name="filterByRate" value={this.state.filterByRate} onChange={this.updateFormField}>
+                        <option value=""> -- Hourly rate / Session rate -- </option>
+                        <option value="hourly-rate-lt">Hourly: &lt; $50</option>
+                        <option value="hourly-rate-gt">Hourly: $50 to $100</option>
+                        <option value="hourly-rate-gt-100">Hourly: &gt; $100</option>
+                        <option value="session-rate-lt">Session: &lt; $50</option>
+                        <option value="session-rate-gt">Session: $50 to $100</option>
+                        <option value="session-rate-gt-100">Session: &gt; $100</option>
+                    </select>
+                </div>
+                {/* KIV - sorted */}
+                <div>
+                    {/* <div className="col col-md-12 col-lg-3 position-right filter-col">
+                        <label className="form-label bold filter-tab">Sorted by: </label>
+                        <select className="" name="sorted" value={this.state.sorted} onChange={this.updateFormField}>
+                            <option value="high-rated">Most rated (high rating)</option>
+                            <option value="review">Most reviewed</option>
+                            <option value="recent">Most recent</option>
+                            <option value="recommended">Most recommended</option>
+                            <option value="hourly-rate">Rate range (by hour)</option>
+                            <option value="session-rate">Rate range (by session)</option>
+                        </select>
+                    </div> */}
+                </div> 
+            </div>
+        ) 
+    }
+
     /*............. to handle Model function .............*/ 
+
     displayModal = (selectedFreelancer, modalBoxName) => {
         this.setState({
             activeFreelancer: selectedFreelancer,
@@ -176,58 +244,30 @@ export default class Listing extends React.Component {
         return (
             <React.Fragment>
                 {/* filter section */}
-                <div className="row filter-row">
-                    <div className="d-none d-lg-block col-lg-1 mt-2">
-                        {/* <p>Displaying 21 results</p> */}
+                <div className="d-block d-lg-none">
+                    {/* collapse section */}
+                    <div className="col-lg-1 position-right mt-2">
+                        <p 
+                            className="d-block d-lg-none col-lg-1 mt-2 bold"
+                            type="button"
+                            onClick={() => this.setOpen(true)}
+                            aria-controls="example-collapse-text"
+                            aria-expanded={this.state.open}>
+                                Show Filtering <span className="ms-3 arrow-down"><FontAwesomeIcon icon={faAngleDoubleDown}/></span>
+                        </p>
                     </div>
-                    <div className="col col-md-12 col-lg-4 position-right filter-col">
-                        <label className="form-label bold filter-tab">Filter by: </label>
-                        <select className="" name="filterBySpecialization" value={this.state.filterBySpecialization} onChange={this.updateFormField}>
-                            <option value=""> ----- Specialization ----- </option>
-                            <option value="pre-wedding">Pre-wedding</option>
-                            <option value="wedding-day-rom">Wedding day / ROM</option>
-                            <option value="bridal-makeup">Bridal makeup</option>
-                            <option value="natural-glow-makeup">Natural glow makeup</option>
-                            <option value="maternity">Maternity shoot</option>
-                            <option value="newborn">Newborn shoot</option>
-                        </select>
-                    </div>
-                    <div className="col col-md-12 col-lg-3 position-right filter-col">
-                        <label className="form-label bold filter-tab">Filter by: </label>
-                        <select className="" name="filterByType" value={this.state.filterByType} onChange={this.updateFormField}>
-                            <option value=""> ----- Service type ----- </option>
-                            <option value="photographer">Photographer</option>
-                            <option value="videographer">Videographer</option>
-                            <option value="makeup-artist">Makeup-artist</option>
-                        </select>
-                    </div>
-                    <div className="col col-md-12 col-lg-4 position-right filter-col">
-                        <label className="form-label bold filter-tab">Filter by: </label>
-                        <select className="" name="filterByRate" value={this.state.filterByRate} onChange={this.updateFormField}>
-                            <option value=""> -- Hourly rate / Session rate -- </option>
-                            <option value="hourly-rate-lt">Hourly: &lt; $50</option>
-                            <option value="hourly-rate-gt">Hourly: $50 to $100</option>
-                            <option value="hourly-rate-gt-100">Hourly: &gt; $100</option>
-                            <option value="session-rate-lt">Session: &lt; $50</option>
-                            <option value="session-rate-gt">Session: $50 to $100</option>
-                            <option value="session-rate-gt-100">Session: &gt; $100</option>
-                        </select>
-                    </div>
-                    {/* KIV - sorted */}
-                    <div>
-                        {/* <div className="col col-md-12 col-lg-3 position-right filter-col">
-                            <label className="form-label bold filter-tab">Sorted by: </label>
-                            <select className="" name="sorted" value={this.state.sorted} onChange={this.updateFormField}>
-                                <option value="high-rated">Most rated (high rating)</option>
-                                <option value="review">Most reviewed</option>
-                                <option value="recent">Most recent</option>
-                                <option value="recommended">Most recommended</option>
-                                <option value="hourly-rate">Rate range (by hour)</option>
-                                <option value="session-rate">Rate range (by session)</option>
-                            </select>
-                        </div> */}
-                    </div> 
+                    <Collapse in={this.state.open}>
+                        <div id="example-collapse-text">
+                            {this.displayFilterOptions()}
+                        </div>
+                    </Collapse>
                 </div>
+
+                {/* Filtering display for laptop size screen*/}
+                <div className="d-none d-lg-block">
+                    {this.displayFilterOptions()}
+                </div>
+                
                 {/* card listing - each freelancer */}
                 {this.state.freelancer.map( eachFreelancer => 
                     <div className="col col-lg-4 freelancer-card" key={eachFreelancer._id}>
