@@ -1,4 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Mono:wght@200&display=swap");
 
+/* font-family: 'Montserrat', sans-serif;
+font-family: 'Roboto Mono', monospace; */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+}
 
 /* .....Global class..... */
 

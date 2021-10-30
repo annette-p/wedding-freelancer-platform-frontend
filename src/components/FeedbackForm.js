@@ -73,7 +73,6 @@ export default class FeedbackForm extends React.Component {
 
                         <p className="mt-3 thanks-msg-ending">We will read your feedback and we will love to hear more from you.</p>
                     </div>
-                    {/* <div className="d-none d-md-block d-lg-none" style={{height: "300px"}}></div> */}
                 </div>
             )
         }
