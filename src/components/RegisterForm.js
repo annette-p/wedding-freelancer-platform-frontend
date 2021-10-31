@@ -7,6 +7,7 @@ export default class RegisterForm extends React.Component {
     apiUrl = process.env.REACT_APP_BACKEND_API
     state = {
         open: false,
+        registrationFailed: false,
         showRegistration: true,
         errors: {},
         username: "",
@@ -47,6 +48,16 @@ export default class RegisterForm extends React.Component {
             return {display: "block"}
         } else {
             return {display: "none"}
+        }
+    }
+
+    renderRegistrationFailMessage() {
+        if (this.state.registrationFailed) {
+            return (
+                <div className="row mt-4 login-fail">
+                    <p>Profile Registration Failed</p>
+                </div>
+            )
         }
     }
 
@@ -214,6 +225,7 @@ export default class RegisterForm extends React.Component {
     addFreelancer = async () => {
         // perform validation on the form first
         if (this.validateForm ()) {
+            let registrationFailed = false
             // then process the form when all validation is done
             let newFreelancerData = {
                 "type": this.state.type,
@@ -248,24 +260,10 @@ export default class RegisterForm extends React.Component {
                 this.props.afterAddNewFreelancer()
             })
             .catch( (error) => {
-    
-                // to improve error handling
-                if (error.response){
-    
-                    //do something
-                    console.error('error.response: ', error.response)
-                
-                } else if (error.request){
-                
-                    //do something else
-                    console.error('error.request: ', error.request)
-                
-                } else if (error.message){
-                
-                    //do something other than the other two
-                    console.error('error.message: ', error.message)
-                
-                }
+                registrationFailed = true
+                this.setState({
+                    registrationFailed
+                })
             })
 
         }  
@@ -503,6 +501,7 @@ export default class RegisterForm extends React.Component {
                                 <div className="error-msg-portfolio">{this.state.errors.portfolios}</div>
                             </div>
                         </div>
+                        {this.renderRegistrationFailMessage()}
                         {/* ........... submit buttons ........... */}
                         <div className="account-creation-form">
                             <div className="d-grid gap-2 account-creation-button mb-2">
