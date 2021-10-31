@@ -242,12 +242,9 @@ export default class RegisterForm extends React.Component {
                 newFreelancerData.username = this.state.username
                 newFreelancerData.password = this.state.password
             }
-            console.log(newFreelancerData)
     
             await axios.post(this.apiUrl + '/freelancer', newFreelancerData)
             .then( (result) => {
-                console.log("success", result.data)
-    
                 this.props.afterAddNewFreelancer()
             })
             .catch( (error) => {

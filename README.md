@@ -37,7 +37,7 @@ Provide platform for photographer, videographer, and makeup-artist to list their
 
 ### Listing page
 
-TO ADD IMAGE
+![Listing Page](docs/images/listing_page.png)
 
 Overview:
 
@@ -49,7 +49,7 @@ Overview:
 
 ### View Profile page
 
-TO ADD IMAGE
+![View Profile Page](docs/images/view_profile_page.png)
 
 Overview: 
 
@@ -63,15 +63,15 @@ Overview:
 
 ### Give Review page
 
-TO ADD IMAGE
+![Give Review Page](docs/images/give_review_page.png)
 
 ### Feedback page
 
-TO ADD IMAGE
+![Feedback Page](docs/images/feedback_page.png)
 
 ### Registration page
 
-TO ADD IMAGE
+![Registration Page](docs/images/registration_page.png)
 
 Overview: 
 
@@ -93,7 +93,7 @@ Overview:
 
 ### Login page
 
-TO ADD IMAGE
+![Login Page](docs/images/login_page.png)
 
 Overview:
 
@@ -101,7 +101,9 @@ Overview:
 
 ### Manage Profile page
 
-TO ADD IMAGE
+![Manage Profile Page](docs/images/manage_profile_page.png)
+
+![Manage Profile Page](docs/images/manage_profile_page_2.png)
 
 Overview:
 
@@ -129,7 +131,7 @@ Overview:
 
 ### Wireframe
 
-For full details of wireframe, refer [here]().  **TO UPDATE**
+For full details of wireframe, refer [here](docs/wireframe.pdf).
 
 ### Surface Plane
 
@@ -139,9 +141,7 @@ This website is responsive to small, medium and large screen sizes. It is a mobi
 
 ### Colours
 
-TO ADD IMAGE
-
-_See attached pdf for more_
+See [attached pdf](docs/pink_grey_palatte.pdf) for more details
 
 **Pink and grey combination**: use this combination as the theme and the branding mood and tone for the platform. Pink represents sweetness, femininity, romantic, youth, innocent and playfulness. While grey represents neutrality and balance. Grey has a very soothing and cooling presence.
 
@@ -193,15 +193,20 @@ Here are some test cases of some features available on this application as to de
 
 ## Testing 
 
-Refer to the attach for step-by-step instructions for the following fields below: 
+Refer to the [attach](docs/testing_manual.pdf) for step-by-step instructions for the following fields below: 
 
 * Search and Filter 
-* Create account and profile 
+* Account registration and profile creation
 * Login 
-* Update profile 
-* Change password 
-* Delete account 
+* Manage Profile
+  * Update profile and portfolio
+  * Change password 
+  * Delete account 
 * Submit feedback form 
+
+### Test Sample Data
+
+Please use the sample data prepared in this [document](docs/sample_test_data.pdf) to perform testing.
 
 ## Future development features
 
@@ -227,3 +232,7 @@ Refer to the attach for step-by-step instructions for the following fields below
 * Images are from: 
   * https://unsplash.com/photos
   * https://www.pexels.com/search
+  * https://lovelifebittersweet.com/
+  * https://vt-photo.com/
+  * https://chrischangphotography.com/
+  * https://www.hongrayphoto.com/
