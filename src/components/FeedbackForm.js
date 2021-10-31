@@ -58,9 +58,9 @@ export default class FeedbackForm extends React.Component {
                         </div>
                     </div>
                     <div className="d-none d-lg-block col-2"></div>
-                    <div className="d-block d-md-none d-lg-none" style={{height: "15px"}}></div>
-                    <div className="d-none d-md-block d-lg-none" style={{height: "335px"}}></div>
-                    <div className="d-none d-lg-block" style={{height: "180px"}}></div>
+                    {/* <div className="d-block d-md-none d-lg-none" style={{height: "15px"}}></div> */}
+                    {/* <div className="d-none d-md-block d-lg-none" style={{height: "335px"}}></div> */}
+                    {/* <div className="d-none d-lg-block" style={{height: ""}}></div> */}
                 </div>
             )
         } else {

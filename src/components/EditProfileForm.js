@@ -120,7 +120,7 @@ export default class EditProfileForm extends React.Component {
                     {/* <li className="list-group-item disabled nav-card">
                         My Profile Setting <span className="ms-2"><FontAwesomeIcon icon={faAngleDoubleDown}/></span>
                     </li> */}
-                    <li className="list-group-item disabled nav-card">Dashboard <span class="beta">(beta)</span></li>
+                    <li className="list-group-item disabled nav-card">Dashboard <span className="beta">(beta)</span></li>
                     <li className="list-group-item nav-card" onClick={() => {this.setActiveDisplay("account-details")}}>Account Details</li>
                     <li className="list-group-item nav-card" onClick={() => {this.setActiveDisplay("social-media")}}>Contact &amp; Social Media</li>
                     <li className="list-group-item nav-card" onClick={() => {this.setActiveDisplay("showcase")}}>Profile Image &amp; Showcase</li>

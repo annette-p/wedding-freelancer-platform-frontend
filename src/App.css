@@ -74,7 +74,10 @@ h6 {
   background-attachment: fixed;
   background-size:cover;
   z-index: -1;
-  /* height: 900px; */
+  height: 100%;
+  /* min-height: 100%; */
+  /* height: 100vh; */
+  /* height: auto; */
 }
 
 .logo {
@@ -567,6 +570,10 @@ h6 {
 }
 
 /* .....style for Feedback form page..... */
+
+.feedback-div-bg {
+  height: 100%;
+}
 
 .feedback-title {
   text-align: center;
