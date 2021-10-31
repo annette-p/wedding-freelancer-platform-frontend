@@ -11,7 +11,7 @@ Setup instructions: [Frontend](DEVELOPMENT.md) | [Backend](https://github.com/an
 
 ## Company and Product Summary
 
-### Company and user goal
+### Company and User Goal
 
 |   |Key stakeholders|Goals|
 |---|---|---|
@@ -19,7 +19,7 @@ Setup instructions: [Frontend](DEVELOPMENT.md) | [Backend](https://github.com/an
 |**Users**|Freelancer – (photographer, videographer, make-up artist)|• Platform to promote themselves, persona business and the services|
 |**Users**|Customers|• Alternative to reduce the risks of getting bad services for one of their most important day<br>• Choices of selection and with rating & review makes decision easier|
 
-### Product goal
+### Product Goal
 
 Provide platform for photographer, videographer, and makeup-artist to list their profile and service, show case of their past portfolios and etc. Connect the freelancers with the potential customers through the platform. User content creation from both listing added by freelances and reviews/rating contributed by customers. 
 
@@ -187,7 +187,7 @@ Here are some test cases of some features available on this application as to de
 
 |Test Case Scenario|Test Scope|User Story|Acceptance Criteria|Failure Criteria|
 |---|---|---|---|---|
-|Listing|View listing|As user, I want to be able to view all freelancer listing at one glance so that I know what are my choices to browse through.<br>As user, I want to be able to know quickly of how many reviews each respective freelancer has, their average reviews and service rate so that I can make quick decision.|o	List of freelancer profiles display on the listing page in a card by rows and columns<br>• The indication of specialisation, rate charge per hour or session, their showcase image, number of reviews, average rating must be shown on each freelancer card listing<br>• The social media account icon must be clickable and link to that respective social media account provided by freelancer<br>• The card must have button to view more details about the respective freelancer.|• List of freelancer’s profiles are not displayed properly in card or some information are missing and are not being arrange properly by rows and columns<br>• The useful information that help users to be able to make quick decision are missing or not being displayed properly<br>• The social media icons are not able to route to that respective social media account.<br>• The button to view more details about freelancer profile is missing or not workable. Unable to click to view more details.|
+|Listing|View listing|As user, I want to be able to view all freelancer listing at one glance so that I know what are my choices to browse through.<br>As user, I want to be able to know quickly of how many reviews each respective freelancer has, their average reviews and service rate so that I can make quick decision.|•	List of freelancer profiles display on the listing page in a card by rows and columns<br>• The indication of specialisation, rate charge per hour or session, their showcase image, number of reviews, average rating must be shown on each freelancer card listing<br>• The social media account icon must be clickable and link to that respective social media account provided by freelancer<br>• The card must have button to view more details about the respective freelancer.|• List of freelancer’s profiles are not displayed properly in card or some information are missing and are not being arrange properly by rows and columns<br>• The useful information that help users to be able to make quick decision are missing or not being displayed properly<br>• The social media icons are not able to route to that respective social media account.<br>• The button to view more details about freelancer profile is missing or not workable. Unable to click to view more details.|
 |Listing|Search|As user, I want to be able to quickly search using some keywords such as name of freelancer or type of service/past portfolio so that I can quickly filter and save time not to go through each individual list.|Search input bar on the top of application together with the navbar.<br>• It must be able to type in key words into search input and display search result accordingly.<br>• The system must setup to find match those key words in freelancer profile (name, bio, showcase, portfolio, description, reviews)|• Search input bar is not appeared on the top of the application in the navbar.<br>• Unable to type key words into the search input or not to display the result.<br>• The system are fail to match the finding of those key words in freelancer profile (name, bio, showcase, portfolio, description, reviews).|
 |Listing|Filter Search|As user, I want to be able to filter the search range by rate that suit my budget so that I can quickly see how many choices do I have.|• The filtering search options as the drop-down list must be available for selection.<br>• The filtering lists must have a choice of selection by service type, the specialization and filter by rate range such as lesser than $50, between $50-100 or more than $100.<br>• When the filter is applied, the list of freelancer profiles that being displayed or render are according to the filter criteria.|• The filter search options are not available or drop-down lists are missing not no value displayed.<br>o	No filtering choices or some of the filtering choice options are missing.<br>• Unable to filter by rate range.<br>• When filtering is applied, the number of freelancers being rendering incorrectly, wrong matching an not according to the filter criteria.|
 
@@ -222,6 +222,8 @@ Please use the sample data prepared in this [document](docs/sample_test_data.pdf
 * Portfolio: to implement the comment based on each portfolio rather than as a whole profile. 
 
 ## References
+
+* [Full Report for Project](docs/project_report.pdf)
 
 * Device simulator application
   * http://www.responsinator.com/
